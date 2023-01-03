@@ -1,0 +1,21 @@
+//Fonts
+@import "components/fonts.scss";
+
+//Components
+@import "components/helper.scss";
+@import "components/common.scss";
+@import "components/header.scss";
+@import "components/lets-talk.scss";
+@import "components/footer.scss";
+
+@import "components/home/hero.scss";
+@import "components/home/whatwedo.scss";
+@import "components/home/portfolio-slider.scss";
+@import "components/home/about.scss";
+@import "components/home/feedback.scss";
+@import "components/home/all-services.scss";
+
+//Pages
+@import "pages/home.scss";
+@import "pages/services.scss";
+@import "pages/about.scss";

@@ -1,0 +1,30 @@
+.all-services__tab {
+    display: none;
+    grid-template-columns: repeat(4, 292px);
+    grid-template-rows: repeat(2, 184px);
+    grid-column-gap: 27px;
+    grid-row-gap: 24px;
+    &.active {
+        display: grid;
+    }
+    &-item {
+        @include image(63);
+        &:nth-of-type(3n+1) {
+            grid-row: 1/3;
+            @include image(134);
+        }
+        &:nth-child(3n+2) {
+            grid-row: 1;
+        }
+        &:nth-child(3n+3) {
+            grid-row: 2;
+        }
+        &-title {
+            position: absolute;
+            bottom: 6px;
+            left: 16px;
+            line-height: 26px;
+            color: $white;
+        }
+    }
+}

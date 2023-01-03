@@ -1,0 +1,46 @@
+.about {
+    &__heading {
+        background: url("../../images/about-bg.jpg") 0 0/cover no-repeat;
+    }
+    &__first {
+        margin-top: 120px;
+        &-col1-inner {
+            max-width: 525px;
+        }
+        &-col2-inner {
+            max-width: 567px;
+            height: 100%;
+            margin-left: auto;
+            .img-wrapper {
+                position: relative;
+                height: 100%;
+                border-radius: 4px;
+            }
+        }
+        &-text {
+            margin: 24px 0 0;
+            max-width: 470px;
+        }
+    }
+    .things {
+        margin-top: 140px;
+        &__content {
+            margin-bottom: 80px;
+            &-item {
+                max-width: 530px;
+                margin-top: 60px;
+                &-heading {
+                    gap: 16px;
+                    .img-wrapper {
+                        position: relative;
+                        width: 64px;
+                        height: 64px;
+                    }
+                }
+                &-text {
+                    margin: 26px 0 0;
+                }
+            }
+        }
+    }
+}

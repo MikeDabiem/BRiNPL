@@ -1,0 +1,61 @@
+.header {
+    padding: 27px 0;
+    z-index: 1020;
+    transition: all 0.4s linear;
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: #FAFAFA;
+        opacity: 0;
+        z-index: -1;
+        transition: all 0.4s linear;
+    }
+    &-scrolled {
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        &::after {
+            opacity: .9;
+        }
+    }
+    .nav-menu {
+        &>ul {
+            gap: 40px;
+            margin: 0;
+            &>li {
+                list-style: none;
+                &>a {
+                    color: $black;
+                    position: relative;
+                    @include underline-hover($blue);
+                }
+                &.current-menu-item {
+                    &>a {
+                        color: $blue;
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            background-color: $blue;
+                            left: 0;
+                            bottom: 0;
+                            width: 100%;
+                            height: 1px;
+                            margin: 5px 0 0;
+                            opacity: 1;
+                            backface-visibility: hidden;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mail-btn {
+        @include btn-color;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0px 2px 8px rgba(50, 89, 255, 0.15);
+        border-radius: 200px;
+        padding: 7px 10px;
+        margin-left: 40px;
+    }
+}
