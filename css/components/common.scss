@@ -38,6 +38,11 @@
     line-height: 32px;
     text-transform: capitalize;
 }
+.small-title {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0;
+}
 .input-text {
     font-size: 14px;
     line-height: 22px;
@@ -118,6 +123,25 @@
         }
     }
 }
+.slider {
+    &__next,
+    &__prev {
+        @include btn-color;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
+        margin: 0 4px;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__next {
+        img {
+            transform: scale(-1);
+        }
+    }
+}
 .transition-default {
     transition: all .4s ease-in-out;
     &:hover {
@@ -140,9 +164,10 @@
         //margin-bottom: 32px;
     // }
     &>p {
-        font-weight: 500;
+        font-family: 'FontMedium';
         font-size: 16px;
         line-height: 24px;
+        margin-bottom: 0;
         // a:not(.default-button) {
         //     color: $defaultColor;
         //     position: relative;

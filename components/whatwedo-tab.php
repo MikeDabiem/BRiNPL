@@ -6,7 +6,7 @@
 <div class="whatwedo__content-item" id="<?php echo $tab["id"]; ?>">
     <div class="whatwedo__content-col1 wysiwyg-styles">
         <h4 class="whatwedo__content-title tab-title font-bold"><?php echo $tab["title"]; ?></h4>
-        <p class="whatwedo__content-text font-medium"><?php echo $tab["text"]; ?></p>
+        <p class="whatwedo__content-text"><?php echo $tab["text"]; ?></p>
     </div>
     <?php
         if (count($tab["images"]) === 2) {

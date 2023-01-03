@@ -1,0 +1,49 @@
+.reviews {
+    margin: 180px auto 140px;
+    .slider {
+        &__slides {
+            margin: 56px 0;
+        }
+    }
+    &__item {
+        margin: 0 12px;
+        padding: 43px;
+        background: $white;
+        box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+        border-radius: 4px;
+        &-status {
+            color: $neutral7;
+        }
+        &-text {
+            margin-top: 18px;
+        }
+        .img-wrapper {
+            width: 56px;
+            height: 56px;
+            border-radius: 56px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            &>img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .slick {
+        &-list {
+            margin: -30px;
+            padding: 30px 18px;
+        }
+        &-track {
+            display: flex;
+        }
+        &-slide {
+            opacity: 0;
+            height: auto;
+        }
+        &-active {
+            opacity: 1;
+        }
+    }
+}

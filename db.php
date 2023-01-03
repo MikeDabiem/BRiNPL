@@ -126,3 +126,29 @@ $strategy = [
         "text" => "Every step of our work requires your approval. Our project manager will guide you through every step from start to finish and you will always be up to date on the status of your project."
     ]
 ];
+$reviews = [
+    [
+        "img" => "review1.png",
+        "name" => "Jon Mott",
+        "status" => "Business owner",
+        "text" => "If you want to be confident in your company's design, ask these guys to help you. The design team is very responsive and will work with you to make the design the way you really want it. The initial experience was great and I decided to redesign my old website. The result was amazing! I have never regretted contacting them again."
+    ],
+    [
+        "img" => "review2.png",
+        "name" => "Thomas McCoy    ",
+        "status" => "Business owner",
+        "text" => "To be honest, I did not expect that everything would be so cool. It was a pleasure to work with a close-knit team of professionals who always kept me up to date with updates and listened to all my wishes. Thanks to the human-centered design that the Brinpl made, we have many new customers now."
+    ],
+    [
+        "img" => "review3.png",
+        "name" => "George Allen",
+        "status" => "Business owner",
+        "text" => "The best team I have ever worked with. My old site needed a little update. When I wrote to the Brinpl, they immediately understood what to do and offered several options. I was glad that I did not have to explain for a long time and our tastes coincided. It was immediately clear that professionals were working."
+    ],
+    [
+        "img" => "review1.png",
+        "name" => "Jon Mott",
+        "status" => "Business owner",
+        "text" => "If you want to be confident in your company's design, ask these guys to help you. The design team is very responsive and will work with you to make the design the way you really want it. The initial experience was great and I decided to redesign my old website. The result was amazing! I have never regretted contacting them again."
+    ],
+];

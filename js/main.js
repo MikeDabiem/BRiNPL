@@ -1,12 +1,12 @@
 jQuery(function ($) {
     //header scroll
     const header = $(".header");
-    let currentMenuScroll = $(window).scrollTop();
+    let currentMenuScroll = $($(window)).scrollTop();
     function checkHeaderClass() {
         (currentMenuScroll > 0) ? header.addClass("header-scrolled") : header.removeClass("header-scrolled");
     }
     checkHeaderClass();
-    $(window).on("scroll", function () {
+    $($(window)).on("scroll", function () {
         currentMenuScroll = $(this).scrollTop();
         checkHeaderClass();
     });
@@ -70,5 +70,34 @@ jQuery(function ($) {
     // Filename in "Let's talk" form
     $('#lets-talk-form-file').on('change', (e) => {
         $('.lets-talk-form-filename').text(e.target.value);
+    });
+
+    // About us page flying rocket
+    const itemHeight = $('.strategy__items').outerHeight();
+    const animItemOffset = $('.strategy__items').offset().top;
+    const animStart = 4;
+
+    function flying() {
+        const scrollTop = $(window).scrollTop();
+
+        let animTrigger = $(window).innerHeight() - itemHeight / animStart;
+        if (itemHeight > $(window).innerHeight()) {
+            animTrigger = $(window).innerHeight() - $(window).innerHeight() / animStart;
+        }
+
+        if (scrollTop > (animItemOffset - animTrigger) && scrollTop < (animItemOffset + itemHeight)) {
+            $('.strategy__line').addClass('fly');
+            $('.strategy__item').each(function (i) {
+                setTimeout(() => {
+                    $(this).addClass('fly');
+                }, (i + $('.strategy__item').length / 10) * (2000 / $('.strategy__item').length));
+            });
+        }
+    }
+
+    flying();
+
+    $(window).on('scroll' , () => {
+        flying();
     });
 });

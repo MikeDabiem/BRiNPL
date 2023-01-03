@@ -2,9 +2,6 @@
     padding-top: 130px;
     &__link {
         color: $black;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
         text-decoration: underline;
         &::after {
             content: url(../../images/Arrow-outward-blue.svg);
@@ -19,43 +16,25 @@
             }
         }
     }
-    &__slides {
-        margin: 64px 0;
-        &-item {
-            &:hover {
-                p {
-                    color: $blue;
-                    opacity: 1;
+    .slider {
+        &__slides {
+            margin: 64px 0;
+            &-item {
+                &:hover {
+                    h5 {
+                        color: $blue;
+                        opacity: 1;
+                    }
+                }
+                .img-wrapper {
+                    @include image(73);
+                }
+                h5 {
+                    color: #000000;
+                    opacity: 0.4;
+                    margin-top: 16px;
                 }
             }
-            .img-wrapper {
-                @include image(73);
-            }
-            p {
-                font-weight: 600;
-                font-size: 16px;
-                line-height: 24px;
-                color: #000000;
-                opacity: 0.4;
-                margin-top: 16px;
-            }
-        }
-    }
-    &__next,
-    &__prev {
-        @include btn-color;
-        border: none;
-        width: 32px;
-        height: 32px;
-        border-radius: 32px;
-        margin: 0 4px;
-        &:focus {
-            outline: none;
-        }
-    }
-    &__next {
-        img {
-            transform: scale(-1);
         }
     }
     .slick {

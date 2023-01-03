@@ -38,7 +38,7 @@
                 </form>
             </div>
             <div class="lets-talk__col2">
-                <h5 class="lets-talk__contacts-title">Contacts</h5>
+                <h5 class="lets-talk__contacts-title small-title">Contacts</h5>
                 <a href="mailto:brinpl.ua@gmail.com" class="lets-talk__contacts-email contacts-text">brinpl.ua@gmail.com</a>
                 <a href="tel:+380500000000" class="lets-talk__contacts-phone contacts-text">+38050 000 00 00</a>
                 <div class="social d-flex">

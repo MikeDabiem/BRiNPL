@@ -2,14 +2,49 @@
     margin-top: 177px;
     &__line {
         position: relative;
-        width: 100%;
+        top: 21px;
+        left: 21px;
+        width: 0;
         height: 3px;
         background: $purple;
+        margin-top: 80px;
+        transition: all 2s linear;
+        &.fly {
+            width: 95%;
+        }
         &::after {
-            content: url('../../../images/strategy-rocket.svg');
+            content: url('/images/strategy-rocket.svg');
             position: absolute;
-            right: 0;
+            right: -85px;
             top: -45px;
+        }
+    }
+    &__items {
+        gap: 20px;
+    }
+    &__item {
+        z-index: 1;
+        max-width: 318px;
+        opacity: 0;
+        &-num {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 20px;
+            border: 3px solid $purple;
+            border-radius: 20px;
+            background: #FAFAFA;
+        }
+        &-title {
+            font-size: 20px;
+            line-height: 28px;
+            margin: 40px 0 0;
+        }
+        &-text {
+            margin: 6px 0 0;
+        }
+        &.fly {
+            opacity: 1;
         }
     }
 }
