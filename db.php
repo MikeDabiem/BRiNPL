@@ -110,5 +110,19 @@ $key_things = [
         "icon" => "things4.png",
         "title" => "We work until<br>the goal is reached.",
         "text" => "We go the extra mile to come up with exceptional solutions that are client-centric. At BRiNPL, we strive to exceed client expectations at every opportunity."
+    ]
+];
+$strategy = [
+    [
+        "title" => "Acquaintance",
+        "text" => "It will happen when you first tell us about your project. This initial request can take any form, you can leave a request on the site, write to us on any of the social networks or directly by mail"
     ],
+    [
+        "title" => "Discussion",
+        "text" => "Our sales manager will contact you to find out more about your business, your goals, your budget and what you want in general. Based on this, we will discuss all options and prices suitable for you."
+    ],
+    [
+        "title" => "Keeping you updated",
+        "text" => "Every step of our work requires your approval. Our project manager will guide you through every step from start to finish and you will always be up to date on the status of your project."
+    ]
 ];

@@ -41,15 +41,21 @@
             ?>
         </div>
     </section>
-    <section class="strategy">
+    <section class="strategy wrapper">
         <h3 class="section-title text-center font-bold">Our work strategy</h3>
         <div class="strategy__line"></div>
-        <div class="strategy__items">
-            <div class="strategy__item wysiwyg-styles">
-                <p class="strategy__item-num"></p>
-                <h4 class="strategy__item-title"></h4>
-                <p class="strategy__item-text"></p>
-            </div>
+        <div class="strategy__items d-flex justify-content-between">
+            <?php
+                if ($strategy) {
+                    foreach ($strategy as $i => $strat) { ?>
+                        <div class="strategy__item wysiwyg-styles">
+                            <p class="strategy__item-num"><?php echo $i + 1; ?></p>
+                            <h4 class="strategy__item-title"><?php echo $strat["title"]; ?></h4>
+                            <p class="strategy__item-text"><?php echo $strat["text"]; ?></p>
+                        </div>
+                    <?php }
+                }
+            ?>
         </div>
     </section>
     <?php

@@ -979,6 +979,22 @@ button:-ms-input-placeholder {
   color: #FFFFFF;
 }
 
+.strategy {
+  margin-top: 177px;
+}
+.strategy__line {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background: #AFBEFF;
+}
+.strategy__line::after {
+  content: url("../../../images/strategy-rocket.svg");
+  position: absolute;
+  right: 0;
+  top: -45px;
+}
+
 .services__heading {
   background: url("../../images/serv-bg.jpg") 0 0/cover no-repeat;
 }
