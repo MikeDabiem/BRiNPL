@@ -1,5 +1,5 @@
 jQuery(function($){
-    $('.slider__slides').slick({
+    $('.brinpl-slider__slides').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         infinite: true,
@@ -7,7 +7,7 @@ jQuery(function($){
         autoplaySpeed: 15000,
         swipeToSlide: true,
         arrows: true,
-        prevArrow: $('.slider__prev'),
-        nextArrow: $('.slider__next'),
+        prevArrow: $('.brinpl-slider__prev'),
+        nextArrow: $('.brinpl-slider__next'),
     });
 });

@@ -1,12 +1,12 @@
 jQuery(function ($) {
     //header scroll
     const header = $(".header");
-    let currentMenuScroll = $($(window)).scrollTop();
+    let currentMenuScroll = $(window).scrollTop();
     function checkHeaderClass() {
         (currentMenuScroll > 0) ? header.addClass("header-scrolled") : header.removeClass("header-scrolled");
     }
     checkHeaderClass();
-    $($(window)).on("scroll", function () {
+    $(window).on("scroll", function () {
         currentMenuScroll = $(this).scrollTop();
         checkHeaderClass();
     });
@@ -19,11 +19,7 @@ jQuery(function ($) {
         }, 500);
     });
 
-    // "What we do" tabs
-    $('.whatwedo__tab:eq(0)').addClass('active');
-    $('.all-services__tab').addClass('active');
-
-    // Click on tab
+    // Click on "What we do" tab
     $('.whatwedo__tab').on('click', (e) => {
         tabChanger(e);
         $(e.target).addClass('active');
@@ -32,7 +28,7 @@ jQuery(function ($) {
     // Click on picture at "All services" tab
     $('.all-services__tab-item').on('click', (e) => {
         tabChanger(e);
-        $(`.whatwedo__tab[href='${$(e.target).parent().attr('href')}']`).addClass('active');
+        $(`.whatwedo__tab[href='${$(e.target).attr('href')}']`).addClass('active');
     });
 
     function tabChanger(e) {
@@ -41,7 +37,7 @@ jQuery(function ($) {
         $('.whatwedo__content').animate({opacity: 0}, 400);
         setTimeout(() => {
             $('.whatwedo__content-item').removeClass('active');
-            $(e.target).attr('href') ? $($(e.target).attr('href')).addClass('active') : $($(e.target).parent().attr('href')).addClass('active');
+            $($(e.target).attr('href')).addClass('active');
             $('.whatwedo__content').animate({opacity: 1}, 400);
         }, 400);
     }
@@ -73,31 +69,33 @@ jQuery(function ($) {
     });
 
     // About us page flying rocket
-    const itemHeight = $('.strategy__items').outerHeight();
-    const animItemOffset = $('.strategy__items').offset().top;
-    const animStart = 4;
+    if ($('.strategy__items').length) {
+        const itemHeight = $('.strategy__items').outerHeight();
+        const animItemOffset = $('.strategy__items').offset().top;
+        const animStart = 4;
 
-    function flying() {
-        const scrollTop = $(window).scrollTop();
+        function flying() {
+            const scrollTop = $(window).scrollTop();
 
-        let animTrigger = $(window).innerHeight() - itemHeight / animStart;
-        if (itemHeight > $(window).innerHeight()) {
-            animTrigger = $(window).innerHeight() - $(window).innerHeight() / animStart;
+            let animTrigger = $(window).innerHeight() - itemHeight / animStart;
+            if (itemHeight > $(window).innerHeight()) {
+                animTrigger = $(window).innerHeight() - $(window).innerHeight() / animStart;
+            }
+
+            if (scrollTop > (animItemOffset - animTrigger) && scrollTop < (animItemOffset + itemHeight)) {
+                $('.strategy__line').addClass('fly');
+                $('.strategy__item').each(function (i) {
+                    setTimeout(() => {
+                        $(this).addClass('fly');
+                    }, (i + $('.strategy__item').length / 10) * (2000 / $('.strategy__item').length));
+                });
+            }
         }
 
-        if (scrollTop > (animItemOffset - animTrigger) && scrollTop < (animItemOffset + itemHeight)) {
-            $('.strategy__line').addClass('fly');
-            $('.strategy__item').each(function (i) {
-                setTimeout(() => {
-                    $(this).addClass('fly');
-                }, (i + $('.strategy__item').length / 10) * (2000 / $('.strategy__item').length));
-            });
-        }
-    }
-
-    flying();
-
-    $(window).on('scroll' , () => {
         flying();
-    });
+
+        $(window).on('scroll' , () => {
+            flying();
+        });
+    }
 });

@@ -4,9 +4,11 @@
         foreach ($whatwedo_tabs as $tab) {
 ?>
 <div class="whatwedo__content-item" id="<?php echo $tab["id"]; ?>">
-    <div class="whatwedo__content-col1 wysiwyg-styles">
+    <div class="whatwedo__content-col1">
         <h4 class="whatwedo__content-title tab-title font-bold"><?php echo $tab["title"]; ?></h4>
-        <p class="whatwedo__content-text"><?php echo $tab["text"]; ?></p>
+        <div class="whatwedo__content-text wysiwyg-styles">
+            <p><?php echo $tab["text"]; ?></p>
+        </div>
     </div>
     <?php
         if (count($tab["images"]) === 2) {
@@ -17,7 +19,7 @@
             $img_class = "";
         }
     ?>
-    <div class="whatwedo__content-col2 wysiwyg-styles <?php echo $img_class ?>">
+    <div class="whatwedo__content-col2 <?php echo $img_class ?>">
         <?php
             foreach ($tab["images"] as $img) { ?>
                 <div class="img-shadow img-wrapper">

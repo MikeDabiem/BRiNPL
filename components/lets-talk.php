@@ -41,11 +41,11 @@
                 <h5 class="lets-talk__contacts-title small-title">Contacts</h5>
                 <a href="mailto:brinpl.ua@gmail.com" class="lets-talk__contacts-email contacts-text">brinpl.ua@gmail.com</a>
                 <a href="tel:+380500000000" class="lets-talk__contacts-phone contacts-text">+38050 000 00 00</a>
-                <div class="social d-flex">
+                <div class="brinpl-social d-flex">
                     <?php require "db.php";
                     if ($socials) {
                         foreach ($socials as $social) { ?>
-                            <a href="#" class="<?php echo $social; ?>"><?php echo $social; ?></a>
+                            <a href="#" class="<?php echo $social; ?>" target="_blank"><?php echo $social; ?></a>
                         <?php }
                     } ?>
                 </div>

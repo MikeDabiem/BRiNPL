@@ -57,5 +57,10 @@
         border-radius: 200px;
         padding: 7px 10px;
         margin-left: 40px;
+        &:hover {
+            &>img {
+                transform: rotateY(360deg);
+            }
+        }
     }
 }

@@ -2,12 +2,25 @@
     font-family: 'FontDemi';
     color: $black;
 }
-.brinpl-body {
+body {
     background-color: #FAFAFA;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: $white;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $bg-blue;
+        border-radius: 50px;
+        border: 2px solid $white;
+    }
 }
 .wrapper {
-    max-width: 1250px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 .filler {
     min-height: calc(100vh - 94px);
@@ -85,45 +98,49 @@
         top: 14px;
         width: 18px;
         height: 18px;
-        animation: plane-appear .5s 1 linear;
     }
     &:hover {
         &>img {
-            animation: plane-disappear .5s 1 linear;
-            opacity: 0;
+            animation: plane-btn 1s linear;
         }
+    }
+}
+.slick {
+    &-list {
+        margin: -30px -20px;
+        padding: 30px 10px;
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0px 0px 10px 10px #fafafa;
+            pointer-events: none;
+        }
+    }
+    &-track {
+        display: flex;
+    }
+    &-slide {
+        height: auto;
     }
 }
 .content-column {
     width: calc(50% - 30px);
 }
-.page__heading {
-    text-align: center;
-    >h1 {
-        font-size: 50px;
-        line-height: 68px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: $blue;
-        padding: 160px 0 80px;
-    }
-}
-.social {
+.brinpl-social {
     gap: 32px;
-
     a {
         font-weight: 700;
         font-size: 14px;
         line-height: 18px;
         text-transform: uppercase;
         color: $black;
-
         &:hover {
             color: $blue;
         }
     }
 }
-.slider {
+.brinpl-slider {
     &__next,
     &__prev {
         @include btn-color;
@@ -167,7 +184,6 @@
         font-family: 'FontMedium';
         font-size: 16px;
         line-height: 24px;
-        margin-bottom: 0;
         // a:not(.default-button) {
         //     color: $defaultColor;
         //     position: relative;
@@ -235,6 +251,9 @@
     // .default-button {
     //     margin-bottom: 32px;
     // }
+    &>*:last-child {
+        margin-bottom: 0 !important;
+    }
 }
 .video-wysiwyg {
     position: relative;

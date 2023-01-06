@@ -1,53 +1,43 @@
-.portfolio-slider {
-    padding-top: 130px;
-    &__link {
-        color: $black;
-        text-decoration: underline;
-        &::after {
-            content: url(../../images/Arrow-outward-blue.svg);
-            margin-left: 8px;
-            filter: grayscale(1);
-        }
-        &:hover {
-            color: $blue;
+.homepage {
+    .portfolio-slider {
+        padding-top: 130px;
+        &__link {
+            color: $black;
             text-decoration: underline;
             &::after {
-                filter: none;
+                content: url(../../images/Arrow-outward-blue.svg);
+                margin-left: 8px;
+                filter: grayscale(1);
+            }
+            &:hover {
+                color: $blue;
+                text-decoration: underline;
+                &::after {
+                    filter: none;
+                }
             }
         }
-    }
-    .slider {
-        &__slides {
-            margin: 64px 0;
-            &-item {
-                &:hover {
+        .brinpl-slider {
+            &__slides {
+                margin: 64px 0;
+                &-item {
+                    margin: 0 14px;
+                    &:hover {
+                        h5 {
+                            color: $blue;
+                            opacity: 1;
+                        }
+                    }
+                    .img-wrapper {
+                        @include image(73);
+                    }
                     h5 {
-                        color: $blue;
-                        opacity: 1;
+                        color: #000000;
+                        opacity: 0.4;
+                        margin-top: 16px;
                     }
                 }
-                .img-wrapper {
-                    @include image(73);
-                }
-                h5 {
-                    color: #000000;
-                    opacity: 0.4;
-                    margin-top: 16px;
-                }
             }
-        }
-    }
-    .slick {
-        &-list {
-            margin: 0 -30px;
-            padding: 0 16px;
-        }
-        &-slide {
-            margin: 0 14px;
-            opacity: 0;
-        }
-        &-active {
-            opacity: 1;
         }
     }
 }

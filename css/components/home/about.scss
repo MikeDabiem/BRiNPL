@@ -1,23 +1,25 @@
-.main-about {
-    padding-top: 130px;
-    &__col1 {
-        &-inner {
-            max-width: 428px;
+.homepage {
+    .main-about {
+        padding-top: 130px;
+        &__col1 {
+            &-inner {
+                max-width: 428px;
+            }
         }
-    }
-    &__col2 {
-        &-inner {
-            max-width: 514px;
-            margin-left: auto;
+        &__col2 {
+            &-inner {
+                max-width: 514px;
+                margin-left: auto;
+            }
+            .img-wrapper {
+                @include image(108);
+            }
         }
-        .img-wrapper {
-            @include image(108);
+        &__title {
+            margin-bottom: 32px;
         }
-    }
-    &__title {
-        margin-bottom: 32px;
-    }
-    &__btn {
-        margin-top: 32px;
+        &__btn {
+            margin-top: 32px;
+        }
     }
 }

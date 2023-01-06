@@ -1,4 +1,4 @@
-<div class="all-services__tab whatwedo__content-item" id="all-services__tab">
+<div class="all-services__tab whatwedo__content-item active" id="all-services__tab">
     <?php require "db.php";
         if ($all_services) {
             foreach ($all_services as $serv) { ?>

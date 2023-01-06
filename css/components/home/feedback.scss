@@ -1,28 +1,30 @@
-.feedback {
-    margin-top: 130px;
-    background: #ECF0FF;
-    &__col1 {
-        width: 46%;
-        .img-wrapper {
-            @include image(79);
-            margin: 32px 0;
+.homepage {
+    .feedback {
+        margin-top: 130px;
+        background: #ECF0FF;
+        &__col1 {
+            width: 46%;
+            .img-wrapper {
+                @include image(79);
+                margin: 32px 0;
+            }
         }
-    }
-    &__col2 {
-        .social {
-            margin-top: 80px;
+        &__col2 {
+            .brinpl-social {
+                margin-top: 80px;
+            }
         }
-    }
-    &__title {
-        margin-top: 114px;
-        span {
-            color: $blue;
+        &__title {
+            margin-top: 114px;
+            span {
+                color: $blue;
+            }
         }
-    }
-    &__subtitle {
-        font-weight: 500;
-    }
-    &__btn {
-        margin-top: 16px;
+        &__subtitle {
+            font-weight: 500;
+        }
+        &__btn {
+            margin-top: 16px;
+        }
     }
 }
