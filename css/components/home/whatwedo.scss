@@ -63,10 +63,9 @@
             }
             &-3images {
                 display: grid;
-                grid-template-columns: repeat(2, calc(50% - 12px));
-                grid-template-rows: repeat(2, calc(50% - 12px));
-                grid-column-gap: 24px;
-                grid-row-gap: 24px;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 24px;
                 .img-wrapper {
                     @include image(60);
                     &:first-child {

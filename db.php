@@ -61,32 +61,32 @@ $socials = ['Instagram', 'Facebook', 'Behance', 'Dribble'];
 $serv_posts = [
     [
         "title" => "Full website development",
-        "text" => "We are powered by PHP using open source software and are deeply rooted in HTML5, CSS3 and JavaScript. The key aspect for us is setting up a content management system (CMS). We conduct extensive testing to ensure that our clients can easily edit the website and add pages without programming knowledge.<br><br>This is a set of actions, as a result of which our client receives a web project ready for use. The site is fully configured for work, which means it is ready to make a profit. We at BRiNPL guarantee a great website building solution to promote your business. Feel free to contact us if you would like to know the exact cost of your project.",
+        "text" => "<p>We are powered by PHP using open source software and are deeply rooted in HTML5, CSS3 and JavaScript. The key aspect for us is setting up a content management system (CMS). We conduct extensive testing to ensure that our clients can easily edit the website and add pages without programming knowledge.</p><p>This is a set of actions, as a result of which our client receives a web project ready for use. The site is fully configured for work, which means it is ready to make a profit. We at BRiNPL guarantee a great website building solution to promote your business. Feel free to contact us if you would like to know the exact cost of your project.</p>",
         "img" => "full-web-dev.gif"
     ],
     [
         "title" => "UI/UX",
-        "text" => "Our human-centered design approach lets us empathize with your customers, identify their pain points, and create solutions that enhance their experience with your brand or product.<br>And just as an architect would provide a full set of blueprints for a building, we provide full specifications for the digital experiences we design. We call it a Product Blueprint, and it gives our clients a clear picture of the user experience and interaction model, ensuring a smooth development process. <br><br> We do everything you might need to bring a successful digital product to life: user research, user interface, and user experience design, usability testing, prototyping, web design and development.",
+        "text" => "<p>Our human-centered design approach lets us empathize with your customers, identify their pain points, and create solutions that enhance their experience with your brand or product.<br>And just as an architect would provide a full set of blueprints for a building, we provide full specifications for the digital experiences we design. We call it a Product Blueprint, and it gives our clients a clear picture of the user experience and interaction model, ensuring a smooth development process.</p><p>We do everything you might need to bring a successful digital product to life: user research, user interface, and user experience design, usability testing, prototyping, web design and development.</p>",
         "img" => "uiux.gif"
     ],
     [
         "title" => "Graphic design",
-        "text" => "If you are looking for quality and affordable graphic design services, you have come to the right place. We combine all of our skills to provide you with graphic design services that enhance your company's image.<br><br>Whether you're starting a new business or looking to update your company's current style, we'll help you portray true personality through professionally designed illustrations, or any other marketing material. Your new graphic design of product will inspire trust and loyalty in the eyes of your customers and will significantly differentiate you from your competitors. Our team of professionals will be in touch with you 24/7 to make all your wishes come true.",
+        "text" => "<p>If you are looking for quality and affordable graphic design services, you have come to the right place. We combine all of our skills to provide you with graphic design services that enhance your company's image.</p><p>Whether you're starting a new business or looking to update your company's current style, we'll help you portray true personality through professionally designed illustrations, or any other marketing material. Your new graphic design of product will inspire trust and loyalty in the eyes of your customers and will significantly differentiate you from your competitors. Our team of professionals will be in touch with you 24/7 to make all your wishes come true.</p>",
         "img" => "graph-des.gif"
     ],
     [
         "title" => "web development",
-        "text" => "We can design professional and trendy websites from PSD, Figma or any other reference websites that are 100% responsive, cross-browser compatible and have perfect pixel quality. We mainly work in PHP using open source software and are deeply rooted in HTML5, CSS3 and JavaScript.<br><br>The key aspect for us is setting up a content management system (CMS). We conduct extensive testing to make sure our clients can easily edit the website and add pages without knowing the code. We at BRiNPL guarantee a great website building solution. Our team is always in touch to turn your wishes into reality. Feel free to contact us if you would like to know the exact cost of your project.",
+        "text" => "<p>We can design professional and trendy websites from PSD, Figma or any other reference websites that are 100% responsive, cross-browser compatible and have perfect pixel quality. We mainly work in PHP using open source software and are deeply rooted in HTML5, CSS3 and JavaScript.</p><p>The key aspect for us is setting up a content management system (CMS). We conduct extensive testing to make sure our clients can easily edit the website and add pages without knowing the code. We at BRiNPL guarantee a great website building solution. Our team is always in touch to turn your wishes into reality. Feel free to contact us if you would like to know the exact cost of your project.</p>",
         "img" => "web-dev.gif"
     ],
     [
         "title" => "Interior design",
-        "text" => "Whether you want to create a new design for your home, get a 3D visualization to better understand an architectural design, or need an outsourcing company to outsource rendering tasks, BRiNPL is here to help. We will provide high-quality, realistic visualization to enable our clients to imagine themselves in a particular interior.<br><br>But the range of our services is much wider. We also offer 3D architectural renderings for engineering firms and any other client requiring 3D models. BRiNPL is one of the interior design companies that take a personal approach to every project, always choose professional visualization solutions and do everything to be proud of their projects.",
+        "text" => "<p>Whether you want to create a new design for your home, get a 3D visualization to better understand an architectural design, or need an outsourcing company to outsource rendering tasks, BRiNPL is here to help. We will provide high-quality, realistic visualization to enable our clients to imagine themselves in a particular interior.</p><p>But the range of our services is much wider. We also offer 3D architectural renderings for engineering firms and any other client requiring 3D models. BRiNPL is one of the interior design companies that take a personal approach to every project, always choose professional visualization solutions and do everything to be proud of their projects.</p>",
         "img" => "int-des.gif"
     ],
     [
         "title" => "branding identity",
-        "text" => "Your brand is what sets you apart from the endless sea of competitors and shows your customers who you are and what they can expect from working with you. It includes your company name, logo, website, product packaging, and business cards. All the emotions that people experience when using your product affects their perception of you.<br><br>At BRINPL, we believe that extraordinary times call for extraordinary brands. We use the power of design to create distinctive brands that are meaningful, memorable and iconic, putting people at the center of brand engagement to make a real impact on your business. Our team will make all your wishes come true.",
+        "text" => "<p>Your brand is what sets you apart from the endless sea of competitors and shows your customers who you are and what they can expect from working with you. It includes your company name, logo, website, product packaging, and business cards. All the emotions that people experience when using your product affects their perception of you.</p><p>At BRINPL, we believe that extraordinary times call for extraordinary brands. We use the power of design to create distinctive brands that are meaningful, memorable and iconic, putting people at the center of brand engagement to make a real impact on your business. Our team will make all your wishes come true.</p>",
         "img" => "brand.gif"
     ]
 ];
@@ -151,4 +151,19 @@ $reviews = [
         "status" => "Business owner",
         "text" => "If you want to be confident in your company's design, ask these guys to help you. The design team is very responsive and will work with you to make the design the way you really want it. The initial experience was great and I decided to redesign my old website. The result was amazing! I have never regretted contacting them again."
     ],
+];
+$home_about = [
+    [
+        "title" => "A FEW WORDS<br>ABOUT BRINPL",
+        "text" => "<p>We are a young creative design studio located in Ukraine. We create, we design, we research, we develop... but first we care! We take care of every aspect of our work, from brand design strategy development to every tiny design element in our projects. We fight for a sense of satisfaction from our work and help brands share their unique stories with customers. We are very sensitive to visual details, color schemes and typography. We are passionate about UI/UX design, illustration, branding, product design and development.</p><p>BRiNPL is a powerful team of professionals with a creative eye for digital technologies. Each project for us is not only a beautiful solution, but also a new challenge! Your project will be no exception!</p>",
+        "img" => "About.jpg",
+        "btn" => ["title" => "Get in touch", "url" => "#"]
+    ]
+];
+$aboutus_post = [
+    [
+        "title" => "Your search for a design partner ends here",
+        "text" => "<p>We’ve created a fresh approach to web design — one rooted in transparency, strategy, and partnership. We care deeply about each of our client’s success, and our dedication to your project will show it.</p><p>We’re not a traditional web design company that simply asks what you want and makes it. We’ll dig into your goals, audience, and budget, and then work together to brainstorm and build the right solution for your project.</p>",
+        "img" => "product-launch.gif"
+    ]
 ];

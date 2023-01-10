@@ -2,22 +2,8 @@
     .about {
         &__first {
             margin-top: 120px;
-            &-col1-inner {
-                max-width: 525px;
-            }
-            &-col2-inner {
-                max-width: 567px;
-                height: 100%;
-                margin-left: auto;
-                .img-wrapper {
-                    position: relative;
-                    height: 100%;
-                    border-radius: 4px;
-                }
-            }
-            &-text {
-                margin: 24px 0 0;
-                max-width: 470px;
+            .section-title {
+                width: 105%;
             }
         }
     }

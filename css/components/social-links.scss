@@ -1,0 +1,13 @@
+.brinpl-social {
+    gap: 32px;
+    a {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        text-transform: uppercase;
+        color: $black;
+        &:hover {
+            color: $blue;
+        }
+    }
+}

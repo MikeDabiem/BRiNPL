@@ -127,19 +127,6 @@ body {
 .content-column {
     width: calc(50% - 30px);
 }
-.brinpl-social {
-    gap: 32px;
-    a {
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 18px;
-        text-transform: uppercase;
-        color: $black;
-        &:hover {
-            color: $blue;
-        }
-    }
-}
 .brinpl-slider {
     &__next,
     &__prev {

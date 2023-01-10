@@ -72,24 +72,12 @@
             <button type="button" class="brinpl-slider__next transition-default d-inline-flex justify-content-center align-items-center overflow-hidden"><img src="images/Arrow.svg" alt="next"></button>
         </div>
     </section>
-    <section class="main-about wrapper d-flex justify-content-between">
-        <div class="main-about__col1 content-column">
-            <div class="main-about__col1-inner">
-                <h3 class="main-about__title section-title font-bold">A few words<br>About brinpl</h3>
-                <div class="wysiwyg-styles">
-                    <p>We are a young creative design studio located in Ukraine. We create, we design, we research, we develop... but first we care! We take care of every aspect of our work, from brand design strategy development to every tiny design element in our projects. We fight for a sense of satisfaction from our work and help brands share their unique stories with customers. We are very sensitive to visual details, color schemes and typography. We are passionate about UI/UX design, illustration, branding, product design and development.</p>
-                    <p>BRiNPL is a powerful team of professionals with a creative eye for digital technologies. Each project for us is not only a beautiful solution, but also a new challenge! Your project will be no exception!</p>
-                </div>
-                <a href="#" class="main-about__btn default-btn transition-default d-inline-block">Get in touch</a>
-            </div>
-        </div>
-        <div class="main-about__col2 content-column">
-            <div class="main-about__col2-inner">
-                <div class="img-wrapper img-shadow">
-                    <img src="images/About.jpg" alt="about" class="main-about__img absolute-cover-img">
-                </div>
-            </div>
-        </div>
+    <section class="main-about">
+        <?php
+            foreach ($home_about as $post) {
+                require "components/text-img.php";
+            }
+        ?>
     </section>
     <section class="feedback">
         <div class="wrapper d-flex justify-content-between">
@@ -102,14 +90,7 @@
                 <h2 class="feedback__title heavy-title font-heavy">Let's do it <span class="font-heavy">together!</span></h2>
                 <p class="feedback__subtitle contacts-text">Tell us a few words about your project.</p>
                 <a href="#" class="feedback__btn default-btn-icon transition-default d-inline-flex"><img src="images/Plane.svg" alt="plane">get in touch</a>
-                <div class="brinpl-social d-flex">
-                    <?php
-                    if ($socials) {
-                        foreach ($socials as $social) { ?>
-                            <a href="#" class="<?php echo $social; ?> font-bold transition-default" target="_blank"><?php echo $social; ?></a>
-                        <?php }
-                    } ?>
-                </div>
+                <?php require "components/social-links.php"; ?>
             </div>
         </div>
     </section>

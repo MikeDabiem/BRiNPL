@@ -4,25 +4,18 @@
 ?>
 <section class="about-page filler">
     <?php
-        $bg_image = "about-bg.jpg";
+        $heading = [
+            "img" => "about-bg.jpg",
+            "title" => "About Us"
+        ];
         require "components/page-head.php";
     ?>
-    <section class="about__first wrapper d-flex justify-content-between">
-        <div class="about__first-col1 content-column">
-            <div class="about__first-col1-inner">
-                <h3 class="section-title font-bold">Your search for a design partner ends here </h3>
-                <div class="about__first-text wysiwyg-styles">
-                    <p>We’ve created a fresh approach to web design — one rooted in transparency, strategy, and partnership. We care deeply about each of our client’s success, and our dedication to your project will show it.<br><br>We’re not a traditional web design company that simply asks what you want and makes it. We’ll dig into your goals, audience, and budget, and then work together to brainstorm and build the right solution for your project.</p>
-                </div>
-            </div>
-        </div>
-        <div class="about__first-col2 content-column">
-            <div class="about__first-col2-inner">
-                <div class="about__first-gif-wrapper img-wrapper img-shadow overflow-hidden">
-                    <img src="images/product-launch.gif" alt="gif" class="absolute-cover-img">
-                </div>
-            </div>
-        </div>
+    <section class="about__first">
+        <?php
+            foreach ($aboutus_post as $post) {
+                require "components/text-img.php";
+            }
+        ?>
     </section>
     <section class="things wrapper">
         <h3 class="section-title text-center font-bold">Key things about us</h3>

@@ -1,43 +1,26 @@
 .services-page {
     .services{
         &__content {
-            &-item {
+            .text-img {
                 margin: 200px auto;
                 &:first-child {
                     margin-top: 100px;
                 }
                 &:nth-child(even) {
-                    .services__col1 {
+                    .text-img__col1 {
                         order: 2;
                         padding-right: 60px;
                         &-inner {
                             margin-left: auto;
                         }
                     }
-                    .services__col2 {
+                    .text-img__col2 {
                         order: 1;
                         &-inner {
                             margin-left: 0;
                         }
                     }
                 }
-            }
-            &-text {
-                margin: 24px 0 0;
-            }
-        }
-        &__col1-inner {
-            max-width: 469px;
-            margin-left: 0;
-        }
-        &__col2-inner {
-            max-width: 509px;
-            height: 100%;
-            margin-left: auto;
-            .img-wrapper {
-                position: relative;
-                height: 100%;
-                border-radius: 4px;
             }
         }
     }
