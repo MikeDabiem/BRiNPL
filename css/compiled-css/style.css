@@ -767,6 +767,9 @@ button:-ms-input-placeholder {
 .contacts__form .form__group .input-type-text::placeholder {
   color: #C7C8D2;
 }
+.contacts__form .form__group .input-type-text:focus {
+  border-color: #999999;
+}
 .contacts__form .form__group .input-type-text::-webkit-scrollbar {
   display: none;
 }

@@ -13,6 +13,9 @@
       &::placeholder {
         color: $grey;
       }
+      &:focus {
+        border-color: $neutral7;
+      }
       &::-webkit-scrollbar {
         display: none;
       }
