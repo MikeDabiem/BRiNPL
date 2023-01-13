@@ -2,7 +2,7 @@
     require "header.php";
     require "db.php";
 ?>
-<div class="homepage">
+<main class="homepage">
     <section class="hero">
         <div class="hero__content wrapper d-flex justify-content-between align-items-center">
             <div class="hero__content-left">
@@ -44,14 +44,14 @@
             ?>
         </div>
         <div class="whatwedo__portfolio text-center">
-            <a href="#" class="whatwedo__btn default-btn transition-default d-inline-block">View portfolio</a>
+            <a href="/portfolio.php" class="whatwedo__btn default-btn transition-default d-inline-block">View portfolio</a>
         </div>
     </section>
     <section class="portfolio-slider wrapper">
         <div class="portfolio-slider__header d-flex justify-content-between align-items-center">
             <h3 class="section-title font-bold">OUR Portfolio</h3>
             <div>
-                <a href="#" class="portfolio-slider__link transition-default small-title">All cases</a>
+                <a href="/portfolio.php" class="portfolio-slider__link transition-default small-title">All cases</a>
             </div>
         </div>
         <div class="brinpl-slider__slides">
@@ -79,22 +79,10 @@
             }
         ?>
     </section>
-    <section class="feedback">
-        <div class="wrapper d-flex justify-content-between">
-            <div class="feedback__col1">
-                <div class="img-wrapper">
-                    <img src="images/Rocket.png" alt="rocket" class="absolute-cover-img">
-                </div>
-            </div>
-            <div class="feedback__col2">
-                <h2 class="feedback__title heavy-title font-heavy">Let's do it <span class="font-heavy">together!</span></h2>
-                <p class="feedback__subtitle contacts-text">Tell us a few words about your project.</p>
-                <a href="#" class="feedback__btn default-btn-icon transition-default d-inline-flex"><img src="images/Plane.svg" alt="plane">get in touch</a>
-                <?php require "components/social-links.php"; ?>
-            </div>
-        </div>
-    </section>
-</div>
+    <?php
+        require "components/feedback.php";
+    ?>
+</main>
 <?php
     require "footer.php";
 ?>

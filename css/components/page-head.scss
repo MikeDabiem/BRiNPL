@@ -1,9 +1,11 @@
-.page__heading {
-    text-align: center;
-    >img {
-        z-index: -1;
+.page {
+    &__heading {
+        text-align: center;
+        >img {
+            z-index: -1;
+        }
     }
-    >h1 {
+    &__title {
         font-size: 50px;
         line-height: 68px;
         letter-spacing: 0.12em;

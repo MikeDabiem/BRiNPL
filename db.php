@@ -157,7 +157,7 @@ $home_about = [
         "title" => "A FEW WORDS<br>ABOUT BRINPL",
         "text" => "<p>We are a young creative design studio located in Ukraine. We create, we design, we research, we develop... but first we care! We take care of every aspect of our work, from brand design strategy development to every tiny design element in our projects. We fight for a sense of satisfaction from our work and help brands share their unique stories with customers. We are very sensitive to visual details, color schemes and typography. We are passionate about UI/UX design, illustration, branding, product design and development.</p><p>BRiNPL is a powerful team of professionals with a creative eye for digital technologies. Each project for us is not only a beautiful solution, but also a new challenge! Your project will be no exception!</p>",
         "img" => "About.jpg",
-        "btn" => ["title" => "Get in touch", "url" => "#"]
+        "btn" => ["title" => "Get in touch", "url" => "/about.php"]
     ]
 ];
 $aboutus_post = [
@@ -165,5 +165,66 @@ $aboutus_post = [
         "title" => "Your search for a design partner ends here",
         "text" => "<p>We’ve created a fresh approach to web design — one rooted in transparency, strategy, and partnership. We care deeply about each of our client’s success, and our dedication to your project will show it.</p><p>We’re not a traditional web design company that simply asks what you want and makes it. We’ll dig into your goals, audience, and budget, and then work together to brainstorm and build the right solution for your project.</p>",
         "img" => "product-launch.gif"
+    ]
+];
+$portfolio_posts = [
+    [
+        "link" => "#",
+        "img" => "portfitem1.jpg",
+        "title" => "Landing page"
+    ],
+    [
+        "link" => "#",
+        "img" => "portfitem2.jpg",
+        "title" => "NFT-Marketplace"
+    ],
+    [
+        "link" => "#",
+        "img" => "portfitem3.jpg",
+        "title" => "E-commerce"
+    ],
+    [
+        "link" => "#",
+        "img" => "portfitem4.jpg",
+        "title" => "Banking app"
+    ],
+    [
+        "link" => "#",
+        "img" => "portfitem5.jpg",
+        "title" => "Fitness app"
+    ],
+    [
+        "link" => "#",
+        "img" => "portfitem6.jpg",
+        "title" => "Furniture store"
+    ],
+    [
+        "link" => "#",
+        "img" => "portfitem7.jpg",
+        "title" => "Plant shop"
+    ],
+    [
+        "link" => "#",
+        "img" => "portfitem8.jpg",
+        "title" => "Landing page"
+    ],
+    [
+        "link" => "#",
+        "img" => "portfitem9.jpg",
+        "title" => "E-commerce"
+    ],
+];
+$contacts_items = [
+    "Telegram" => [
+        "text" => "@brinpl",
+        "url" => "https://t.me/brinpl"
+    ],
+    "Email" => [
+        "text" => "brinplteam@gmail.com",
+        "url" => "mailto:brinplteam@gmail.com"
+    ],
+    "Skype" => [
+        "text" => "team297g4300",
+        "url" => "skype:team297g4300"
     ]
 ];

@@ -8,6 +8,9 @@ $neutral7: #999999;
 $bg-blue: #ECF0FF;
 $red: #FF4E32;
 $purple: #AFBEFF;
+$grey: #C7C8D2;
+$light-grey: #F0F1F8;
+$medium-grey: #85869E;
 
 @mixin btn-color {
     color: $white;
@@ -105,7 +108,7 @@ $purple: #AFBEFF;
     }
     50% {
         left: 50px;
-        top: 0px;
+        top: 0;
         opacity: 0;
         transform: scale(.1);
     }

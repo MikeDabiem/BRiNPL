@@ -10,12 +10,15 @@
 @import "components/page-head.scss";
 @import "components/social-links.scss";
 @import "components/text-img.scss";
+@import "components/feedback.scss";
+@import "components/feedback-form.scss";
+@import "components/social-link-img.scss";
+@import "components/contacts-form.scss";
 
 @import "components/home/hero.scss";
 @import "components/home/whatwedo.scss";
 @import "components/home/portfolio-slider.scss";
 @import "components/home/about.scss";
-@import "components/home/feedback.scss";
 @import "components/home/all-services.scss";
 
 @import "components/about/strategy.scss";
@@ -25,3 +28,6 @@
 @import "pages/home.scss";
 @import "pages/services.scss";
 @import "pages/about.scss";
+@import "pages/portfolio.scss";
+@import "pages/single.scss";
+@import "pages/contacts.scss";

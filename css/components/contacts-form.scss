@@ -1,0 +1,90 @@
+.contacts__form {
+  .form__group {
+    position: relative;
+    margin-bottom: 16px;
+    .input-type-text {
+      cursor: url('../../images/input-cursor.svg'), text;
+      background: transparent;
+      border: 1px solid $grey;
+      border-radius: 8px;
+      outline: none;
+      padding: 11px 20px;
+      width: 100%;
+      &::placeholder {
+        color: $grey;
+      }
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .error {
+      border-color: $red;
+      position: relative;
+      &-message {
+        position: absolute;
+        top: 35%;
+        left: 38%;
+        font-size: 12px;
+        line-height: 16px;
+        color: $red;
+        pointer-events: none;
+        opacity: 0;
+      }
+      &~.error-message {
+        opacity: 1;
+      }
+    }
+    .label-clip {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      width: 9px;
+      height: 18px;
+      filter: grayscale(1);
+      z-index: 2;
+      cursor: pointer;
+      &:hover {
+        filter: none;
+      }
+    }
+  }
+  #tellus {
+    height: 100px;
+    resize: none;
+    padding-right: 35px;
+  }
+  &-services {
+    margin: 40px 0 24px;
+  }
+  .feedback-form-filename {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 14px;
+    line-height: 19px;
+    color: $neutral7;
+  }
+  .service__item {
+    margin: 0 7px 20px 0;
+    &-label {
+      padding: 7px 20px;
+      background: #E0E4F5;
+      border-radius: 8px;
+      margin-bottom: 0;
+      user-select: none;
+      cursor: pointer;
+      &:hover {
+        color: $white;
+        background: rgba(42, 82, 255, 0.5);
+      }
+      &.active {
+        color: $white;
+        background: $blue;
+        transition: all .2s ease-in-out;
+      }
+    }
+  }
+  &-btn {
+    margin-top: 36px;
+  }
+}

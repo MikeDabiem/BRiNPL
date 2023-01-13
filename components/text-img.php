@@ -1,4 +1,4 @@
-<div class="text-img wrapper d-flex justify-content-between">
+<article class="text-img wrapper d-flex justify-content-between">
     <div class="text-img__col1 content-column">
         <div class="text-img__col1-inner">
             <h3 class="section-title font-bold"><?php echo $post["title"]; ?></h3>
@@ -19,4 +19,4 @@
             </div>
         </div>
     </div>
-</div>
+</article>

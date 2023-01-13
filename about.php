@@ -23,7 +23,7 @@
             <?php
                 if ($key_things) {
                     foreach ($key_things as $thing) { ?>
-                        <div class="things__content-item">
+                        <article class="things__content-item">
                             <div class="things__content-item-heading d-flex align-items-center">
                                 <div class="img-wrapper">
                                     <img src="images/<?php echo $thing['icon']; ?>" alt="icon" class="absolute-cover-img">
@@ -33,7 +33,7 @@
                             <div class="things__content-item-text wysiwyg-styles">
                                 <p><?php echo $thing['text']; ?></p>
                             </div>
-                        </div>
+                        </article>
                     <?php }
                 }
             ?>
@@ -46,13 +46,13 @@
             <?php
                 if ($strategy) {
                     foreach ($strategy as $i => $strat) { ?>
-                        <div class="strategy__item transition-default">
+                        <article class="strategy__item transition-default">
                             <div class="strategy__item-num d-flex justify-content-center align-items-center"><?php echo $i + 1; ?></div>
                             <h4 class="strategy__item-title font-bold"><?php echo $strat["title"]; ?></h4>
                             <div class="strategy__item-text wysiwyg-styles">
                                 <p><?php echo $strat["text"]; ?></p>
                             </div>
-                        </div>
+                        </article>
                     <?php }
                 }
             ?>
@@ -64,7 +64,7 @@
             <?php
             if ($reviews) {
                 foreach ($reviews as $review) { ?>
-                    <div class="reviews__item transition-default">
+                    <article class="reviews__item transition-default">
                         <div class="img-wrapper overflow-hidden">
                             <img src="images/<?php echo $review['img']; ?>" alt="thumbnail" class="absolute-cover-img1">
                         </div>
@@ -73,7 +73,7 @@
                         <div class="wysiwyg-styles">
                             <p><?php echo $review['text']; ?></p>
                         </div>
-                    </div>
+                    </article>
                 <?php }
             } ?>
         </div>

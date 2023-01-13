@@ -43,7 +43,7 @@ jQuery(function ($) {
     }
 
     // Form input required error message
-    $('#lets-talk-form').on('submit', (e) => {
+    $('#feedback-form').on('submit', (e) => {
         requiredChecker('#name', e);
         requiredChecker('#email', e);
     });
@@ -64,8 +64,8 @@ jQuery(function ($) {
     });
 
     // Filename in "Let's talk" form
-    $('#lets-talk-form-file').on('change', (e) => {
-        $('.lets-talk-form-filename').text(e.target.files[0].name);
+    $('#feedback-form-file').on('change', (e) => {
+        $('.feedback-form-filename').text(e.target.files[0].name);
     });
 
     // About us page flying rocket

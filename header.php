@@ -25,9 +25,9 @@
                 <nav class="nav-menu">
                     <ul class="d-flex flex-wrap">
                         <li><a href="/services.php">Services</a></li>
-                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="/portfolio.php">Portfolio</a></li>
                         <li><a href="/about.php">About us</a></li>
-                        <li><a href="#">Contacts</a></li>
+                        <li><a href="/contacts.php">Contacts</a></li>
                     </ul>
                 </nav>
                 <div class="menu-mail">
