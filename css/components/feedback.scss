@@ -1,0 +1,30 @@
+.feedback {
+    background: #ECF0FF;
+    &__col1 {
+        width: 46%;
+        .img-wrapper {
+            @include image(79);
+            margin: 32px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    }
+    &__col2 {
+        max-width: 50%;
+        .brinpl-social {
+            margin-top: 80px;
+        }
+    }
+    &__title {
+        margin-top: 114px;
+        span {
+            color: $blue;
+        }
+    }
+    &__subtitle {
+        font-weight: 500;
+    }
+    &__btn {
+        margin-top: 16px;
+    }
+}

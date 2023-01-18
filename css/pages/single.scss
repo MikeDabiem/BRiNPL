@@ -1,0 +1,85 @@
+.portfolio-single {
+    &__content {
+        padding-top: 212px;
+        padding-bottom: 130px;
+        &-col1 {
+            margin-right: 40px;
+        }
+        &-col2 {
+            width: calc(75% - 90px);
+            border-radius: 10px;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        &-col3 {
+            width: calc(30% - 80px);
+            margin-left: auto;
+        }
+        &-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 42px;
+            height: 42px;
+            background: $light-grey;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            &:hover {
+                filter: brightness(.9);
+            }
+            &:active {
+                transition: none;
+                filter: brightness(.8);
+            }
+            &.portfolio-close {
+                &:hover {
+                    img {
+                        transform: rotate(-360deg);
+                    }
+                }
+            }
+            &.portfolio-prev {
+                transform: scale(-1);
+            }
+        }
+        &-descr {
+            background: $light-grey;
+            border-radius: 10px;
+            padding: 32px 20px 52px;
+            &-title {
+                margin-bottom: 16px;
+            }
+            &-text {
+                font-size: 12px;
+                line-height: 16px;
+                color: $medium-grey;
+                margin-bottom: 40px;
+            }
+        }
+    }
+    &__carousel {
+        margin-bottom: 140px;
+        &-item {
+            margin: 64px 12px;
+        }
+        .img-wrapper {
+            @include image(89);
+            border-radius: 10px;
+        }
+    }
+    .portfolio-carousel {
+        &__buttons {
+            margin-top: 30px;
+        }
+        &__prev,
+        &__next {
+            border: none;
+            margin: 0 12px;
+        }
+    }
+    .slick-list::after {
+        content: none;
+    }
+}

@@ -1,0 +1,22 @@
+.portfolio-page {
+    &__list {
+        margin-top: 80px;
+        margin-bottom: 140px;
+        row-gap: 52px;
+        &-item {
+            width: calc(33.333% - 16px);
+            &:hover {
+                h3 {
+                    color: $blue;
+                }
+            }
+            .img-wrapper {
+                @include image(90);
+                border-radius: 10px;
+            }
+            &-title {
+                margin-top: 24px;
+            }
+        }
+    }
+}

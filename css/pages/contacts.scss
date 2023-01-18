@@ -1,0 +1,45 @@
+.contacts-page {
+    padding-top: 148px;
+    padding-bottom: 142px;
+    &__title {
+        font-size: 62px;
+        line-height: 78px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: #2A52FF;
+        padding: 24px 0 64px;
+    }
+    &__contacts {
+        gap: 16px;
+        margin-bottom: 100px;
+        &-item,
+        &-item-link {
+            margin-bottom: 12px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        &-item {
+            color: $grey;
+        }
+        &-item-link {
+            color: $black;
+        }
+    }
+    &__socials {
+        margin-top: 24px;
+        a {
+            margin-right: 12px;
+        }
+    }
+    &__col2 {
+        width: calc(60% - 32px);
+        padding: 60px 80px 80px;
+        background: $light-grey;
+        border-radius: 10px;
+        .tab-title {
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+    }
+}
