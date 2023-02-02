@@ -26,7 +26,9 @@
       &-message {
         position: absolute;
         top: 35%;
-        left: 38%;
+        left: 0;
+        right: 0;
+        text-align: center;
         font-size: 12px;
         line-height: 16px;
         color: $red;
@@ -51,7 +53,7 @@
       }
     }
   }
-  #tellus {
+  #form-message {
     height: 100px;
     resize: none;
     padding-right: 35px;
@@ -89,5 +91,20 @@
   }
   &-btn {
     margin-top: 36px;
+  }
+  .contact-form-success {
+    top: 0;
+    padding-top: 130px;
+    border-radius: 10px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .contacts__form {
+    &-services {
+      margin-top: 20px;
+    }
+    &-btn {
+      margin-top: 18px;
+    }
   }
 }

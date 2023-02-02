@@ -1,22 +1,46 @@
 .portfolio-page {
-    &__list {
-        margin-top: 80px;
-        margin-bottom: 140px;
-        row-gap: 52px;
-        &-item {
-            width: calc(33.333% - 16px);
-            &:hover {
-                h3 {
-                    color: $blue;
-                }
-            }
-            .img-wrapper {
-                @include image(90);
-                border-radius: 10px;
-            }
-            &-title {
-                margin-top: 24px;
-            }
+  &__list {
+    margin-top: 80px;
+    margin-bottom: 140px;
+    gap: 52px 24px;
+    &-item {
+      width: calc(33.333% - 16px);
+      &:hover {
+        h3 {
+          color: $blue;
         }
+      }
+      .img-wrapper {
+        @include image(90);
+        border-radius: 10px;
+      }
+      &-title {
+        margin-top: 24px;
+      }
     }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .portfolio-title {
+    font-size: 28px;
+    line-height: 34px;
+    margin-top: 12px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .portfolio-page__list-item {
+    width: calc(50% - 12px);
+  }
+  .portfolio-page__list {
+    gap: 26px 24px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .portfolio {
+    &-page__list-item {
+      width: 100%;
+    }
+  }
 }

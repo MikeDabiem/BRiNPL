@@ -1,34 +1,76 @@
 .about-page {
-    .about {
-        &__first {
-            margin-top: 120px;
-            .section-title {
-                width: 105%;
-            }
+  .about {
+    &__first {
+      margin-top: 120px;
+      .text-img__col1-inner {
+        max-width: 525px;
+      }
+    }
+  }
+  .things {
+    margin-top: 140px;
+    &__content {
+      margin-bottom: 80px;
+      &-item {
+        width: calc(50% - 87.5px);
+        margin-top: 60px;
+        &-heading {
+          gap: 16px;
+          .img-wrapper {
+            position: relative;
+            width: 64px;
+            height: 64px;
+          }
         }
+        &-text {
+          margin: 26px 0 0;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1366px) {
+  .about-page {
+    .things__content-item {
+      width: calc(50% - 30px);
+    }
+  }
+}
+@media screen and (max-width: 1023px) {
+  .about-page {
+    .reviews__item {
+      padding: 30px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .about-page {
+    .about__first {
+      margin-top: 60px;
+      .text-img__col2 {
+        margin-top: 40px;
+      }
     }
     .things {
-        margin-top: 140px;
-        &__content {
-            margin-bottom: 80px;
-            &-item {
-                width: calc(50% - 87.5px);
-                margin-top: 60px;
-                @media screen and (max-width: 1366px) {
-                    width: calc(50% - 30px);
-                }
-                &-heading {
-                    gap: 16px;
-                    .img-wrapper {
-                        position: relative;
-                        width: 64px;
-                        height: 64px;
-                    }
-                }
-                &-text {
-                    margin: 26px 0 0;
-                }
-            }
+      margin-top: 30px;
+      &__content-item {
+        margin-top: 30px;
+        &-text {
+          margin-top: 10px;
         }
+      }
     }
+  }
+}
+@media screen and (max-width: 559px) {
+  .about-page {
+    .things {
+      &__content {
+        flex-direction: column;
+        &-item {
+          width: 100%;
+        }
+      }
+    }
+  }
 }

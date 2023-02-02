@@ -1,8 +1,11 @@
-<div class="brinpl-social d-flex">
-    <?php require "db.php";
-    if ($socials) {
-        foreach ($socials as $social) { ?>
-            <a href="#" class="<?php echo $social; ?>" target="_blank"><?php echo $social; ?></a>
-        <?php }
-    } ?>
-</div>
+<?php
+$socials = get_field("social_links", "options");
+if (!empty($socials)) { ?>
+    <div class="brinpl-social">
+        <?php foreach ($socials as $social) {
+            if ($social["social_link_url"] && $social["social_link_title"]) { ?>
+                <a href="<?php echo $social["social_link_url"]; ?>" target="_blank"><?php echo $social["social_link_title"]; ?></a>
+            <?php }
+        } ?>
+    </div>
+<?php } ?>

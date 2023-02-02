@@ -1,0 +1,159 @@
+.image-modal-window {
+  .modal {
+    padding: 0 !important;
+    overflow-y: scroll;
+    text-align: center;
+  }
+  .modal.show {
+    display: flex !important;
+    display: -webkit-flex !important;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+  }
+  .modal-dialog {
+    max-width: 1500px;
+    background-color: transparent;
+    margin: 0;
+    max-height: 100%;
+    .modal-content {
+      background-color: transparent;
+      border: none !important;
+      padding: 0;
+      .align-modal-helper {
+        padding: 15px !important;
+        height: 100%;
+      }
+      .slide-image, .iframe-wrapper {
+        max-height: 80vh;
+        max-width: 100%;
+        object-fit: contain;
+        background-color: transparent;
+      }
+      .slide-image {
+        width: auto;
+        height: auto;
+        padding: 0;
+      }
+      .iframe-wrapper {
+        width: 1200px;
+        position: relative;
+        margin: 0 auto;
+        &:before {
+          content: "";
+          display: block;
+          padding-top: 56.25%;
+        }
+        iframe {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          object-fit: cover;
+        }
+      }
+      .carousel-inner, .carousel-item {
+        background-color: transparent !important;
+      }
+    }
+  }
+  .carousel-control-prev, .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    background-color: $black;
+    color: $white;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    opacity: 0.75;
+    transition: all .2s linear;
+    &:hover {
+      opacity: 1;
+      transition: all .2s linear;
+    }
+  }
+  .carousel-control-prev {
+    margin-left: 10px;
+  }
+  .carousel-control-next {
+    margin-right: 10px;
+  }
+  .modal-cross {
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    background-color: $black;
+    opacity: 0.75;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    color: $white;
+    img {
+      width: 20px !important;
+      height: 20px !important;
+    }
+    &:hover {
+      opacity: 1;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.modal-backdrop {
+  opacity: .8 !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .image-modal-window {
+    .modal {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .image-modal-window {
+    .modal {
+      padding-left: 30px !important;
+      padding-right: 30px !important;
+    }
+    .align-modal-helper {
+      padding: 0 !important;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .image-modal-window {
+    .modal {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+    .carousel-control-prev, .carousel-control-next {
+      opacity: 0.75;
+      &:hover {
+        opacity: 0.75;
+      }
+      &:focus {
+        opacity: 0.75;
+      }
+    }
+    .modal-cross {
+      opacity: 1;
+      &:hover {
+        opacity: 1;
+      }
+      &:focus {
+        opacity: 1;
+      }
+    }
+  }
+}

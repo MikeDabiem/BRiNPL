@@ -1,13 +1,27 @@
 .brinpl-social {
-    gap: 32px;
-    a {
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 18px;
-        text-transform: uppercase;
-        color: $black;
-        &:hover {
-            color: $blue;
-        }
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 5%;
+  row-gap: 12px;
+  a {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: $black;
+    &:hover {
+      color: $blue;
     }
+  }
+}
+@media screen and (max-width: 767px) {
+  .brinpl-social {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+  }
+}
+@media screen and (max-width: 400px) {
+  .brinpl-social {
+    grid-template-columns: repeat(2, auto);
+  }
 }

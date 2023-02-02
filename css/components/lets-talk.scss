@@ -1,46 +1,100 @@
 .lets-talk {
-    background: $bg-blue;
-    padding: 80px 0 72px;
-    &__title {
-        text-transform: uppercase;
-        font-size: 48px;
-        line-height: 66px;
-        color: $blue;
-        margin-bottom: 72px;
+  background: $bg-blue;
+  padding: 80px 0 72px;
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 48px;
+    line-height: 66px;
+    color: $blue;
+    margin-bottom: 72px;
+  }
+
+  &__col1 {
+    width: 50%;
+  }
+
+  &__col2 {
+    width: calc(50% - 211px);
+    .brinpl-social {
+      margin-top: 48px;
     }
-    &__col1 {
-        width: 50%;
+
+    .img-wrapper {
+      @include image(66);
+      max-width: 237px;
+      margin: 65px 0 0 35px;
+    }
+  }
+
+  &__contacts {
+    &-title {
+      letter-spacing: 0.01em;
+      color: $neutral7;
+      margin-bottom: 24px;
+    }
+
+    &-email,
+    &-phone {
+      display: block;
+      color: $black;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+
+    &-email {
+      text-decoration: underline;
+      margin-bottom: 14px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1150px) {
+  .lets-talk__col2 {
+    width: calc(50% - 50px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .lets-talk {
+    padding: 60px 0 30px;
+    &__title {
+      margin-bottom: 40px;
+      font-size: 40px;
+      line-height: 48px;
+    }
+    &__content {
+      flex-direction: column;
+    }
+    &__col1,
+    &__col2 {
+      width: 100%;
     }
     &__col2 {
-        .brinpl-social {
-            margin-top: 48px;
-        }
-        .img-wrapper {
-            @include image(66);
-            max-width: 237px;
-            margin: 65px 0 0 35px;
-        }
+      margin-top: 50px;
+      text-align: center;
+      .small-title {
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 40px;
+      }
+      .brinpl-social {
+        justify-content: center;
+      }
+      .img-wrapper {
+        margin: 50px auto 0;
+      }
     }
     &__contacts {
-        &-title {
-            letter-spacing: 0.01em;
-            color: $neutral7;
-            margin-bottom: 24px;
-        }
-        &-email,
-        &-phone {
-            display: block;
-            color: $black;
-            &:hover {
-                color: $black;
-            }
-        }
-        &-email {
-            text-decoration: underline;
-            margin-bottom: 14px;
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+      &-email,
+      &-phone {
+        font-size: 18px;
+        line-height: 27px;
+      }
     }
+  }
 }

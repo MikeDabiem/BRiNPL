@@ -1,9 +1,19 @@
 .homepage {
-    .main-about {
-        padding: 130px 0;
-        .text-img__col1-inner>.text-img-text,
-        &__btn {
-            margin-top: 32px;
-        }
+  .main-about {
+    padding-bottom: 130px;
+    .text-img__col1-inner>.text-img-text,
+    &__btn {
+      margin-top: 32px;
     }
+  }
+}
+@media screen and (max-width: 767px) {
+  .homepage {
+    .main-about {
+      padding-bottom: 60px;
+      .text-img {
+        flex-direction: column-reverse;
+      }
+    }
+  }
 }

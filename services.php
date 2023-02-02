@@ -1,24 +1,16 @@
-<?php require "header.php"; ?>
+<?php /* Template Name: Services Template */
+    get_header();
+?>
 <section class="services-page filler">
-    <?php
-        $heading = [
-            "img" => "serv-bg.jpg",
-            "title" => "Our Services"
-        ];
-        require "components/page-head.php";
-    ?>
-    <?php
-        require "db.php";
-        if ($serv_posts) { ?>
-            <section class="services__content">
-            <?php
-                foreach ($serv_posts as $post) { 
-                    require "components/text-img.php";
-                } ?>
-            </section>
-            <?php
-        }
-        require "components/lets-talk.php";
-    ?>
+    <?php get_template_part("components/page-head");
+    $services = new WP_Query(["post_type" => "services", "posts_per_page" => -1]);
+    if ($services->have_posts()): ?>
+        <section class="services__content">
+            <?php while ($services->have_posts()) : $services->the_post();
+                get_template_part("components/text-img");
+            endwhile; ?>
+        </section>
+    <?php else: endif;
+    get_template_part("components/lets-talk"); ?>
 </section>
-<?php require "footer.php"; ?>
+<?php get_footer(); ?>

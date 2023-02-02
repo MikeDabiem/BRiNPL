@@ -1,57 +1,134 @@
 .homepage {
-    .hero {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        background: url(../../images/BG.svg) 0 0 / cover no-repeat;
-        padding-top: 100px;
-        padding-bottom: 32px;
-        &__content {
-            margin: auto;
-            &-left {
-                width: 45%;
-            }
-            &-right {
-                width: calc(55% - 30px);
-                .img-wrapper {
-                    @include image(75);
-                }
-            }
-            .main {
-                &-title {
-                    font-size: 60px;
-                    line-height: 68px;
-                    letter-spacing: -0.01em;
-                    span {
-                        color: $blue;
-                    }
-                }
-                &-subtitle {
-                    color: $black;
-                    margin: 32px 0;
-                    max-width: 450px;
-                }
-            }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url(../../images/BG.svg) 0 0 / cover no-repeat;
+    padding-top: 100px;
+    padding-bottom: 32px;
+    margin-bottom: 58px;
+    &__content {
+      margin: auto;
+      width: 100%;
+
+      &-left {
+        width: 45%;
+      }
+
+      &-right {
+        width: calc(55% - 30px);
+
+        .img-wrapper {
+          @include image(75);
         }
-        #hero__scroll {
-            &>img {
-                margin-bottom: 1px;
-            }
-            &>.scroll-dot {
-                width: 5px;
-                height: 5px;
-                background: #262626;
-                opacity: .1;
-                border-radius: 5px;
-                margin: 6px auto;
-                animation: blinking 1.5s infinite ease-in-out alternate;
-                &:nth-child(3) {
-                    animation-delay: .5s;
-                }
-                &:nth-child(4) {
-                    animation-delay: 1s;
-                }
-            }
+      }
+
+      .main {
+        &-title {
+          font-size: 60px;
+          line-height: 68px;
+          letter-spacing: -0.01em;
+
+          span {
+            color: $blue;
+            font-family: FontBold;
+          }
         }
+
+        &-subtitle {
+          color: $black;
+          margin: 32px 0;
+          max-width: 450px;
+        }
+      }
     }
+
+    #hero__scroll {
+      & > img {
+        margin-bottom: 1px;
+      }
+
+      & > .scroll-dot {
+        width: 5px;
+        height: 5px;
+        background: #262626;
+        opacity: .1;
+        border-radius: 5px;
+        margin: 6px auto;
+        animation: blinking 1.5s infinite ease-in-out alternate;
+
+        &:nth-child(3) {
+          animation-delay: .5s;
+        }
+
+        &:nth-child(4) {
+          animation-delay: 1s;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .homepage .hero__content .main-title {
+    font-size: 54px;
+    line-height: 62px;
+  }
+}
+@media screen and (max-width: 1088px) {
+  .homepage .hero__content .main-title {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .homepage {
+    .hero {
+      min-height: 500px;
+    }
+  }
+}
+@media screen and (max-width: 1014px) {
+  .homepage .hero__content .main-title {
+    font-size: 44px;
+    line-height: 52px;
+  }
+}
+@media screen and (max-width: 932px) {
+  .homepage .hero__content .main-title {
+    font-size: 42px;
+    line-height: 50px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .homepage {
+    .hero__content {
+      flex-direction: column;
+      &-left {
+        order: 1;
+        width: 80%;
+        text-align: center;
+        margin-top: 32px;
+        .main-subtitle {
+          max-width: none;
+          margin: 40px 0 50px;
+        }
+      }
+      &-right {
+        width: 80%;
+      }
+    }
+    .hero__scroll {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .homepage {
+    .hero__content {
+      &-left,
+      &-right {
+        width: 100%;
+      }
+    }
+  }
 }
