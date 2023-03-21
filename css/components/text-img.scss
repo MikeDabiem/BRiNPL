@@ -1,23 +1,23 @@
 .text-img {
   &__col1-inner {
-    max-width: 500px;
+    max-width: 530px;
   }
   &__col2-inner {
-    max-width: 500px;
+    max-width: 612px;
     height: 100%;
     margin-left: auto;
     .img-wrapper {
-      position: relative;
-      height: 100%;
-      max-height: 556px;
-      border-radius: 4px;
+      border-radius: 6px;
     }
   }
   &-text {
-    margin: 24px 0 0;
+    margin: 28px 0 0;
+  }
+  &__btn {
+    margin-top: 40px;
   }
   .content-column {
-    width: calc(50% - 30px);
+    width: calc(50% - 12px);
   }
 }
 
@@ -26,7 +26,7 @@
     text-align: center;
     flex-direction: column;
     &__col2 {
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
     &__col1-inner,
     &__col2-inner {

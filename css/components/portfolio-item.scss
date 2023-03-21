@@ -1,0 +1,25 @@
+.portfolio-page__list-item {
+  width: calc(33.333% - 16px);
+  &:hover {
+    h3 {
+      color: $blue;
+    }
+  }
+  .img-wrapper {
+    @include image(90);
+    border-radius: 10px;
+  }
+  &-title {
+    margin-top: 24px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .portfolio-page__list-item {
+    width: calc(50% - 12px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .portfolio-page__list-item {
+    width: 100%;
+  }
+}

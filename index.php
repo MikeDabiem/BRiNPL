@@ -4,14 +4,14 @@
     $notSetImg = get_field("header_logo", "options");
 ?>
 <main class="homepage filler">
+    <div class="homepage__cube position-absolute overflow-hidden">
+        <img src="<?php bloginfo("template_url"); ?>/images/BG.svg">
+    </div>
     <?php
     $heroTitle = get_field("hero_title");
     $heroSubtitle = get_field("hero_subtitle");
     $heroButton = get_field("hero_button");
-    $thumb = get_the_post_thumbnail_url($currentID, "large");
-    $thumbID = get_post_thumbnail_id($currentID);
-    $alt = get_post_meta($thumbID, '_wp_attachment_image_alt', true);
-    if($heroTitle || $heroSubtitle || $thumb || (isset($heroButton["title"]) && isset($heroButton["url"]))) { ?>
+    if($heroTitle || $heroSubtitle || (isset($heroButton["title"]) && isset($heroButton["url"]))) { ?>
         <section class="hero">
             <div class="hero__content wrapper d-flex justify-content-between align-items-center">
                 <?php if($heroTitle || $heroSubtitle || (isset($heroButton["title"]) && isset($heroButton["url"]))) { ?>
@@ -27,21 +27,15 @@
                             </a>
                         <?php } ?>
                     </div>
-                <?php } if($thumb) { ?>
+                <?php } ?>
                     <div class="hero__content-right">
-                        <div class="img-wrapper">
-                            <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" class="absolute-cover-img">
+                        <div class="img-wrapper hero__content-right-iphone">
+                            <img src="<?php bloginfo("template_url"); ?>/images/hero-iphone.png" alt="iphone">
+                        </div>
+                        <div class="img-wrapper hero__content-right-laptop">
+                            <img src="<?php bloginfo("template_url"); ?>/images/hero-laptop.png" alt="laptop" class="absolute-cover-img">
                         </div>
                     </div>
-                <?php } ?>
-            </div>
-            <div class="hero__scroll text-center">
-                <a href="#" id="hero__scroll">
-                    <img src="<?php bloginfo("template_url"); ?>/images/Scroll.svg" alt="scroll">
-                    <div class="scroll-dot"></div>
-                    <div class="scroll-dot"></div>
-                    <div class="scroll-dot"></div>
-                </a>
             </div>
         </section>
     <?php }
@@ -53,7 +47,7 @@
                 <h3 class="section-title font-bold"><?php echo $wwdTitle; ?></h3>
             <?php } ?>
             <div class="overflow-auto">
-                <div class="whatwedo__tabs transition-default d-inline-flex">
+                <div class="whatwedo__tabs transition-default">
                     <a href="all-services__tab" class="whatwedo__tab small-title active">All Services</a>
                     <?php while($services->have_posts()):$services->the_post(); ?>
                         <a href="<?php the_ID(); ?>" class="whatwedo__tab small-title"><?php the_title(); ?></a>
@@ -61,20 +55,30 @@
                 </div>
             </div>
             <div class="whatwedo__content">
-                <div class="all-services__tab whatwedo__content-item active" id="all-services__tab">
+                <div class="all-services__tab whatwedo__content-item flex-wrap active" id="all-services__tab">
                     <?php while($services->have_posts()):$services->the_post();
-                    $thumb = get_the_post_thumbnail_url(get_the_ID(), "medium_large");
+                    if (strtolower(pathinfo(get_the_post_thumbnail_url(get_the_ID()), PATHINFO_EXTENSION)) === "gif") {
+                        $thumb = get_the_post_thumbnail_url(get_the_ID(), "full");
+                    } else {
+                        $thumb = get_the_post_thumbnail_url(get_the_ID(), "medium_large");
+                    }
                     $thumbID = get_post_thumbnail_id(get_the_ID());
                     $alt = get_post_meta($thumbID, '_wp_attachment_image_alt', true); ?>
-                        <a href="<?php the_ID(); ?>" class="all-services__tab-item d-block overflow-hidden <?php if($thumb) echo "img-hover"; else echo "not-set-img"; ?>">
+                        <a href="<?php the_ID(); ?>" class="all-services__tab-item d-block">
                             <?php if ($thumb) { ?>
-                                <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" class="absolute-cover-img transition-default">
+                                <div class="img-wrapper overflow-hidden">
+                                    <img src="<?= $thumb; ?>" alt="<?php echo $alt; ?>" class="absolute-cover-img transition-default">
+                                </div>
                             <?php } else if ($notSetImg) { ?>
-                                <img src="<?= $notSetImg["sizes"]["medium"]; ?>" alt="<?= $notSetImg["alt"]; ?>" class="absolute-cover-img">
+                                <div class="img-wrapper not-set-img overflow-hidden">
+                                    <img src="<?= $notSetImg["sizes"]["medium"]; ?>" alt="<?= $notSetImg["alt"]; ?>" class="absolute-cover-img">
+                                </div>
                             <?php } else { ?>
-                                <img src="<?php bloginfo("template_url"); ?>/images/Logo.svg" alt="image" class="absolute-cover-img">
+                                <div class="img-wrapper not-set-img overflow-hidden">
+                                    <img src="<?php bloginfo("template_url"); ?>/images/Logo.svg" alt="image" class="absolute-cover-img">
+                                </div>
                             <?php } ?>
-                            <h4 class="all-services__tab-item-title tab-title"><?php the_title(); ?></h4>
+                            <h4 class="all-services__tab-item-title tab-title transition-default"><?php the_title(); ?></h4>
                         </a>
                     <?php endwhile; ?>
                 </div>
@@ -83,13 +87,6 @@
                     get_template_part("components/whatwedo-tab");
                 endwhile; ?>
             </div>
-            <?php $portfolioPageID = get_field("portfolio_page", "options");
-            if (!empty($portfolioPageID)) {
-                $portfolioLink = get_permalink($portfolioPageID); ?>
-                <div class="whatwedo__portfolio text-center">
-                    <a href="<?= $portfolioLink; ?>" class="whatwedo__btn default-btn transition-default d-inline-block">View portfolio</a>
-                </div>
-            <?php } ?>
         </section>
     <?php else:endif;
     wp_reset_query();
@@ -117,13 +114,22 @@
                     $thumb = get_the_post_thumbnail_url($id, "medium_large");
                     $thumbID = get_post_thumbnail_id($id);
                     $alt = get_post_meta($thumbID, '_wp_attachment_image_alt', true); ?>
-                    <a href="<?php the_permalink(); ?>" class="brinpl-slider__slides-item img-hover d-block">
+                    <a href="<?php the_permalink(); ?>" class="brinpl-slider__slides-item <?php if($thumb) echo "img-hover"; ?> d-block">
                         <?php if ($thumb) { ?>
                             <div class="img-wrapper img-shadow overflow-hidden">
                                 <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" class="absolute-cover-img transition-default">
                             </div>
-                        <?php } if ($title) { ?>
-                            <h5 class="transition-default small-title"><?php echo $title; ?></h5>
+                        <?php } else if ($notSetImg) { ?>
+                            <div class="img-wrapper img-shadow overflow-hidden not-set-img">
+                                <img src="<?= $notSetImg["sizes"]["medium"]; ?>" alt="<?= $notSetImg["alt"]; ?>" class="absolute-cover-img">
+                            </div>
+                        <?php } else { ?>
+                            <div class="img-wrapper img-shadow overflow-hidden not-set-img">
+                                <img src="<?php bloginfo("template_url"); ?>/images/Logo.svg" alt="image" class="absolute-cover-img">
+                            </div>
+                        <?php }
+                        if ($title) { ?>
+                            <h5 class="transition-default tab-title"><?php echo $title; ?></h5>
                         <?php } ?>
                     </a>
                 <?php endwhile; ?>
@@ -137,19 +143,13 @@
     wp_reset_query();
     $aboutTitle = get_field("about_title");
     $aboutText = get_field("about_text");
-    $aboutButton = get_field("about_button");
     $aboutImage = get_field("about_image");
-    if($aboutTitle || $aboutText || (isset($aboutButton["title"]) && isset($aboutButton["url"])) || $aboutImage) { ?>
+    if($aboutTitle || $aboutText || $aboutImage) { ?>
         <section class="main-about">
             <?php require get_template_directory() . "/components/text-img.php"; ?>
         </section>
     <?php }
-    $feedbackImage = get_field("footer_feedback_image", "options");
-    $feedbackTitle = get_field("footer_feedback_title", "options");
-    $feedbackSubtitle = get_field("footer_feedback_subtitle", "options");
-    $feedbackButton = get_field("footer_feedback_button", "options");
-    if($feedbackImage || $feedbackTitle || $feedbackSubtitle || $feedbackButton) {
-        get_template_part("components/feedback");
-    } ?>
+    get_template_part("components/feedback");
+    ?>
 </main>
 <?php get_footer(); ?>

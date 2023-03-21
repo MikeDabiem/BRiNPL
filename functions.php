@@ -23,6 +23,8 @@ function load_style_script()
     wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js');
     wp_enqueue_script('contact-form', get_template_directory_uri() . '/js/contact-form.js');
     wp_localize_script('contact-form', 'data', $templatePath);
+
+    wp_localize_script('main', 'ajaxurl', ['url' => admin_url('admin-ajax.php')]);
 }
 add_action("wp_enqueue_scripts", "load_style_script");
 /*END Load styles and scripts*/
@@ -214,3 +216,30 @@ function year_current_function() {
 
 add_shortcode('current_year', 'year_current_function');
 /*END Date shortcode*/
+
+
+
+/*Portfolio ajax*/
+if (wp_doing_ajax()) {
+    add_action('wp_ajax_filter', 'portfolio_filter');
+    add_action('wp_ajax_nopriv_filter', 'portfolio_filter');
+}
+function portfolio_filter() {
+    $args = ["posts_per_page" => -1, 'category_name' => "uiux-design"];
+    if ($_POST) {
+        $cat = str_replace("portfolio-category=", '', $_POST['data']);
+        $args = ["posts_per_page" => -1, 'category_name' => $cat];
+    }
+    $portfolio = new WP_Query($args);
+    if ($portfolio->have_posts()): ?>
+        <?php while ($portfolio->have_posts()) : $portfolio->the_post();
+            get_template_part('components/portfolio-item');
+        endwhile; ?>
+    <?php else: ?>
+        <section class="no-posts w-100">
+            <h2 class="heavy-title text-center p-5">There is no posts</h2>
+        </section>
+    <?php endif;
+    wp_reset_postdata();
+    wp_die();
+}

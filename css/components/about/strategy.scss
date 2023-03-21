@@ -1,51 +1,115 @@
 .about-page {
   .strategy {
     margin-top: 177px;
-    &__line {
-      position: relative;
-      top: 21px;
-      left: 21px;
-      width: 0;
-      height: 3px;
-      background: $purple;
-      margin-top: 80px;
-      transition: all 2s linear;
-      &.fly {
-        width: calc(100% - 91px);
-      }
-      &::after {
-        content: url('../../images/strategy-rocket.svg');
-        position: absolute;
-        right: -85px;
-        top: -45px;
-      }
+    &__content {
+      margin-top: 60px;
     }
-    &__items {
-      gap: 20px;
-    }
-    &__item {
-      z-index: 1;
-      max-width: 318px;
-      opacity: 0;
+    &__list {
+      width: 50%;
+      padding: 40px 30px;
+      background: #ECECF8;
+      border-radius: 6px 0 0 6px;
+      &-item {
+        align-items: center;
+        max-width: 360px;
+        gap: 20px;
+        padding: 20px 30px;
+        background: $bg-white;
+        border: 1px solid $bg-white;
+        border-radius: 4px;
+        margin-bottom: 24px;
+        cursor: pointer;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &:hover {
+          box-shadow: 2px 8px 31px 1px rgba(216, 219, 232, 0.9);
+          border: 1px solid rgba(42, 82, 255, 0.25);
+        }
+        &.active {
+          border: 1px solid $blue;
+          .strategy__list {
+            &-num {
+              background: $blue;
+              color: $white;
+            }
+            &-title {
+              color: $blue;
+            }
+          }
+        }
+      }
       &-num {
+        flex: 0 0 auto;
         width: 40px;
         height: 40px;
         font-size: 20px;
         line-height: 20px;
-        border: 3px solid $purple;
+        border: 1px solid $blue;
         border-radius: 20px;
-        background: #FAFAFA;
+        background: #FFFFFF;
+        position: relative;
       }
       &-title {
-        font-size: 20px;
-        line-height: 28px;
-        margin: 40px 0 0;
+        margin-bottom: 0;
       }
       &-text {
-        margin: 6px 0 0;
+        display: none;
       }
-      &.fly {
-        opacity: 1;
+    }
+    &__description {
+      width: 50%;
+      background: $blue;
+      padding: 70px 78px;
+      border-radius: 0 6px 6px 0;
+      &-item {
+        display: none;
+        color: $white;
+        opacity: 0;
+        &.active {
+          display: block;
+          opacity: 1;
+        }
+      }
+      &-title {
+        text-transform: uppercase;
+        color: $white;
+        margin-bottom: 28px;
+      }
+      &-text {
+        p {
+          @media screen and (min-width: 1025px) {
+            font-size: 20px;
+            line-height: 30px;
+          }
+          color: $white;
+        }
+      }
+      &-dots {
+        margin-top: 60px;
+        gap: 10px;
+      }
+      &-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 10px;
+        background: #6380FF;
+        &.active {
+          width: 52px;
+          background: $bg-blue;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1023px) {
+  .about-page {
+    .strategy {
+      &__description {
+        padding: 70px 40px;
+      }
+      &__list-item {
+        padding: 20px 24px;
       }
     }
   }
@@ -53,30 +117,44 @@
 @media screen and (max-width: 767px) {
   .about-page {
     .strategy {
-      margin-top: 80px;
-      &__line {
-        left: 0;
-        margin-top: 20px;
-        &.fly {
-          width: calc(100% - 70px);
-        }
-      }
-      &__items {
+      margin-top: 60px;
+      &__content {
+        margin-top: 0;
         flex-direction: column;
-        margin-top: 60px;
       }
-      &__item {
-        display: grid;
-        column-gap: 20px;
-        grid-template-columns: 40px auto;
-        max-width: none;
-        &-num {
-          grid-row: span 2;
-          margin: auto 0;
+      &__list {
+        width: 100%;
+        background: transparent;
+        padding: 30px 0;
+        &-item {
+          flex-direction: column;
+          align-items: start;
+          gap: 0;
+          max-width: 100%;
+          &.active {
+            border: 1px solid transparent;
+            .strategy__list {
+              &-num {
+                background: transparent;
+                color: $black;
+              }
+              &-title {
+                color: $black;
+              }
+            }
+          }
+
         }
         &-title {
-          margin-top: 0;
+          margin-top: 20px;
         }
+        &-text {
+          display: block;
+          margin-top: 10px;
+        }
+      }
+      &__description {
+        display: none !important;
       }
     }
   }

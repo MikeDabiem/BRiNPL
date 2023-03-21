@@ -11,6 +11,6 @@
             endwhile; ?>
         </section>
     <?php else: endif;
-    get_template_part("components/lets-talk"); ?>
+    get_template_part("components/feedback"); ?>
 </section>
 <?php get_footer(); ?>

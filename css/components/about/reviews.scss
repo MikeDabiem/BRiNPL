@@ -21,6 +21,7 @@
       height: 100%;
       &-status {
         color: $neutral7;
+        margin-bottom: 18px;
       }
       .img-wrapper {
         width: 56px;
@@ -41,6 +42,11 @@
   .about-page {
     .reviews {
       margin: 60px auto;
+      .brinpl-slider {
+        &__slides {
+          margin: 28px 0;
+        }
+      }
     }
   }
 }

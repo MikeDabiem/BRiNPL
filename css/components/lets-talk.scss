@@ -1,7 +1,6 @@
 .lets-talk {
   background: $bg-blue;
   padding: 80px 0 72px;
-
   &__title {
     text-transform: uppercase;
     font-size: 48px;
@@ -9,45 +8,33 @@
     color: $blue;
     margin-bottom: 72px;
   }
-
   &__col1 {
     width: 50%;
   }
-
   &__col2 {
     width: calc(50% - 211px);
     .brinpl-social {
       margin-top: 48px;
     }
-
-    .img-wrapper {
-      @include image(66);
-      max-width: 237px;
-      margin: 65px 0 0 35px;
-    }
   }
-
   &__contacts {
     &-title {
       letter-spacing: 0.01em;
       color: $neutral7;
       margin-bottom: 24px;
     }
-
     &-email,
     &-phone {
       display: block;
       color: $black;
-
+      width: fit-content;
       &:hover {
         color: $blue;
       }
     }
-
     &-email {
       text-decoration: underline;
       margin-bottom: 14px;
-
       &:hover {
         text-decoration: underline;
       }
@@ -85,15 +72,14 @@
       .brinpl-social {
         justify-content: center;
       }
-      .img-wrapper {
-        margin: 50px auto 0;
-      }
     }
     &__contacts {
       &-email,
       &-phone {
         font-size: 18px;
         line-height: 27px;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }

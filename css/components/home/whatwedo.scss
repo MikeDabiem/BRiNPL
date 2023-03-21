@@ -1,11 +1,11 @@
 .homepage {
   .whatwedo {
-    padding-bottom: 130px;
+    padding-bottom: 140px;
     &__tabs {
+      display: inline-flex;
       position: relative;
       gap: 37px;
       margin-top: 64px;
-      @include tabs-underline($neutral5);
       white-space: nowrap;
     }
     &>div.overflow-auto {
@@ -18,7 +18,7 @@
       text-transform: capitalize;
       position: relative;
       z-index: 1;
-      padding-bottom: 16px;
+      padding-bottom: 8px;
       @include tabs-underline($blue);
       &::after {
         opacity: 0;
@@ -39,7 +39,7 @@
       }
     }
     &__content {
-      margin-top: 48px;
+      margin-top: 44px;
       &-item {
         display: none;
         justify-content: space-between;
@@ -108,6 +108,9 @@
   .homepage {
     .whatwedo {
       padding-bottom: 60px;
+      &__tabs {
+        margin-top: 32px;
+      }
       &__content {
         &-item {
           &.active {

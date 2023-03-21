@@ -26,16 +26,14 @@
           &:hover {
             h5 {
               color: $blue;
-              opacity: 1;
             }
           }
           .img-wrapper {
             @include image(73);
           }
           h5 {
-            color: #000000;
-            opacity: 0.4;
             margin-top: 16px;
+            text-align: center;
           }
         }
         .slick-slide {

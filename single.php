@@ -34,7 +34,7 @@
                         <?= $contentText; ?>
                     </div>
                 <?php } ?>
-                <?php $socialLinks = get_field("portfolio_social_links");
+                <?php $socialLinks = get_field("portfolio_social_links", "options");
                 if ($socialLinks) {
                     foreach ($socialLinks as $link) {
                         if ($link["portfolio_social_link_url"] && $link["portfolio_social_link_image"]) { ?>
@@ -74,8 +74,8 @@
                 <?php endwhile; ?>
             </div>
             <div class="portfolio-carousel__buttons text-center">
-                <button type="button" class="portfolio-carousel__prev portfolio-single__content-nav portfolio-prev transition-default d-inline-flex justify-content-center align-items-center overflow-hidden"><img src="<?php bloginfo("template_url"); ?>/images/portf-arrow.svg" alt="prev"></button>
-                <button type="button" class="portfolio-carousel__next portfolio-single__content-nav transition-default d-inline-flex justify-content-center align-items-center overflow-hidden"><img src="<?php bloginfo("template_url"); ?>/images/portf-arrow.svg" alt="next"></button>
+                <button type="button" class="portfolio-carousel__prev brinpl-slider__prev portfolio-prev transition-default d-inline-flex justify-content-center align-items-center overflow-hidden"><img src="<?php bloginfo("template_url"); ?>/images/Arrow.svg" alt="prev"></button>
+                <button type="button" class="portfolio-carousel__next brinpl-slider__next transition-default d-inline-flex justify-content-center align-items-center overflow-hidden"><img src="<?php bloginfo("template_url"); ?>/images/Arrow.svg" alt="next"></button>
             </div>
         </div>
     <?php else : endif;

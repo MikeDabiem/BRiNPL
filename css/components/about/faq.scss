@@ -1,0 +1,110 @@
+.faq {
+  margin-top: 140px;
+  margin-bottom: 140px;
+  &__subtitle {
+    margin: 20px auto 0;
+    max-width: 420px;
+  }
+  &__items {
+    margin: 60px auto 0;
+    max-width: 820px;
+  }
+  &__item {
+    border-radius: 6px;
+    margin-bottom: 20px;
+    &-question {
+      color: $black;
+      text-transform: uppercase;
+      font-size: 18px;
+      line-height: 23px;
+      padding: 28px 80px 24px 40px;
+      margin-bottom: 0;
+      position: relative;
+      cursor: pointer;
+      &::before,
+      &::after {
+        content: '';
+        width: 12px;
+        height: 3px;
+        background: $black;
+        position: absolute;
+        top: 50%;
+      }
+      &::before {
+        transform: rotate(45deg);
+        right: 47px;
+      }
+      &::after {
+        transform: rotate(-45deg);
+        right: 40px;
+      }
+      &.active {
+        color: $blue;
+        &::before,
+        &::after {
+          background: $blue;
+        }
+        &::before {
+          transform: rotate(-45deg);
+        }
+        &::after {
+          transform: rotate(45deg);
+        }
+      }
+      &:hover {
+        color: $blue;
+        &::before,
+        &::after {
+          background: $blue;
+        }
+      }
+    }
+    &-answer {
+      display: none;
+      padding: 0 40px 28px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .faq {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    &__item-question {
+      &:hover {
+        color: $black;
+        &::before,
+        &::after {
+          background: $black;
+        }
+      }
+      &.active {
+        color: $blue;
+        &::before,
+        &::after {
+          background: $blue;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 479px) {
+  .faq {
+    &__items {
+      margin-top: 30px;
+    }
+    &__item {
+      &-question {
+        padding: 20px 60px 18px 20px;
+        &::before {
+          right: 27px;
+        }
+        &::after {
+          right: 20px;
+        }
+      }
+      &-answer {
+        padding: 0 20px 18px;
+      }
+    }
+  }
+}

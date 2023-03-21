@@ -3,13 +3,17 @@
     &__content {
       .text-img {
         margin: 200px auto;
+        &__col2-inner {
+          .img-wrapper {
+            @include image(73.5);
+          }
+        }
         &:first-child {
-          margin-top: 100px;
+          margin-top: 0;
         }
         &:nth-child(even) {
           .text-img__col1 {
             order: 2;
-            padding-right: 60px;
             &-inner {
               margin-left: auto;
             }
@@ -33,18 +37,7 @@
           margin: 50px auto;
           &__col1 {
             margin-bottom: 50px;
-          }
-          &:first-child {
-            margin-top: 50px;
-          }
-          &:nth-child(even) {
-            .text-img__col1 {
-              order: 0;
-              padding-right: 0;
-            }
-            .text-img__col2 {
-              order: 0;
-            }
+            order: 1;
           }
         }
       }

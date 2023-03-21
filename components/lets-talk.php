@@ -3,7 +3,6 @@ $title = get_field("talk_title", "options");
 $contacts = get_field("talk_contacts_title", "options");
 $email = get_field("talk_email", "options");
 $phone = get_field("talk_phone", "options");
-$image = get_field("talk_image", "options");
 if ($title || $contacts || isset($email["title"]) && isset($email["url"]) || isset($phone["title"]) && isset($phone["url"]) || $image) { ?>
     <section class="lets-talk">
         <div class="wrapper">
@@ -23,12 +22,11 @@ if ($title || $contacts || isset($email["title"]) && isset($email["url"]) || iss
                         <?php } if (isset($phone["title"]) && isset($phone["url"])) { ?>
                             <a href="<?php echo $phone["url"]; ?>>" class="lets-talk__contacts-phone contacts-text"><?php echo $phone["title"]; ?></a>
                         <?php }
-                        get_template_part("components/social-links");
-                        if ($image) { ?>
-                            <div class="img-wrapper">
-                                <img src="<?php echo $image["sizes"]["medium"]; ?>" alt="<?php echo $image["alt"]; ?>" class="absolute-cover-img">
-                            </div>
-                        <?php } ?>
+                        $socialsTitle = get_field("socials_title", "options");
+                        if ($socialsTitle) { ?>
+                            <h5 class="feedback__socials-title input-text text-uppercase"><?= $socialsTitle; ?></h5>
+                        <?php }
+                        get_template_part("components/social-link-img"); ?>
                     </div>
                 <?php } ?>
             </div>

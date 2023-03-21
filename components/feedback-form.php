@@ -31,7 +31,7 @@
         <p class="feedback-form-filename font-medium"></p>
     </div>
     <div class="position-relative">
-        <button type="submit" class="default-btn transition-default">send</button>
+        <button type="submit" class="default-btn transition-default text-uppercase">send</button>
         <div class="preloader contact-form-preloader position-absolute">
             <div></div>
             <div></div>

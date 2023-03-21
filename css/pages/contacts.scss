@@ -1,46 +1,104 @@
 .contacts-page {
-  padding-top: 148px;
-  padding-bottom: 142px;
-  gap: 20px;
-  &__title {
-    font-size: 62px;
-    line-height: 78px;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: #2A52FF;
-    padding: 24px 0 64px;
+  padding-top: 180px;
+  padding-bottom: 160px;
+  overflow-x: hidden;
+  &__feedback {
+    gap: 20px;
+    max-width: 1170px;
+    margin: 0 auto;
   }
-  &__contacts {
-    gap: 16px;
-    margin-bottom: 100px;
-    &-item,
-    &-item-link {
-      margin-bottom: 12px;
-      &:last-child {
-        margin-bottom: 0;
-      }
+  &__col1 {
+    &::after {
+      content: '';
+      background: url("../../images/specular.png") 0 0/contain no-repeat;
+      position: absolute;
+      height: 300px;
+      width: 300px;
+      bottom: 64px;
+      left: 10px;
+      opacity: .3;
+      z-index: -1;
+      filter: brightness(3.5);
     }
-    &-item {
-      color: $grey;
-    }
-    &-item-link {
-      color: $black;
+    .socials__wrapper {
+      margin-bottom: 50px;
     }
   }
   &__socials {
-    margin-top: 24px;
-    a {
-      margin-right: 12px;
+    margin-bottom: 16px;
+    color: $medium-grey;
+  }
+  &__contacts {
+    &-item {
+      margin-bottom: 30px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &-title {
+        color: $medium-grey;
+        margin-bottom: 12px;
+      }
+      &-link {
+        color: $black;
+      }
     }
   }
   &__col2 {
-    width: calc(60% - 32px);
-    padding: 60px 80px 80px;
-    background: $light-grey;
-    border-radius: 10px;
-    .tab-title {
-      text-transform: uppercase;
+    width: 60%;
+    .section-title {
       margin-bottom: 40px;
+      line-height: 54px;
+    }
+
+  }
+  .steps {
+    margin-top: 160px;
+    &__items {
+      margin-top: 60px;
+      gap: 20px;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        width: 84%;
+        height: 2px;
+        background: $light-grey;
+        top: 22px;
+        z-index: -1;
+      }
+    }
+    &__item {
+      max-width: 240px;
+      &-number {
+        flex: 0 0 auto;
+        width: 44px;
+        height: 44px;
+        border-radius: 30px;
+        background: $bg-white;
+      }
+      &-text {
+        margin: 24px 0 0;
+      }
+    }
+  }
+  .call-to-action {
+    margin-top: 160px;
+    .section-title {
+      line-height: 54px;
+    }
+    &__btn {
+      width: fit-content;
+      margin: 60px auto 0px;
+      position: relative;
+      &::after {
+        content: url('../../images/arrow_here.svg');
+        position: absolute;
+        top: -30px;
+        right: -100px;
+      }
+      a {
+        font-size: 16px;
+      }
     }
   }
 }
@@ -50,30 +108,57 @@
       font-size: 50px;
       line-height: 68px;
     }
-    &__col2 {
-      padding: 40px 40px;
-    }
   }
 }
 @media screen and (max-width: 767px) {
   .contacts-page {
-    flex-direction: column;
     padding-top: 100px;
     padding-bottom: 40px;
+    &__feedback {
+      flex-direction: column;
+    }
+    &__title {
+      padding: 14px 0 32px;
+    }
     &__col1 {
       text-align: center;
+      &::after {
+        bottom: auto;
+        top: 20px;
+      }
     }
     &__col2 {
       width: 100%;
       margin-top: 20px;
-      padding: 40px 20px;
-      .tab-title {
+      .section-title {
         text-align: center;
+        margin-bottom: 30px;
       }
     }
-    &__contacts {
-      justify-content: center;
-      margin-bottom: 60px;
+    .steps {
+      margin-top: 60px;
+      &__title {
+        text-align: center;
+      }
+      &__items {
+        margin: 30px auto 0;
+        flex-direction: column;
+        max-width: 480px;
+        &::before {
+          content: none;
+        }
+      }
+      &__item {
+        display: flex;
+        align-items: center;
+        max-width: none;
+        &-text {
+          margin: 0 0 0 20px;
+        }
+      }
+    }
+    .call-to-action {
+      margin-top: 60px;
     }
   }
 }

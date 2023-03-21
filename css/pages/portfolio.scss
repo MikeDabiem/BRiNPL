@@ -1,24 +1,40 @@
 .portfolio-page {
-  &__list {
-    margin-top: 80px;
-    margin-bottom: 140px;
-    gap: 52px 24px;
-    &-item {
-      width: calc(33.333% - 16px);
-      &:hover {
-        h3 {
-          color: $blue;
+  .portfolio {
+    &__filter {
+      margin-bottom: 40px;
+      &-buttons {
+        gap: 10px;
+      }
+    }
+    &__category {
+      &-input {
+        display: none;
+        &:checked + .portfolio__category-name {
+          border-color: $blue;
+          color: $black;
         }
       }
-      .img-wrapper {
-        @include image(90);
-        border-radius: 10px;
-      }
-      &-title {
-        margin-top: 24px;
+      &-name {
+        margin-bottom: 0;
+        font-size: 18px;
+        line-height: 24px;
+        color: $medium-grey;
+        text-align: center;
+        padding: 14px 22px;
+        border: 2px solid #edeef5;
+        border-radius: 6px;
+        cursor: pointer;
+        &:hover {
+          border-color: rgba(42, 82, 255, 0.25);
+        }
       }
     }
   }
+  &__list {
+    margin-bottom: 140px;
+    gap: 52px 24px;
+  }
+  @import "../components/portfolio-item";
 }
 @media screen and (max-width: 1024px) {
   .portfolio-title {
@@ -28,19 +44,8 @@
   }
 }
 @media screen and (max-width: 767px) {
-  .portfolio-page__list-item {
-    width: calc(50% - 12px);
-  }
   .portfolio-page__list {
     gap: 26px 24px;
-    margin-top: 50px;
     margin-bottom: 50px;
-  }
-}
-@media screen and (max-width: 479px) {
-  .portfolio {
-    &-page__list-item {
-      width: 100%;
-    }
   }
 }

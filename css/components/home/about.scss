@@ -1,9 +1,35 @@
 .homepage {
   .main-about {
     padding-bottom: 130px;
-    .text-img__col1-inner>.text-img-text,
-    &__btn {
-      margin-top: 32px;
+    .text-img {
+      &__col1 {
+        width: 37%;
+        &-inner {
+          & > .text-img-text {
+            margin-top: 32px;
+          }
+        }
+      }
+      &__col2 {
+        width: 60%;
+        &-inner {
+          .img-wrapper {
+            @include image(60);
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1023px) {
+  .homepage {
+    .main-about {
+      .text-img {
+        &__col1,
+        &__col2 {
+          width: calc(50% - 12px);
+        }
+      }
     }
   }
 }
@@ -13,6 +39,24 @@
       padding-bottom: 60px;
       .text-img {
         flex-direction: column-reverse;
+        &__col1 {
+          width: 80%;
+          &-inner {
+            max-width: 100%;
+          }
+        }
+        &__col2 {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 479px) {
+  .homepage {
+    .main-about {
+      .text-img__col1 {
+        width: 100%;
       }
     }
   }

@@ -1,62 +1,68 @@
 .contacts__form {
-  .form__group {
-    position: relative;
-    margin-bottom: 16px;
-    .input-type-text {
-      cursor: url('../../images/input-cursor.svg'), text;
-      background: transparent;
-      border: 1px solid $grey;
-      border-radius: 8px;
-      outline: none;
-      padding: 11px 20px;
-      width: 100%;
-      &::placeholder {
-        color: $grey;
-      }
-      &:focus {
-        border-color: $neutral7;
-      }
-      &::-webkit-scrollbar {
-        display: none;
+  .form {
+    &__sender {
+      gap: 16px;
+      margin-top: 24px;
+      margin-bottom: 16px;
+      .form__group {
+        width: calc(50% - 8px);
       }
     }
-    .error {
-      border-color: $red;
+    &__group {
       position: relative;
-      &-message {
+      .input-type-text {
+        cursor: url('../../images/input-cursor.svg'), text;
+        background: $light-grey;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        outline: none;
+        padding: 11px 20px;
+        width: 100%;
+        &::placeholder {
+          color: $grey;
+        }
+        &:focus {
+          border-color: $blue;
+          background: transparent;
+        }
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+      .error {
+        border-color: $red;
+        position: relative;
+        &-message {
+          position: absolute;
+          top: 100%;
+          left: 3px;
+          text-align: center;
+          font-size: 10px;
+          line-height: 13px;
+          color: $red;
+          pointer-events: none;
+          opacity: 0;
+        }
+        &~.error-message {
+          opacity: 1;
+        }
+      }
+      .label-clip {
         position: absolute;
-        top: 35%;
-        left: 0;
-        right: 0;
+        top: 8px;
+        right: 8px;
+        width: 30px;
+        height: 30px;
+        background: #E0E5F8;
+        border-radius: 2px;
+        z-index: 2;
+        cursor: pointer;
         text-align: center;
-        font-size: 12px;
-        line-height: 16px;
-        color: $red;
-        pointer-events: none;
-        opacity: 0;
-      }
-      &~.error-message {
-        opacity: 1;
-      }
-    }
-    .label-clip {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      width: 9px;
-      height: 18px;
-      filter: grayscale(1);
-      z-index: 2;
-      cursor: pointer;
-      &:hover {
-        filter: none;
       }
     }
   }
   #form-message {
-    height: 100px;
-    resize: none;
-    padding-right: 35px;
+    padding-right: 43px;
   }
   &-services {
     margin: 40px 0 24px;
@@ -69,23 +75,24 @@
     line-height: 19px;
     color: $neutral7;
   }
-  .service__item {
-    margin: 0 7px 20px 0;
-    &-label {
-      padding: 7px 20px;
-      background: #E0E4F5;
-      border-radius: 8px;
-      margin-bottom: 0;
-      user-select: none;
-      cursor: pointer;
-      &:hover {
-        color: $white;
-        background: rgba(42, 82, 255, 0.5);
-      }
-      &.active {
-        color: $white;
-        background: $blue;
-        transition: all .2s ease-in-out;
+  .service {
+    max-width: 600px;
+    &__item {
+      margin: 0 7px 16px 0;
+      &-label {
+        padding: 9px 20px;
+        background: $light-grey;
+        border-radius: 4px;
+        margin-bottom: 0;
+        user-select: none;
+        cursor: pointer;
+        &:hover {
+          background: #E6EAFC;
+        }
+        &.active {
+          background: #C7D2FF;
+          transition: all .2s ease-in-out;
+        }
       }
     }
   }
@@ -94,17 +101,6 @@
   }
   .contact-form-success {
     top: 0;
-    padding-top: 130px;
-    border-radius: 10px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .contacts__form {
-    &-services {
-      margin-top: 20px;
-    }
-    &-btn {
-      margin-top: 18px;
-    }
+    border-radius: 4px;
   }
 }

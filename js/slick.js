@@ -43,4 +43,17 @@ jQuery(function($){
         ]
 
     });
+    $(window).on('load resize', function() {
+        if ($(window).width() < 480) {
+            $('.all-services__tab:not(.slick-initialized)').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerMode: true,
+                centerPadding: '16%',
+                infinite: false,
+            });
+        } else {
+            $(".all-services__tab.slick-initialized").slick("unslick");
+        }
+    });
 });

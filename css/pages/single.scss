@@ -4,6 +4,12 @@
     padding-bottom: 130px;
     &-col1 {
       margin-right: 40px;
+      align-self: start;
+      position: sticky;
+      top: 120px;
+      &>a:last-child {
+        margin-bottom: 0;
+      }
     }
     &-col2 {
       width: calc(75% - 90px);
@@ -16,6 +22,11 @@
     &-col3 {
       width: calc(30% - 80px);
       margin-left: auto;
+      @media screen and (min-width: 768px) {
+        align-self: start;
+        position: sticky;
+        top: 120px;
+      }
     }
     &-nav {
       display: flex;
@@ -79,7 +90,7 @@
     &__prev,
     &__next {
       border: none;
-      margin: 0 12px;
+      margin: 0 6px;
     }
   }
   .slick-list::after {
@@ -90,22 +101,36 @@
   width: 50%;
   margin-left: 0;
 }
+@media screen and (max-width: 1024px) {
+  .portfolio-single {
+    &__content {
+      &-col1 {
+        margin-right: 10px;
+      }
+      &-col2 {
+        flex: 0 0 auto;
+      }
+      &-col3 {
+        width: auto;
+        margin-left: 10px;
+      }
+    }
+  }
+}
 @media screen and (max-width: 767px) {
   .portfolio-single {
     &__content {
       padding-top: 100px;
       padding-bottom: 40px;
       flex-wrap: wrap;
-      &-col1 {
-        margin-right: 10px;
-      }
       &-col2 {
         width: 100%;
         order: 1;
-        margin-top: 40px;
+        margin-top: 10px;
       }
       &-col3 {
         width: calc(100% - 52px);
+        margin-left: 0;
       }
       &-descr {
         padding: 20px;

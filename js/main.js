@@ -29,7 +29,7 @@ jQuery(function ($) {
         }
     })
 
-//header scroll
+//header scroll event
     const header = $(".header");
     let currentMenuScroll = $(window).scrollTop();
     function checkHeaderClass() {
@@ -39,14 +39,6 @@ jQuery(function ($) {
     $(window).on("scroll", function () {
         currentMenuScroll = $(this).scrollTop();
         checkHeaderClass();
-    });
-
-// Scroll button
-    $('#hero__scroll').on('click', (e) => {
-        e.preventDefault();
-        $([document.documentElement, document.body]).animate({
-            scrollTop: $("#whatwedo").offset().top - $(".header").outerHeight()
-        }, 500);
     });
 
 // Click on "What we do" tab
@@ -69,7 +61,25 @@ jQuery(function ($) {
             $('.whatwedo__content-item').removeClass('active');
             $('#' + $(e.target).attr('href')).addClass('active');
             $('.whatwedo__content').animate({opacity: 1}, 400);
+            tabHider();
         }, 400);
+    }
+
+    if ($('.whatwedo__tabs').length) {
+        function tabHider() {
+            function handler() {
+                if ($(window).width() < 480) {
+                    if ($('.all-services__tab').hasClass('active')) {
+                        $('.whatwedo__tabs').hide();
+                    } else {
+                        $('.whatwedo__tabs').show();
+                    }
+                }
+            }
+            handler();
+            $(window).on('load resize', handler);
+        }
+        tabHider();
     }
 
 // Services labels in "Let's talk" form
@@ -82,34 +92,49 @@ jQuery(function ($) {
         $('.feedback-form-filename').text(e.target.files[0].name);
     });
 
-// About us page FLYING ROCKET
-    if ($('.strategy__items').length) {
-        const itemHeight = $('.strategy__items').outerHeight();
-        const animItemOffset = $('.strategy__items').offset().top;
-        const animStart = 4;
-
-        function flying() {
-            const scrollTop = $(window).scrollTop();
-
-            let animTrigger = $(window).innerHeight() - itemHeight / animStart;
-            if (itemHeight > $(window).innerHeight()) {
-                animTrigger = $(window).innerHeight() - $(window).innerHeight() / animStart;
-            }
-
-            if (scrollTop > (animItemOffset - animTrigger) && scrollTop < (animItemOffset + itemHeight)) {
-                $('.strategy__line').addClass('fly');
-                $('.strategy__item').each(function (i) {
-                    setTimeout(() => {
-                        $(this).addClass('fly');
-                    }, (i + $('.strategy__item').length / 10) * (2000 / $('.strategy__item').length));
-                });
-            }
+//About us page strategy
+    if ($('.strategy__list').length) {
+        function strategyChanger(el) {
+            $('.strategy__list-item').removeClass('active');
+            $('.strategy__description-dot').removeClass('active');
+            $('.strategy__description-content').animate({opacity: 0}, 400);
+            setTimeout(() => {
+                $('.strategy__description-item').removeClass('active');
+                el.addClass('active');
+                $('.strategy__description-content').animate({opacity: 1}, 400);
+            }, 400);
         }
 
-        flying();
+        $(`[data-strat="0"]`).addClass('active');
+        let i = 0;
+        const changeStrat = setInterval(() => {
+            if (i > $('.strategy__description-item').length - 2) {
+                i = 0;
+            } else {
+                i++;
+            }
+            strategyChanger($(`[data-strat=${i}]`));
+        }, 3000);
 
-        $(window).on('scroll' , () => {
-            flying();
+        $('[data-strat]').on('click', function() {
+            clearInterval(changeStrat);
+            strategyChanger($(`[data-strat=${($(this).data('strat'))}]`));
+            $(this).addClass('active');
+        });
+    }
+
+//About us page collaboration options
+    if ($('.collab__posts').length && $(window).width() < 768) {
+        $('.collab__post-header').on('click', function() {
+            $(this).parent().toggleClass('active');
+            $(this).toggleClass('active').next().slideToggle(400);
+        });
+    }
+
+//About us page faq
+    if ($('.faq__items').length) {
+        $('.faq__item-question').on('click', function() {
+            $(this).toggleClass('active').next().slideToggle(400);
         });
     }
 
@@ -172,4 +197,18 @@ jQuery(function ($) {
         $('.menu-item').find(`a[href='${$('.portfolio-close').attr('href')}']`).parent().addClass('current_page_item ');
     }
 // END Activate Menu Portfolio link on single.php page
+
+// Portfolio AJAX
+    if ($('.portfolio-page')) {
+        $('.portfolio__filter-buttons').on('change', function() {
+           $('.portfolio-page__list').animate({opacity: .5}, 400);
+           const data = {
+               action: 'filter',
+               data: $(this).serialize()
+           }
+           $.post(ajaxurl.url, data, function(response) {
+               $('.portfolio-page__list').html(response).animate({opacity: 1}, 400);
+           });
+        });
+    }
 });

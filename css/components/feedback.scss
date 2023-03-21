@@ -1,32 +1,37 @@
 .feedback {
   background: #ECF0FF;
   &__col1 {
-    width: 46%;
+    width: 50%;
     .img-wrapper {
-      @include image(79);
-      margin: 32px 0;
+      @include image(70);
+      margin: 62px 0;
       border-radius: 10px;
       overflow: hidden;
     }
   }
   &__col2 {
-    max-width: 50%;
+    max-width: calc(50% - 100px);
+    margin: 0 auto;
     .brinpl-social {
       margin-top: 80px;
     }
   }
   &__title {
-    margin-top: 114px;
+    margin-top: 60px;
     span {
       color: $blue;
-      font-family: FontHeavy;
+      font-family: FontBold;
     }
   }
   &__subtitle {
+    margin: 12px 0 0;
     font-weight: 500;
   }
   &__btn {
-    margin-top: 16px;
+    margin-top: 40px;
+  }
+  &__socials-title {
+    margin: 80px 0 16px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -40,6 +45,11 @@
       width: 100%;
       max-width: 100%;
     }
+    &__col1 {
+      .img-wrapper {
+        margin: 30px 0;
+      }
+    }
     &__col2 {
       .brinpl-social {
         justify-content: center;
@@ -47,7 +57,6 @@
       }
     }
     &__title {
-      margin-top: 60px;
       margin-bottom: 20px;
     }
     &__subtitle {
@@ -56,6 +65,8 @@
     &__btn {
       margin-top: 0;
     }
-
+    &__socials-title {
+      margin-top: 40px;
+    }
   }
 }
