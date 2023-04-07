@@ -12,8 +12,13 @@ if($feedbackImage || $feedbackTitle || $feedbackSubtitle || $feedbackButton) { ?
                     <img src="<?php echo $feedbackImage["sizes"]["medium_large"]; ?>" alt="<?php echo $feedbackImage["alt"]; ?>" class="absolute-cover-img">
                 </div>
             </div>
-        <?php }
-        if ($feedbackTitle || $feedbackSubtitle || (isset($feedbackButton["title"]) && isset($feedbackButton["url"]))) { ?>
+        <?php } else { ?>
+            <div class="feedback__col1">
+                <div class="img-wrapper">
+                    <video src="<?php bloginfo("template_url"); ?>/images/footer.mp4" class="absolute-cover-img" playsinline autoplay loop muted></video>
+                </div>
+            </div>
+        <?php } if ($feedbackTitle || $feedbackSubtitle || (isset($feedbackButton["title"]) && isset($feedbackButton["url"]))) { ?>
             <div class="feedback__col2">
                 <?php if($feedbackTitle) { ?>
                     <h2 class="feedback__title section-title font-bold"><?php echo $feedbackTitle; ?></h2>

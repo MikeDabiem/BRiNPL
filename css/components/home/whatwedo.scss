@@ -1,6 +1,8 @@
 .homepage {
   .whatwedo {
-    padding-bottom: 140px;
+    padding: 0 70px 140px;
+    max-width: 1390px;
+    margin: 0 auto;
     &__tabs {
       display: inline-flex;
       position: relative;
@@ -14,7 +16,7 @@
       }
     }
     &__tab {
-      color: $neutral7;
+      color: $grey;
       text-transform: capitalize;
       position: relative;
       z-index: 1;
@@ -107,9 +109,9 @@
 @media screen and (max-width: 767px) {
   .homepage {
     .whatwedo {
-      padding-bottom: 60px;
+      padding: 0 15px 60px;
       &__tabs {
-        margin-top: 32px;
+        display: none;
       }
       &__content {
         &-item {

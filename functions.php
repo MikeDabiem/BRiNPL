@@ -223,6 +223,9 @@ add_shortcode('current_year', 'year_current_function');
 if (wp_doing_ajax()) {
     add_action('wp_ajax_filter', 'portfolio_filter');
     add_action('wp_ajax_nopriv_filter', 'portfolio_filter');
+
+    add_action('wp_ajax_popup', 'homepage_popup');
+    add_action('wp_ajax_nopriv_popup', 'homepage_popup');
 }
 function portfolio_filter() {
     $args = ["posts_per_page" => -1, 'category_name' => "uiux-design"];
@@ -242,4 +245,21 @@ function portfolio_filter() {
     <?php endif;
     wp_reset_postdata();
     wp_die();
+}
+
+function homepage_popup() {
+    $homeID = get_field("home_page", "options");
+    $popupTitle = get_field("outstaffing_cards_{$_POST['data']}_popup_title", $homeID);
+    $popupText = get_field("outstaffing_cards_{$_POST['data']}_popup_text", $homeID);
+    $popupImageRight = get_field("outstaffing_cards_{$_POST['data']}_popup_image_right", $homeID);
+    $popupImageBottom = get_field("outstaffing_cards_{$_POST['data']}_popup_image_bottom", $homeID); ?>
+    <h3 class="popup__title popup-title font-bold"><?= $popupTitle; ?></h3>
+    <div class="popup__text wysiwyg-styles"><?= $popupText; ?></div>
+    <div class="popup__body-pers position-absolute">
+        <img src="<?= $popupImageRight["sizes"]["medium_large"]; ?>" alt="person" class="absolute-cover-img">
+    </div>
+    <div class="popup__body-fig position-absolute">
+        <img src="<?= $popupImageBottom["sizes"]["medium_large"]; ?>" alt="figure" class="absolute-cover-img">
+    </div>
+    <?php wp_die();
 }

@@ -43,17 +43,25 @@ jQuery(function($){
         ]
 
     });
-    $(window).on('load resize', function() {
-        if ($(window).width() < 480) {
-            $('.all-services__tab:not(.slick-initialized)').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                centerMode: true,
-                centerPadding: '16%',
-                infinite: false,
-            });
-        } else {
-            $(".all-services__tab.slick-initialized").slick("unslick");
-        }
+    $('.all-services__tab').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+        swipe: false,
+        prevArrow: `<button type="button" class="all-services__prev brinpl-slider__prev transition-default slick-arrow d-inline-flex justify-content-center align-items-center overflow-hidden"><img src="/wp-content/themes/brinpl/images/Arrow.svg" alt="prev"></button>`,
+        nextArrow: `<button type="button" class="all-services__next brinpl-slider__next transition-default slick-arrow d-inline-flex justify-content-center align-items-center overflow-hidden"><img src="/wp-content/themes/brinpl/images/Arrow.svg" alt="next"></button>`,
+        responsive: [
+            {
+                breakpoint: 769,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: true,
+                    centerPadding: '16%',
+                    swipe: true,
+                    swipeToSlide: true,
+                    arrows: false
+                }
+            }
+        ]
     });
 });

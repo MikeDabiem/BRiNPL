@@ -10,25 +10,6 @@
     }
     &__group {
       position: relative;
-      .input-type-text {
-        cursor: url('../../images/input-cursor.svg'), text;
-        background: $light-grey;
-        border: 1px solid transparent;
-        border-radius: 4px;
-        outline: none;
-        padding: 11px 20px;
-        width: 100%;
-        &::placeholder {
-          color: $grey;
-        }
-        &:focus {
-          border-color: $blue;
-          background: transparent;
-        }
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
       .error {
         border-color: $red;
         position: relative;
@@ -73,7 +54,7 @@
     left: 0;
     font-size: 14px;
     line-height: 19px;
-    color: $neutral7;
+    color: $grey;
   }
   .service {
     max-width: 600px;

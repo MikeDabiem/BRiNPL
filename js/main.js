@@ -82,6 +82,35 @@ jQuery(function ($) {
         tabHider();
     }
 
+// popup show form (and AJAX)
+    if ($('.popup').length) {
+        $('.outstaff__content-card').on('click', function() {
+            const data = {
+                action: 'popup',
+                data: $(this).data('index')
+            }
+            $.post(ajaxurl.url, data, function(response) {
+                $('.popup__content').html(response);
+                $('.popup').addClass('active');
+                $(body).addClass('overflow-hidden');
+            });
+        });
+        $('.popup__btn').on('click', function() {
+            if (!$('.popup__form').hasClass('active')) {
+                $(this).css('opacity', 0).slideToggle(200);
+                $('.popup__form').addClass('active').slideToggle(400);
+            }
+        });
+        $('.popup__close').on('click', closePopup);
+        $('.popup').on('click', closePopup).children().on('click', () => {return false;});
+        function closePopup() {
+            $('.popup__btn').css('opacity', 1).show();
+            $('.popup__form').removeClass('active').hide();
+            $(body).removeClass('overflow-hidden');
+            $('.popup').removeClass('active');
+        }
+    }
+
 // Services labels in "Let's talk" form
     $('.service__item-input').on('change', (e) => {
         $(`.service__item-label[for = ${e.target.id}]`).toggleClass('active');
@@ -211,4 +240,5 @@ jQuery(function ($) {
            });
         });
     }
+
 });

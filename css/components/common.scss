@@ -66,15 +66,30 @@ body {
   line-height: 39px;
 }
 
+.popup-title {
+  font-size: 30px;
+  line-height: 45px;
+}
+
 .key-title {
   font-size: 24px;
   line-height: 30px;
+}
+
+.strategy-text {
+  font-size: 20px;
+  line-height: 28px;
 }
 
 .tab-title {
   font-size: 20px;
   line-height: 26px;
   text-transform: capitalize;
+}
+
+.contacts-text {
+  font-size: 18px;
+  line-height: 27px;
 }
 
 .small-title {
@@ -86,16 +101,6 @@ body {
 .input-text {
   font-size: 14px;
   line-height: 22px;
-}
-
-.contacts-text {
-  font-size: 18px;
-  line-height: 27px;
-}
-
-.strategy-text {
-  font-size: 20px;
-  line-height: 28px;
 }
 
 .absolute-cover-img,
@@ -121,7 +126,7 @@ body {
 
 .img-shadow {
   box-shadow: 2px 6px 30px 1px rgba(225, 227, 236, 0.75);
-  border-radius: 2px;
+  border-radius: 6px;
 }
 
 .default-btn {
@@ -514,6 +519,25 @@ button {
   img {
     object-fit: contain;
     padding: 20px;
+  }
+}
+.input-type-text {
+  cursor: url('../../images/input-cursor.svg'), text;
+  background: $light-grey;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  padding: 11px 20px;
+  width: 100%;
+  &::placeholder {
+    color: $grey;
+  }
+  &:focus {
+    border-color: $blue;
+    background: transparent;
+  }
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 @media screen and (max-width: 1185px) {

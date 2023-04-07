@@ -5,11 +5,10 @@
         $services = new WP_Query(["post_type" => "services", "posts_per_page" => -1]);
         if ($services->have_posts()) : while ($services->have_posts()) : $services->the_post(); ?>
             <div class="service__item d-inline-block">
-                <input type="checkbox" name="form-service[]" id="form-<?php echo the_ID(); ?>" class="service__item-input d-none" value="<?= the_ID(); ?>">
-                <label for="form-<?php echo the_ID(); ?>" class="service__item-label input-text transition-default"><?php the_title(); ?></label>
+                <input type="checkbox" name="form-service[]" id="form-<?php echo the_ID(); ?>" class="service__item-input d-none" value="<?php the_ID(); ?>">
+                <label for="form-<?php the_ID(); ?>" class="service__item-label input-text transition-default"><?php the_title(); ?></label>
             </div>
-        <?php endwhile;
-        else: endif;
+        <?php endwhile; else: endif;
         wp_reset_query(); ?>
     </div>
     <div class="form__sender d-flex">

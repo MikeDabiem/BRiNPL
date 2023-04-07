@@ -1,5 +1,11 @@
 <?php
-if (is_page_template("index.php") || is_page_template("about.php")) {
+$wrap = null;
+if (is_page_template("index.php")) {
+    $title = $aboutTitle;
+    $text = $aboutText;
+    $image = $aboutImage;
+    $wrap = "main-about__wrapper";
+} else if(is_page_template("about.php")) {
     $title = $aboutTitle;
     $text = $aboutText;
     $image = $aboutImage;
@@ -12,7 +18,7 @@ if (is_page_template("index.php") || is_page_template("about.php")) {
     $title = get_the_title();
 }
 if ($title || $text || $image) { ?>
-    <article class="text-img wrapper d-flex justify-content-between align-items-center">
+    <article class="text-img wrapper d-flex justify-content-between align-items-center <?= $wrap; ?>">
         <?php if ($title || $text) { ?>
             <div class="text-img__col1 content-column">
                 <div class="text-img__col1-inner">
@@ -31,7 +37,7 @@ if ($title || $text || $image) { ?>
         <?php } if ($image) { ?>
             <div class="text-img__col2 content-column">
                 <div class="text-img__col2-inner">
-                    <div class="img-wrapper img-shadow overflow-hidden">
+                    <div class="img-wrapper overflow-hidden">
                         <?php if ($image["subtype"] === "gif") { ?>
                             <img src="<?= $image["url"]; ?>" alt="<?php $image["alt"]; ?>" class="absolute-cover-img" loading="lazy">
                         <?php } else { ?>

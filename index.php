@@ -4,9 +4,6 @@
     $notSetImg = get_field("header_logo", "options");
 ?>
 <main class="homepage filler">
-    <div class="homepage__cube position-absolute overflow-hidden">
-        <img src="<?php bloginfo("template_url"); ?>/images/BG.svg">
-    </div>
     <?php
     $heroTitle = get_field("hero_title");
     $heroSubtitle = get_field("hero_subtitle");
@@ -29,20 +26,49 @@
                     </div>
                 <?php } ?>
                     <div class="hero__content-right">
-                        <div class="img-wrapper hero__content-right-iphone">
-                            <img src="<?php bloginfo("template_url"); ?>/images/hero-iphone.png" alt="iphone">
-                        </div>
-                        <div class="img-wrapper hero__content-right-laptop">
-                            <img src="<?php bloginfo("template_url"); ?>/images/hero-laptop.png" alt="laptop" class="absolute-cover-img">
+                        <div class="img-wrapper hero__content-right-image">
+                            <video src="<?php bloginfo("template_url"); ?>/images/laptop.mp4" class="absolute-cover-img" playsinline autoplay loop muted></video>
                         </div>
                     </div>
             </div>
         </section>
     <?php }
+    $outstaffTitle = get_field("outstaffing_title");
+    $outstaffText = get_field("outstaffing_text");
+    $outstaffCards = get_field("outstaffing_cards");
+    if ($outstaffTitle || $outstaffText || !empty($outstaffCards)) { ?>
+        <section class="outstaff wrapper">
+            <p class="outstaff__new small-title d-flex align-items-center">new service</p>
+            <?php if ($outstaffTitle) { ?>
+                <h3 class="section-title font-bold"><?= $outstaffTitle; ?></h3>
+            <?php }
+            if ($outstaffText || !empty($outstaffCards)) { ?>
+                <div class="outstaff__content d-flex justify-content-between">
+                    <?php if ($outstaffText) { ?>
+                        <div class="outstaff__content-col1">
+                            <div class="wysiwyg-styles"><?= $outstaffText; ?></div>
+                        </div>
+                    <?php }
+                    if (!empty($outstaffCards)) { ?>
+                        <div class="outstaff__content-col2 d-flex flex-wrap">
+                            <?php foreach ($outstaffCards as $i => $card) { ?>
+                                <div class="outstaff__content-card img-shadow transition-default d-flex flex-column" data-index="<?= $i; ?>">
+                                    <div class="outstaff__content-card-img img-wrapper position-relative"><img src="<?= $card["outstaffing_card_image"]["sizes"]["medium"] ?>" alt="<?= $card["outstaffing_card_image"]["alt"] ?>" class="absolute-cover-img"></div>
+                                    <h4 class="outstaff__content-card-title"><?= $card["outstaffing_card_title"]; ?></h4>
+                                    <p class="outstaff__content-card-text input-text"><?= $card["outstaffing_card_text"]; ?></p>
+                                    <button class="outstaff__content-card-btn default-btn">More</button>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+        </section>
+    <?php }
     $services = new WP_Query(["post_type" => "services", "post_per_page" => -1]);
     if ($services->have_posts()):
         $wwdTitle = get_field("what_we_do_title"); ?>
-        <section class="whatwedo wrapper" id="whatwedo">
+        <section class="whatwedo" id="whatwedo">
             <?php if ($wwdTitle) { ?>
                 <h3 class="section-title font-bold"><?php echo $wwdTitle; ?></h3>
             <?php } ?>
@@ -55,7 +81,7 @@
                 </div>
             </div>
             <div class="whatwedo__content">
-                <div class="all-services__tab whatwedo__content-item flex-wrap active" id="all-services__tab">
+                <div class="all-services__tab whatwedo__content-item active" id="all-services__tab">
                     <?php while($services->have_posts()):$services->the_post();
                     if (strtolower(pathinfo(get_the_post_thumbnail_url(get_the_ID()), PATHINFO_EXTENSION)) === "gif") {
                         $thumb = get_the_post_thumbnail_url(get_the_ID(), "full");
@@ -66,7 +92,7 @@
                     $alt = get_post_meta($thumbID, '_wp_attachment_image_alt', true); ?>
                         <a href="<?php the_ID(); ?>" class="all-services__tab-item d-block">
                             <?php if ($thumb) { ?>
-                                <div class="img-wrapper overflow-hidden">
+                                <div class="img-wrapper img-shadow overflow-hidden">
                                     <img src="<?= $thumb; ?>" alt="<?php echo $alt; ?>" class="absolute-cover-img transition-default">
                                 </div>
                             <?php } else if ($notSetImg) { ?>
@@ -152,4 +178,18 @@
     get_template_part("components/feedback");
     ?>
 </main>
+<div class="popup">
+    <button type="button" class="popup__close transition-default d-flex justify-content-center align-items-center"><img src="<?php bloginfo("template_url"); ?>/images/portf-close.svg" alt="close"></button>
+    <section class="popup__body position-relative">
+        <div class="popup__content"></div>
+        <button type="button" class="popup__btn default-btn font-bold">Send a message  </button>
+        <form action="" class="popup__form">
+            <input type="text" class="input-type-text popup__form-input" placeholder="Your name">
+            <input type="email" class="input-type-text popup__form-input" placeholder="Your email">
+            <textarea name="" id="" class="input-type-text popup__form-textarea" rows="3" placeholder="For example: I`m looking for a senior JS developer "></textarea>
+            <p class="popup__form-agree">By messaging us, you agree to our <a href="#" target="_blank">terms & conditions</a></p>
+            <button type="submit" class="popup__form-btn default-btn font-bold">Submit</button>
+        </form>
+    </section>
+</div>
 <?php get_footer(); ?>

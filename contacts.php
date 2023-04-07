@@ -1,8 +1,8 @@
 <?php /* Template Name: Contacts Template */
     get_header();
 ?>
-<section class="contacts-page filler wrapper">
-    <section class="contacts-page__feedback d-flex justify-content-between">
+<section class="contacts-page filler">
+    <section class="contacts-page__feedback d-flex justify-content-between wrapper">
         <div class="contacts-page__col1 position-relative">
             <?php
             $socials = get_field("social_links", "options");
@@ -40,7 +40,7 @@
     $NxStTitle = get_field("next_steps_title");
     $NxStItems = get_field("next_steps_items");
     if ($NxStTitle && $NxStItems) { ?>
-        <section class="steps">
+        <section class="steps wrapper">
             <h3 class="steps__title section-title font-bold"><?= $NxStTitle; ?></h3>
             <div class="steps__items d-flex justify-content-between">
                 <?php foreach ($NxStItems as $i => $step) { ?>
