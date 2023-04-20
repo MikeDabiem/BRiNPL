@@ -81,6 +81,9 @@
       &-item {
         width: calc((100% - 24px) / 2);
       }
+      .slick-track {
+        gap: 0;
+      }
       .slick-slide {
         margin: 0 10px;
       }

@@ -9,7 +9,7 @@
             $socialsTitle = get_field("socials_title") ? get_field("socials_title") : get_field("socials_title", "options");
             if ($socials || $socialsTitle) {
                 if ($socialsTitle) { ?>
-                    <h5 class="small-title contacts-page__socials"><?php echo $socialsTitle; ?></h5>
+                    <h5 class="small-title contacts-page__socials"><?= $socialsTitle; ?></h5>
                 <?php } if ($socials) {
                     get_template_part("components/social-link-img"); ?>
                 <?php }
@@ -20,8 +20,8 @@
                     <?php foreach ($feedbackItem as $item) {
                         if (isset($item["feedback_item_title"]) && isset($item["feedback_item_link"])) { ?>
                             <div class="contacts-page__contacts-item">
-                                <p class="contacts-page__contacts-item-title small-title"><?php echo $item["feedback_item_title"]; ?>:</p>
-                                <a href="<?php echo $item["feedback_item_link"]["url"]; ?>" class="contacts-page__contacts-item-link strategy-text d-block" target="_blank"><?php echo $item["feedback_item_link"]["title"]; ?></a>
+                                <p class="contacts-page__contacts-item-title small-title"><?= $item["feedback_item_title"]; ?>:</p>
+                                <a href="<?= $item["feedback_item_link"]["url"]; ?>" class="contacts-page__contacts-item-link strategy-text d-block" target="_blank"><?= $item["feedback_item_link"]["title"]; ?></a>
                             </div>
                         <?php }
                     } ?>
@@ -31,7 +31,7 @@
         <div class="contacts-page__col2 position-relative">
             <?php $formTitle = get_field("form_title");
             if ($formTitle) { ?>
-                <h4 class="section-title font-bold"><?php echo $formTitle; ?></h4>
+                <h4 class="section-title font-bold"><?= $formTitle; ?></h4>
             <?php }
             get_template_part("components/contacts-form"); ?>
         </div>

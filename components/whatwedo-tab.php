@@ -18,20 +18,20 @@
         $col1_class = "mx-auto";
     }
     if ($title || $text) { ?>
-        <div class="whatwedo__content-col1 <?php echo $col1_class; ?>">
+        <div class="whatwedo__content-col1 <?= $col1_class; ?>">
             <?php if ($title) { ?>
-                <h4 class="whatwedo__content-title tab-title font-bold"><?php the_title(); ?></h4>
+                <h4 class="whatwedo__content-title key-title font-bold"><?php the_title(); ?></h4>
             <?php } if ($text) { ?>
                 <div class="whatwedo__content-text wysiwyg-styles">
-                    <?php echo $text; ?>
+                    <?= $text; ?>
                 </div>
             <?php } ?>
         </div>
     <?php } if ($gallery) { ?>
-        <div class="whatwedo__content-col2 <?php echo $img_class ?>">
+        <div class="whatwedo__content-col2 <?= $img_class ?>">
             <?php foreach ($gallery as $img) { ?>
                 <div class="img-shadow img-wrapper overflow-hidden">
-                    <img src="<?php echo $img["url"]; ?>" alt="thumbnail" class="whatwedo__content-img absolute-cover-img">
+                    <img src="<?= $img["url"]; ?>" alt="thumbnail" class="whatwedo__content-img absolute-cover-img">
                 </div>
             <?php } ?>
         </div>

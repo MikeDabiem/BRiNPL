@@ -1,5 +1,5 @@
 .outstaff {
-  padding-bottom: 90px;
+  padding-top: 40px;
   &__new {
     color: $blue;
     text-transform: uppercase;
@@ -51,6 +51,16 @@
       &-btn {
         margin-top: auto;
         align-self: center;
+        & > span {
+          color: inherit;
+        }
+        & > img {
+          display: none;
+          width: 20px;
+          height: 20px;
+          opacity: .5;
+          margin: -2px 9px;
+        }
       }
     }
   }
@@ -68,6 +78,11 @@
         margin-top: 24px;
       }
     }
+  }
+}
+@media screen and (max-width: 767px) {
+  .outstaff {
+    padding-top: 30px;
   }
 }
 @media screen and (max-width: 639px) {

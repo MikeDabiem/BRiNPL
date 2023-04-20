@@ -23,8 +23,6 @@ jQuery(function($){
     $('.portfolio-single__carousel-slides').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: '16%',
         infinite: true,
         autoplay: true,
         autoplaySpeed: 15000,
@@ -38,6 +36,7 @@ jQuery(function($){
                 settings: {
                     slidesToShow: 1,
                     centerMode: true,
+                    centerPadding: '16%',
                 }
             }
         ]

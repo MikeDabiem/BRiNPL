@@ -1,12 +1,12 @@
 .homepage {
   .main-about {
-    padding-bottom: 130px;
+    margin-top: 90px;
     .text-img {
       &__col1 {
         width: 37%;
         &-inner {
           & > .text-img-text {
-            margin-top: 32px;
+            margin-top: 36px;
           }
         }
       }
@@ -41,7 +41,7 @@
 @media screen and (max-width: 767px) {
   .homepage {
     .main-about {
-      padding-bottom: 60px;
+      margin-top: 60px;
       .text-img {
         flex-direction: column-reverse;
         &__col1 {

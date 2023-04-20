@@ -27,7 +27,7 @@
         <?php } ?>
         <div class="portfolio-single__content-col3 <?php $portfolioImage ? null : print "no-image"; ?>">
             <article class="portfolio-single__content-descr">
-                <h3 class="portfolio-single__content-descr-title portfolio-title font-bold>"><?php the_title(); ?></h3>
+                <h3 class="portfolio-single__content-descr-title font-bold portfolio-title>"><?php the_title(); ?></h3>
                 <?php $contentText = get_field("content_text");
                 if ($contentText) { ?>
                     <div class="portfolio-single__content-descr-text font-medium">
@@ -49,7 +49,8 @@
     </div>
     <?php $carousel = new WP_Query(["posts_per_page" => 10, "post__not_in" => [get_the_ID()]]);
     if($carousel->have_posts()) : ?>
-        <div class="portfolio-single__carousel">
+        <div class="portfolio-single__carousel wrapper">
+            <h2 class="section-title font-bold">other cases</h2>
             <div class="portfolio-single__carousel-slides">
                 <?php while($carousel->have_posts()) : $carousel->the_post();
                     $id = get_the_ID();
@@ -67,7 +68,7 @@
                             </div>
                         <?php } else { ?>
                             <div class="img-wrapper img-shadow not-set-img overflow-hidden">
-                                <img src="<?php bloginfo("template_url"); ?>/images/Logo.svg" alt="image" class="absolute-cover-img">
+                                <img src="<?php bloginfo("template_url"); ?>/images/logo.svg" alt="image" class="absolute-cover-img">
                             </div>
                         <?php } ?>
                     </a>

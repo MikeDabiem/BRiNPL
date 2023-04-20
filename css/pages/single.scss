@@ -1,28 +1,26 @@
 .portfolio-single {
   &__content {
-    padding-top: 212px;
-    padding-bottom: 130px;
+    padding-top: 170px;
+    padding-bottom: 80px;
     &-col1 {
-      margin-right: 40px;
+      margin-right: 20px;
       align-self: start;
       position: sticky;
       top: 120px;
-      &>a:last-child {
-        margin-bottom: 0;
-      }
     }
     &-col2 {
-      width: calc(75% - 90px);
+      width: 68%;
       border-radius: 10px;
       overflow: hidden;
+      flex: 0 0 auto;
       img {
         width: 100%;
       }
     }
     &-col3 {
-      width: calc(30% - 80px);
-      margin-left: auto;
-      @media screen and (min-width: 768px) {
+      width: auto;
+      margin-left: 20px;
+      @media screen and (min-width: 769px) {
         align-self: start;
         position: sticky;
         top: 120px;
@@ -32,11 +30,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       background: $light-grey;
       border-radius: 10px;
-      margin-bottom: 12px;
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
       &:hover {
         filter: brightness(.9);
       }
@@ -59,6 +59,8 @@
       background: $light-grey;
       border-radius: 10px;
       padding: 32px 20px 52px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
       &-title {
         margin-bottom: 16px;
       }
@@ -71,9 +73,9 @@
     }
   }
   &__carousel {
-    margin-bottom: 140px;
     overflow: hidden;
     &-slides {
+      margin-top: 20px;
       .slick-slide {
         margin: 64px 12px;
       }
@@ -93,9 +95,6 @@
       margin: 0 6px;
     }
   }
-  .slick-list::after {
-    content: none;
-  }
 }
 .no-image {
   width: 50%;
@@ -107,17 +106,13 @@
       &-col1 {
         margin-right: 10px;
       }
-      &-col2 {
-        flex: 0 0 auto;
-      }
       &-col3 {
-        width: auto;
         margin-left: 10px;
       }
     }
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .portfolio-single {
     &__content {
       padding-top: 100px;

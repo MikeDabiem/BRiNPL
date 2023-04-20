@@ -2,7 +2,7 @@
         <div class="wrapper d-flex justify-content-between align-items-center">
             <?php $footerCopyright = get_field("footer_copyright", "options");
             if($footerCopyright) { ?>
-                <span class="copyright"><?php echo $footerCopyright; ?></span>
+                <span class="copyright"><?= $footerCopyright; ?></span>
             <?php }
             $privPolID = get_field("privacy_policy_page", "options");
             if ($privPolID) {

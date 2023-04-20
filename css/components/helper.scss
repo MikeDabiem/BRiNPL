@@ -1,5 +1,5 @@
-$blue-gradient: radial-gradient(139.69% 1676.47% at -24.23% -19.64%, #6884FF 0%, #3258FF 100%);
 $blue: #597EFF;
+$dark-blue: #4B6FEF;
 $black: #303041;
 $white: #FFFFFF;
 $neutral5: #D9D9D9;
@@ -19,6 +19,7 @@ $medium-grey: #85869E;
   background: $blue;
   &:hover {
     color: $white;
+    background: $dark-blue;
   }
 }
 

@@ -7,7 +7,7 @@ if ($title || $contacts || isset($email["title"]) && isset($email["url"]) || iss
     <section class="lets-talk">
         <div class="wrapper">
             <?php if ($title) { ?>
-                <h2 class="lets-talk__title font-heavy"><?php echo $title; ?></h2>
+                <h2 class="lets-talk__title font-heavy"><?= $title; ?></h2>
             <?php } ?>
             <div class="lets-talk__content d-flex justify-content-between">
                 <div class="lets-talk__col1">
@@ -16,11 +16,11 @@ if ($title || $contacts || isset($email["title"]) && isset($email["url"]) || iss
                 <?php if ($contacts || isset($email["title"]) && isset($email["url"]) || isset($phone["title"]) && isset($phone["url"]) || $image) { ?>
                     <div class="lets-talk__col2">
                         <?php if ($contacts) { ?>
-                            <h5 class="lets-talk__contacts-title small-title"><?php echo $contacts; ?></h5>
+                            <h5 class="lets-talk__contacts-title small-title"><?= $contacts; ?></h5>
                         <?php } if (isset($email["title"]) && isset($email["url"])) { ?>
-                            <a href="<?php echo $email["url"]; ?>" class="lets-talk__contacts-email contacts-text"><?php echo $email["title"]; ?></a>
+                            <a href="<?= $email["url"]; ?>" class="lets-talk__contacts-email contacts-text"><?= $email["title"]; ?></a>
                         <?php } if (isset($phone["title"]) && isset($phone["url"])) { ?>
-                            <a href="<?php echo $phone["url"]; ?>>" class="lets-talk__contacts-phone contacts-text"><?php echo $phone["title"]; ?></a>
+                            <a href="<?= $phone["url"]; ?>>" class="lets-talk__contacts-phone contacts-text"><?= $phone["title"]; ?></a>
                         <?php }
                         $socialsTitle = get_field("socials_title", "options");
                         if ($socialsTitle) { ?>

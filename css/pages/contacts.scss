@@ -1,6 +1,6 @@
 .contacts-page {
   padding-top: 180px;
-  padding-bottom: 160px;
+  padding-bottom: 100px;
   overflow-x: hidden;
   &__feedback {
     gap: 20px;
@@ -52,7 +52,10 @@
 
   }
   .steps {
-    margin-top: 160px;
+    margin-top: 90px;
+    &__title {
+      text-align: center;
+    }
     &__items {
       margin-top: 60px;
       gap: 20px;
@@ -60,29 +63,32 @@
       &::before {
         content: '';
         position: absolute;
-        width: 84%;
+        top: 22px;
+        left: 8%;
+        right: 8%;
         height: 2px;
         background: $light-grey;
-        top: 22px;
         z-index: -1;
       }
     }
     &__item {
-      max-width: 240px;
+      max-width: 250px;
       &-number {
         flex: 0 0 auto;
         width: 44px;
         height: 44px;
         border-radius: 30px;
         background: $bg-white;
+        margin: 0 auto;
       }
       &-text {
         margin: 24px 0 0;
+        text-align: center;
       }
     }
   }
   .call-to-action {
-    margin-top: 160px;
+    margin-top: 140px;
     padding: 70px 0 85px;
     position: relative;
     &::after {
@@ -118,7 +124,7 @@
 @media screen and (max-width: 767px) {
   .contacts-page {
     padding-top: 100px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     &__feedback {
       flex-direction: column;
     }
@@ -142,9 +148,6 @@
     }
     .steps {
       margin-top: 60px;
-      &__title {
-        text-align: center;
-      }
       &__items {
         margin: 30px auto 0;
         flex-direction: column;
@@ -157,13 +160,18 @@
         display: flex;
         align-items: center;
         max-width: none;
+        &-number {
+          margin: 0;
+        }
         &-text {
           margin: 0 0 0 20px;
+          text-align: start;
         }
       }
     }
     .call-to-action {
-      margin-top: 60px;
+      margin-top: 0;
+      padding: 50px 0;
     }
   }
 }

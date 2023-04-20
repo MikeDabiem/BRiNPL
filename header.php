@@ -15,9 +15,8 @@ $headerMenu = wp_get_nav_menu_items($locations["menuHeaderMobile"]);
 if ($logo || !empty($headerMenu)) { ?>
     <header class="header position-fixed w-100">
         <div class="wrapper d-flex justify-content-between align-items-center">
-            <?php
-            if ($logo) { ?>
-                <a href="<?php echo home_url(); ?>" class="logo-wrapper d-block">
+            <?php if ($logo) { ?>
+                <a href="<?= home_url(); ?>" class="logo-wrapper d-flex align-items-center">
                     <img src="<?= $logo["sizes"]["medium"]; ?>" alt="BRiNPL" class="logo">
                 </a>
             <?php }
@@ -35,7 +34,7 @@ if ($logo || !empty($headerMenu)) { ?>
                             <h5 class="nav-menu__social-title input-text">Send us an email</h5>
                             <?php $email = get_field("talk_email", "options");
                             if (isset($email["title"]) && isset($email["url"])) { ?>
-                                <a href="<?php echo $email["url"]; ?>" class="nav-menu__social-email strategy-text"><?php echo $email["title"]; ?></a>
+                                <a href="<?= $email["url"]; ?>" class="nav-menu__social-email strategy-text"><?= $email["title"]; ?></a>
                             <?php } ?>
                         </div>
                     </nav>

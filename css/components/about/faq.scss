@@ -1,6 +1,5 @@
 .faq {
-  margin-top: 140px;
-  margin-bottom: 140px;
+  margin-top: 90px;
   &__subtitle {
     margin: 20px auto 0;
     max-width: 420px;
@@ -67,21 +66,23 @@
 }
 @media screen and (max-width: 767px) {
   .faq {
-    margin-top: 60px;
-    margin-bottom: 60px;
-    &__item-question {
-      &:hover {
-        color: $black;
-        &::before,
-        &::after {
-          background: $black;
+    margin-top: 40px;
+    &__item {
+      margin-bottom: 14px;
+      &-question {
+        &:hover {
+          color: $black;
+          &::before,
+          &::after {
+            background: $black;
+          }
         }
-      }
-      &.active {
-        color: $blue;
-        &::before,
-        &::after {
-          background: $blue;
+        &.active {
+          color: $blue;
+          &::before,
+          &::after {
+            background: $blue;
+          }
         }
       }
     }

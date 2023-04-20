@@ -1,6 +1,6 @@
 .about-page {
   .reviews {
-    margin: 180px auto 140px;
+    margin: 90px auto 0;
     overflow: hidden;
     .brinpl-slider {
       &__slides {
@@ -41,7 +41,7 @@
 @media screen and (max-width: 767px) {
   .about-page {
     .reviews {
-      margin: 60px auto;
+      margin-top: 40px;
       .brinpl-slider {
         &__slides {
           margin: 28px 0;

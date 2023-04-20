@@ -2,14 +2,13 @@
   .services{
     &__content {
       .text-img {
-        margin: 200px auto;
+        &:not(:first-child) {
+          margin: 80px auto 0;
+        }
         &__col2-inner {
           .img-wrapper {
             @include image(73.5);
           }
-        }
-        &:first-child {
-          margin-top: 0;
         }
         &:nth-child(even) {
           .text-img__col1 {
@@ -34,9 +33,10 @@
     .services{
       &__content {
         .text-img {
-          margin: 50px auto;
+          &:not(:first-child) {
+            margin: 50px auto 0;
+          }
           &__col1 {
-            margin-bottom: 50px;
             order: 1;
           }
         }

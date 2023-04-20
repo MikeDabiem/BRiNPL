@@ -9,7 +9,7 @@ if($feedbackImage || $feedbackTitle || $feedbackSubtitle || $feedbackButton) { ?
         <?php if($feedbackImage) { ?>
             <div class="feedback__col1">
                 <div class="img-wrapper">
-                    <img src="<?php echo $feedbackImage["sizes"]["medium_large"]; ?>" alt="<?php echo $feedbackImage["alt"]; ?>" class="absolute-cover-img">
+                    <img src="<?= $feedbackImage["sizes"]["medium_large"]; ?>" alt="<?= $feedbackImage["alt"]; ?>" class="absolute-cover-img">
                 </div>
             </div>
         <?php } else { ?>
@@ -21,13 +21,13 @@ if($feedbackImage || $feedbackTitle || $feedbackSubtitle || $feedbackButton) { ?
         <?php } if ($feedbackTitle || $feedbackSubtitle || (isset($feedbackButton["title"]) && isset($feedbackButton["url"]))) { ?>
             <div class="feedback__col2">
                 <?php if($feedbackTitle) { ?>
-                    <h2 class="feedback__title section-title font-bold"><?php echo $feedbackTitle; ?></h2>
+                    <h2 class="feedback__title section-title font-bold"><?= $feedbackTitle; ?></h2>
                 <?php } if($feedbackSubtitle) { ?>
-                    <p class="feedback__subtitle contacts-text"><?php echo $feedbackSubtitle; ?></p>
+                    <p class="feedback__subtitle contacts-text"><?= $feedbackSubtitle; ?></p>
                 <?php } if(isset($feedbackButton["title"]) && isset($feedbackButton["url"])) { ?>
-                    <a href="<?php echo $feedbackButton["url"]; ?>" class="feedback__btn default-btn-icon transition-default d-inline-flex">
+                    <a href="<?= $feedbackButton["url"]; ?>" class="feedback__btn default-btn-icon transition-default d-inline-flex">
                         <img src="<?php bloginfo("template_url"); ?>/images/Plane.svg" alt="plane">
-                        <?php echo $feedbackButton["title"]; ?>
+                        <?= $feedbackButton["title"]; ?>
                     </a>
                 <?php }
                 $socialsTitle = get_field("socials_title", "options");

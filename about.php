@@ -3,36 +3,14 @@
 get_header();
 ?>
 <section class="about-page filler">
-    <?php
-    $aboutTitle = get_field("first_title");
+    <?php $aboutTitle = get_field("first_title");
     $aboutText = get_field("first_text");
     $aboutImage = get_field("first_image");
     if ($aboutTitle || $aboutText || $aboutImage) { ?>
         <section class="about__first">
-            <?php if ($aboutTitle || $aboutText || $aboutImage) { ?>
-                <article class="wrapper">
-                    <?php } if ($aboutImage) { ?>
-                        <div class="img-wrapper overflow-hidden">
-                            <?php if ($aboutImage["subtype"] === "gif") { ?>
-                                <img src="<?= $aboutImage["url"]; ?>" alt="<?php $aboutImage["alt"]; ?>" class="">
-                            <?php } else { ?>
-                                <img src="<?= $aboutImage["sizes"]["large"]; ?>" alt="<?php $aboutImage["alt"]; ?>" class="">
-                            <?php } ?>
-                        </div>
-                    <?php }
-                    if ($aboutTitle || $aboutText) {
-                        if ($aboutTitle) { ?>
-                            <h3 class="about__first-title section-title font-bold text-center"><?= $aboutTitle; ?></h3>
-                        <?php } if ($aboutText) { ?>
-                            <div class="about__first-text wysiwyg-styles text-center">
-                                <?= $aboutText; ?>
-                            </div>
-                        <?php }
-                        if (isset($button["title"]) && isset($button["url"])) { ?>
-                            <a href="<?= $button["url"] ?>" class="text-img__btn default-btn transition-default d-inline-block"><?= $button["title"] ?></a>
-                        <?php } ?>
-                </article>
-            <?php } ?>
+            <?php if ($aboutTitle || $aboutText || $aboutImage) {
+                require "components/text-img.php";
+            } ?>
         </section>
     <?php }
     $keyTitle = get_field("key_title");

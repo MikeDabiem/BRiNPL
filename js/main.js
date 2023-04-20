@@ -68,11 +68,11 @@ jQuery(function ($) {
     if ($('.whatwedo__tabs').length) {
         function tabHider() {
             function handler() {
-                if ($(window).width() < 480) {
+                if ($(window).width() < 768) {
                     if ($('.all-services__tab').hasClass('active')) {
-                        $('.whatwedo__tabs').hide();
+                        $('.whatwedo__tabs').addClass('d-none');
                     } else {
-                        $('.whatwedo__tabs').show();
+                        $('.whatwedo__tabs').removeClass('d-none');
                     }
                 }
             }
@@ -85,6 +85,9 @@ jQuery(function ($) {
 // popup show form (and AJAX)
     if ($('.popup').length) {
         $('.outstaff__content-card').on('click', function() {
+            const btn = $(this).find('.outstaff__content-card-btn');
+            btn.find('span').hide();
+            btn.find('img').show();
             const data = {
                 action: 'popup',
                 data: $(this).data('index')
@@ -93,6 +96,8 @@ jQuery(function ($) {
                 $('.popup__content').html(response);
                 $('.popup').addClass('active');
                 $(body).addClass('overflow-hidden');
+                btn.find('span').show();
+                btn.find('img').hide();
             });
         });
         $('.popup__btn').on('click', function() {
@@ -237,8 +242,33 @@ jQuery(function ($) {
            }
            $.post(ajaxurl.url, data, function(response) {
                $('.portfolio-page__list').html(response).animate({opacity: 1}, 400);
+               imageScrolling();
            });
         });
     }
 
+// Scroll images on hover
+    function imageScrolling() {
+        let viewScrollContainer;
+        let viewScrollHeight;
+        let viewScrollerProjectSpeed;
+        const viewScrollerProject = $('.scroll-image-trigger');
+        viewScrollerProject.on('mouseenter', function() {
+            viewScrollHeight = $(this).find('.scroll-image').outerHeight();
+            viewScrollerProjectSpeed = viewScrollHeight * 3;
+            viewScrollContainer = $(this).find('.scroll-image-wrapper');
+            viewScrollContainer.stop().animate({
+                scrollTop: viewScrollHeight
+            }, viewScrollerProjectSpeed);
+            viewScrollContainer.on('mousewheel', function() {
+                $(this).stop()
+            });
+        });
+        viewScrollerProject.on('mouseleave', function() {
+            viewScrollContainer.stop().animate({
+                scrollTop: 0
+            }, viewScrollerProjectSpeed)
+        });
+    }
+    imageScrolling();
 });

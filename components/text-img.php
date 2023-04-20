@@ -11,9 +11,8 @@ if (is_page_template("index.php")) {
     $image = $aboutImage;
 } else if(is_page_template("services.php")) {
     $title = get_the_title();
-    $text = get_field("services_post_excerpt");
+    $text = $servicePostText;
     $image = get_field("services_post_gif");
-//    $button = get_field("services_post_button");
 } else {
     $title = get_the_title();
 }
@@ -23,14 +22,14 @@ if ($title || $text || $image) { ?>
             <div class="text-img__col1 content-column">
                 <div class="text-img__col1-inner">
                     <?php if ($title) { ?>
-                        <h3 class="section-title font-bold"><?php echo $title; ?></h3>
+                        <h3 class="section-title font-bold"><?= $title; ?></h3>
                     <?php } if ($text) { ?>
                         <div class="text-img-text wysiwyg-styles">
-                            <?php echo $text; ?>
+                            <?= $text; ?>
                         </div>
                     <?php }
                     if (isset($button["title"]) && isset($button["url"])) { ?>
-                        <a href="<?php echo $button["url"] ?>" class="text-img__btn default-btn transition-default d-inline-block"><?php echo $button["title"] ?></a>
+                        <a href="<?= $button["url"] ?>" class="text-img__btn default-btn transition-default d-inline-block"><?= $button["title"] ?></a>
                     <?php } ?>
                 </div>
             </div>

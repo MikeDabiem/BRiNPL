@@ -1,13 +1,13 @@
 .homepage {
   .whatwedo {
-    padding: 0 70px 140px;
+    padding: 0 70px;
     max-width: 1390px;
-    margin: 0 auto;
+    margin: 90px auto 0;
     &__tabs {
       display: inline-flex;
       position: relative;
       gap: 37px;
-      margin-top: 64px;
+      margin-top: 60px;
       white-space: nowrap;
     }
     &>div.overflow-auto {
@@ -26,6 +26,7 @@
         opacity: 0;
         width: 0;
         left: 50%;
+        border-radius: 2px;
       }
       &.active,
       &:hover {
@@ -50,45 +51,52 @@
         }
       }
       &-col1 {
-        width: 34%;
+        width: 36%;
       }
       &-title {
         margin-bottom: 32px;
       }
       &-col2 {
-        width: 51%;
+        width: 60%;
+        align-self: flex-start;
         .img-wrapper {
           @include image(61.6);
-          height: 100%;
         }
       }
       &-2images {
         display: flex;
-        gap: 24px;
+        gap: 20px;
         .img-wrapper {
-          @include image(128);
-          width: calc(50% - 12px);
+          &:first-child {
+            width: calc(35% - 0px);
+            @include image(144);
+          }
+          &:last-child {
+            width: 62%;
+            @include image(82);
+          }
         }
       }
       &-3images {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 44% 54%;
         grid-template-rows: repeat(2, 1fr);
-        gap: 24px;
+        gap: 20px;
         .img-wrapper {
-          @include image(60);
           &:first-child {
+            @include image(55);
             grid-column: 1;
             grid-row: 1;
           }
           &:nth-child(2) {
+            @include image(55);
             grid-column: 1;
             grid-row: 2;
           }
           &:nth-child(3) {
+            @include image(94);
             grid-column: 2;
             grid-row: 1/3;
-            @include image(128);
           }
         }
       }
@@ -100,19 +108,21 @@
 }
 @media screen and (max-width: 1024px) {
   .homepage {
-    .whatwedo__content-col1,
-    .whatwedo__content-col2 {
-      width: calc((100% - 40px) / 2);
+    .whatwedo {
+      &__content {
+        &-2images,
+        &-3images {
+          gap: 10px;
+        }
+      }
     }
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .homepage {
     .whatwedo {
-      padding: 0 15px 60px;
-      &__tabs {
-        display: none;
-      }
+      padding: 0 15px;
+      margin-top: 60px;
       &__content {
         &-item {
           &.active {

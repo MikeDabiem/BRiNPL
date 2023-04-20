@@ -23,6 +23,8 @@ function load_style_script()
     wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js');
     wp_enqueue_script('contact-form', get_template_directory_uri() . '/js/contact-form.js');
     wp_localize_script('contact-form', 'data', $templatePath);
+    wp_enqueue_script('staffing-form', get_template_directory_uri() . '/js/staffing-form.js');
+    wp_localize_script('staffing-form', 'ajaxurl', ['url' => admin_url('admin-ajax.php')]);
 
     wp_localize_script('main', 'ajaxurl', ['url' => admin_url('admin-ajax.php')]);
 }
@@ -203,8 +205,9 @@ add_action('init', function() {
 
 
 
-// Contact form handler
+// Contact forms handlers
 require get_template_directory()."/components/contact-form.php";
+require get_template_directory()."/components/staffing-form.php";
 // END Contact form handler
 
 

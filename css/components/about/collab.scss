@@ -1,6 +1,6 @@
 .about-page {
   .collab {
-    margin: 140px auto;
+    margin: 90px auto 0;
     &__posts {
       margin-top: 60px;
       gap: 20px;
@@ -20,7 +20,7 @@
 @media screen and (max-width: 767px) {
   .about-page {
     .collab {
-      margin: 60px auto;
+      margin-top: 40px;
       &__posts {
         margin-top: 30px;
         flex-direction: column;
