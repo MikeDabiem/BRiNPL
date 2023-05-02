@@ -55,3 +55,13 @@
     }
   }
 }
+@media screen and (max-width: 479px) {
+  .homepage {
+    .portfolio-home {
+      &__link {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

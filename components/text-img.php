@@ -3,11 +3,13 @@ $wrap = null;
 if (is_page_template("index.php")) {
     $title = $aboutTitle;
     $text = $aboutText;
+    $textMore = $aboutTextMore;
     $image = $aboutImage;
     $wrap = "main-about__wrapper";
 } else if(is_page_template("about.php")) {
     $title = $aboutTitle;
     $text = $aboutText;
+    $textMore = $aboutTextMore;
     $image = $aboutImage;
 } else if(is_page_template("services.php")) {
     $title = get_the_title();
@@ -24,11 +26,12 @@ if ($title || $text || $image) { ?>
                     <?php if ($title) { ?>
                         <h3 class="section-title font-bold"><?= $title; ?></h3>
                     <?php } if ($text) { ?>
-                        <div class="text-img-text wysiwyg-styles">
-                            <?= $text; ?>
-                        </div>
-                    <?php }
-                    if (isset($button["title"]) && isset($button["url"])) { ?>
+                        <div class="text-img-text wysiwyg-styles"><?= $text; ?></div>
+                        <?php if (isset($textMore)) { ?>
+                            <div class="text-img-text wysiwyg-styles show-more-content"><?= $textMore; ?></div>
+                            <button type="button" class="show-more-button input-text transition-default">Show more</button>
+                        <?php }
+                    } if (isset($button["title"]) && isset($button["url"])) { ?>
                         <a href="<?= $button["url"] ?>" class="text-img__btn default-btn transition-default d-inline-block"><?= $button["title"] ?></a>
                     <?php } ?>
                 </div>

@@ -6,7 +6,7 @@
       margin-right: 20px;
       align-self: start;
       position: sticky;
-      top: 120px;
+      top: 100px;
     }
     &-col2 {
       width: 68%;
@@ -23,7 +23,7 @@
       @media screen and (min-width: 769px) {
         align-self: start;
         position: sticky;
-        top: 120px;
+        top: 100px;
       }
     }
     &-nav {
@@ -33,7 +33,7 @@
       width: 40px;
       height: 40px;
       background: $light-grey;
-      border-radius: 10px;
+      border-radius: 4px;
       &:not(:last-child) {
         margin-bottom: 12px;
       }
@@ -53,6 +53,9 @@
       }
       &.portfolio-prev {
         transform: scale(-1);
+      }
+      & > img {
+        opacity: .5;
       }
     }
     &-descr {
@@ -74,6 +77,10 @@
   }
   &__carousel {
     overflow: hidden;
+    .section-title {
+      position: relative;
+      z-index: 1;
+    }
     &-slides {
       margin-top: 20px;
       .slick-slide {
@@ -118,13 +125,27 @@
       padding-top: 100px;
       padding-bottom: 40px;
       flex-wrap: wrap;
+      &-col1 {
+        margin-right: 0;
+        display: flex;
+        width: 100%;
+        .portfolio-prev {
+          margin-left: auto;
+          margin-right: 12px;
+        }
+      }
+      &-nav {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 0 !important;
+      }
       &-col2 {
         width: 100%;
-        order: 1;
-        margin-top: 10px;
+        margin-top: 14px;
       }
       &-col3 {
-        width: calc(100% - 52px);
+        width: 100%;
+        margin-top: 32px;
         margin-left: 0;
       }
       &-descr {

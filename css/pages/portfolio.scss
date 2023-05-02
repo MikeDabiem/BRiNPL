@@ -43,7 +43,26 @@
   }
 }
 @media screen and (max-width: 767px) {
-  .portfolio-page__list {
-    gap: 20px;
+  .portfolio-page {
+    &__list {
+      gap: 20px;
+    }
+    .portfolio__filter {
+      margin-bottom: 20px;
+    }
+  }
+}
+@media screen and (max-width: 479px) {
+  .portfolio-page {
+    .portfolio {
+      &__filter-buttons {
+        justify-content: center;
+      }
+      &__category-name {
+        padding: 10px 18px;
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
   }
 }

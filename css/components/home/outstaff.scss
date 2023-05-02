@@ -20,6 +20,9 @@
       width: calc(35% - 20px);
       max-width: 404px;
     }
+    &-more {
+      margin-top: 24px;
+    }
     &-col2 {
       width: calc(65% - 20px);
       max-width: 796px;
@@ -99,6 +102,9 @@
     &__content {
       &-card {
         width: 100%;
+        &-btn {
+          width: 100%;
+        }
       }
     }
   }

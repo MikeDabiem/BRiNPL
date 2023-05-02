@@ -96,12 +96,14 @@
     }
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
   .homepage {
-    .hero__content {
-      &-left,
-      &-right {
-        width: 100%;
+    .hero {
+      &__content {
+        &-left,
+        &-right {
+          width: 100%;
+        }
       }
     }
   }

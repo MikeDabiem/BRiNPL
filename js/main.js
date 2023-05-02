@@ -271,4 +271,16 @@ jQuery(function ($) {
         });
     }
     imageScrolling();
+
+// Show more button
+    const showMoreBtn = $('.show-more-button');
+    if (showMoreBtn.length) {
+        showMoreBtn.on('click', function() {
+            if (!$(this).hasClass('active')) {
+                $(this).addClass('active').text('Show less').siblings('.show-more-content').slideDown(400);
+            } else {
+                $(this).removeClass('active').text('Show more').siblings('.show-more-content').slideUp(400);
+            }
+        });
+    }
 });

@@ -1,38 +1,40 @@
 .contacts-page {
   padding-top: 180px;
-  padding-bottom: 100px;
+  padding-bottom: 194px;
+  position: relative;
   overflow-x: hidden;
-  &__feedback {
-    gap: 20px;
-    max-width: 1170px;
-    margin: 0 auto;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    max-height: 380px;
+    margin: 0 -50px;
+    opacity: .65;
+    background: url("../../images/cta-bg.png") center bottom/contain no-repeat;
+    z-index: -1;
   }
-  &__col1 {
-    &::after {
-      content: '';
-      background: url("../../images/specular.png") 0 0/contain no-repeat;
-      position: absolute;
-      height: 300px;
-      width: 300px;
-      top: 150px;
-      left: 10px;
-      opacity: .3;
-      z-index: -1;
-      filter: brightness(3.5);
+  &__inner {
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+  &__socials {
+    width: fit-content;
+    padding-left: 40px;
+    &-title {
+      margin-bottom: 16px;
+      color: $medium-grey;
     }
     .socials__wrapper {
       margin-bottom: 50px;
     }
   }
-  &__socials {
-    margin-bottom: 16px;
-    color: $medium-grey;
-  }
   &__contacts {
     &-item {
-      margin-bottom: 30px;
-      &:last-child {
-        margin-bottom: 0;
+      &:not(:last-child) {
+        margin-bottom: 30px;
       }
       &-title {
         color: $medium-grey;
@@ -43,16 +45,25 @@
       }
     }
   }
-  &__col2 {
-    width: 60%;
+  &__form {
+    padding-right: 40px;
+    &::after {
+      content: '';
+      background: url("../../images/specular.png") 0 0/contain no-repeat;
+      position: absolute;
+      height: 300px;
+      width: 300px;
+      bottom: 0;
+      left: -60%;
+      z-index: -1;
+    }
     .section-title {
       margin-bottom: 40px;
-      line-height: 54px;
     }
-
   }
   .steps {
     margin-top: 90px;
+    grid-column: span 2;
     &__title {
       text-align: center;
     }
@@ -88,21 +99,9 @@
     }
   }
   .call-to-action {
-    margin-top: 140px;
-    padding: 70px 0 85px;
+    grid-column: span 2;
+    margin-top: 210px;
     position: relative;
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      margin: 0 -53px 0 -35px;
-      opacity: .65;
-      background: url("../../images/cta-bg.png") center bottom/contain no-repeat;
-      z-index: -1;
-    }
-    .section-title {
-      line-height: 54px;
-    }
     &__btn {
       width: fit-content;
       margin: 60px auto 0;
@@ -113,45 +112,68 @@
     }
   }
 }
-@media screen and (max-width: 1023px) {
-  .contacts-page {
-    &__title {
-      font-size: 50px;
-      line-height: 68px;
-    }
-  }
-}
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .contacts-page {
     padding-top: 100px;
-    padding-bottom: 20px;
-    &__feedback {
-      flex-direction: column;
+    padding-bottom: 28px;
+    &::after {
+      bottom: 0;
+      max-height: 330px;
+      background-position: 0 bottom;
+      background-size: cover;
     }
-    &__title {
-      padding: 14px 0 32px;
+    &__inner {
+      grid-template-columns: 100%;
     }
-    &__col1 {
+    &__socials {
       text-align: center;
-      &::after {
-        bottom: auto;
-        top: 20px;
+      order: 1;
+      margin: 40px auto 0;
+      padding-left: 0;
+      &-title {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 10px;
+      }
+      .socials__wrapper {
+        margin-bottom: 16px;
       }
     }
-    &__col2 {
-      width: 100%;
-      margin-top: 20px;
+    &__contacts-item {
+      &-title {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 4px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+    &__form {
+      padding-right: 0;
+      &::after {
+        width: 150px;
+        height: 150px;
+        left: auto;
+        right: -50px;
+        bottom: -100px;
+        transform: rotate(-20deg);
+      }
       .section-title {
-        text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+      }
+      .contacts__form-services {
+        margin-top: 0;
       }
     }
     .steps {
-      margin-top: 60px;
+      margin-top: 36px;
+      &__title {
+        text-align: start;
+      }
       &__items {
-        margin: 30px auto 0;
+        margin-top: 20px;
         flex-direction: column;
-        max-width: 480px;
         &::before {
           content: none;
         }
@@ -162,6 +184,8 @@
         max-width: none;
         &-number {
           margin: 0;
+          width: 40px;
+          height: 40px;
         }
         &-text {
           margin: 0 0 0 20px;
@@ -170,8 +194,53 @@
       }
     }
     .call-to-action {
-      margin-top: 0;
-      padding: 50px 0;
+      margin-top: 36px;
+      &__btn {
+        margin-top: 24px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .contacts-page {
+    &::after {
+      max-height: 220px;
+      bottom: 30px;
+    }
+    &__form {
+      .section-title {
+        max-width: 270px;
+      }
+      .form__sender {
+        flex-direction: column;
+        margin-top: 10px;
+        .form__group {
+          width: 100%;
+        }
+      }
+      .service__item {
+        margin-bottom: 10px;
+      }
+      .contacts__form-btn {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+    .call-to-action {
+      &__btn {
+        width: 100%;
+        & > a {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 380px) {
+  .contacts-page {
+    &::after {
+      max-height: 180px;
+      bottom: 50px;
     }
   }
 }

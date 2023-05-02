@@ -33,20 +33,27 @@
             </div>
         </section>
     <?php }
+    $newService = get_field("new_service");
     $outstaffTitle = get_field("outstaffing_title");
-    $outstaffText = get_field("outstaffing_text");
+    $outstaffTextPreview = get_field("outstaffing_text_preview");
+    $outstaffTextMore = get_field("outstaffing_text_more");
     $outstaffCards = get_field("outstaffing_cards");
-    if ($outstaffTitle || $outstaffText || !empty($outstaffCards)) { ?>
+    if ($outstaffTitle || $outstaffTextPreview || !empty($outstaffCards)) { ?>
         <section class="outstaff wrapper">
-            <p class="outstaff__new small-title d-flex align-items-center">new service</p>
-            <?php if ($outstaffTitle) { ?>
+            <?php if ($newService) { ?>
+                <p class="outstaff__new small-title d-flex align-items-center">new service</p>
+            <?php } if ($outstaffTitle) { ?>
                 <h3 class="section-title font-bold"><?= $outstaffTitle; ?></h3>
             <?php }
-            if ($outstaffText || !empty($outstaffCards)) { ?>
+            if ($outstaffTextPreview || !empty($outstaffCards)) { ?>
                 <div class="outstaff__content d-flex justify-content-between">
-                    <?php if ($outstaffText) { ?>
+                    <?php if ($outstaffTextPreview) { ?>
                         <div class="outstaff__content-col1">
-                            <div class="wysiwyg-styles"><?= $outstaffText; ?></div>
+                            <div class="wysiwyg-styles"><?= $outstaffTextPreview; ?></div>
+                            <?php if ($outstaffTextMore) { ?>
+                                <div class="wysiwyg-styles outstaff__content-more show-more-content"><?= $outstaffTextMore; ?></div>
+                                <button type="button" class="show-more-button input-text transition-default">Show more</button>
+                            <?php } ?>
                         </div>
                     <?php }
                     if (!empty($outstaffCards)) { ?>
@@ -158,6 +165,7 @@
     wp_reset_query();
     $aboutTitle = get_field("about_title");
     $aboutText = get_field("about_text");
+    $aboutTextMore = get_field("about_text_more");
     $aboutImage = get_field("about_image");
     if($aboutTitle || $aboutText || $aboutImage) { ?>
         <section class="main-about">

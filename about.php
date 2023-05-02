@@ -5,6 +5,7 @@ get_header();
 <section class="about-page filler">
     <?php $aboutTitle = get_field("first_title");
     $aboutText = get_field("first_text");
+    $aboutTextMore = get_field("first_text_more");
     $aboutImage = get_field("first_image");
     if ($aboutTitle || $aboutText || $aboutImage) { ?>
         <section class="about__first">

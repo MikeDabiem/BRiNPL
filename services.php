@@ -3,7 +3,7 @@
 ?>
 <section class="services-page filler">
     <?php get_template_part("components/page-head");
-    $services = new WP_Query(["post_type" => "services", "posts_per_page" => -1, "post__not_in" => [583]]);
+    $services = new WP_Query(["post_type" => "services", "posts_per_page" => -1]);
     if ($services->have_posts()): ?>
         <section class="services__content">
             <?php while ($services->have_posts()) : $services->the_post();

@@ -164,6 +164,45 @@ body {
   }
 }
 
+.show-more-button {
+  display: none;
+  @media screen and (max-width: 767px) {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 0 15px 0 0;
+    color: $grey;
+    background: transparent;
+    outline: none;
+    border: none;
+    position: relative;
+    &::before,
+    &::after {
+      content: '';
+      background: $grey;
+      position: absolute;
+      bottom: 8px;
+      width: 6px;
+      height: 2px;
+    }
+    &::before {
+      right: 4px;
+      transform: rotate(45deg);
+    }
+    &::after {
+      right: 0;
+      transform: rotate(-45deg);
+    }
+    &.active {
+      &::before {
+        transform: rotate(-45deg);
+      }
+      &::after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
 .slick {
   &-list {
     margin: -30px -20px;
@@ -587,7 +626,6 @@ button {
   .wysiwyg-styles > p {
     font-size: 14px;
     line-height: 22px;
-    margin-bottom: 22px;
   }
 }
 @media screen and (max-width: 979px) {
@@ -618,6 +656,9 @@ button {
         }
       }
     }
+  }
+  .show-more-content {
+    display: none;
   }
 }
 @media screen and (max-width: 600px) {
