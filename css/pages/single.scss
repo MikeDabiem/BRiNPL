@@ -68,8 +68,8 @@
         margin-bottom: 16px;
       }
       &-text {
-        font-size: 12px;
-        line-height: 16px;
+        font-size: 14px;
+        line-height: 20px;
         color: $medium-grey;
         margin-bottom: 40px;
       }
@@ -129,8 +129,10 @@
         margin-right: 0;
         display: flex;
         width: 100%;
+        .portfolio-close {
+          margin-right: auto;
+        }
         .portfolio-prev {
-          margin-left: auto;
           margin-right: 12px;
         }
       }

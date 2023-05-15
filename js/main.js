@@ -41,49 +41,9 @@ jQuery(function ($) {
         checkHeaderClass();
     });
 
-// Click on "What we do" tab
-    $('.whatwedo__tab').on('click', (e) => {
-        tabChanger(e);
-        $(e.target).addClass('active');
-    });
-
-// Click on picture at "All services" tab
-    $('.all-services__tab-item').on('click', (e) => {
-        tabChanger(e);
-        $(`.whatwedo__tab[href='${$(e.target).attr('href')}']`).addClass('active');
-    });
-
-    function tabChanger(e) {
-        e.preventDefault();
-        $('.whatwedo__tab').removeClass('active');
-        $('.whatwedo__content').animate({opacity: 0}, 400);
-        setTimeout(() => {
-            $('.whatwedo__content-item').removeClass('active');
-            $('#' + $(e.target).attr('href')).addClass('active');
-            $('.whatwedo__content').animate({opacity: 1}, 400);
-            tabHider();
-        }, 400);
-    }
-
-    if ($('.whatwedo__tabs').length) {
-        function tabHider() {
-            function handler() {
-                if ($(window).width() < 768) {
-                    if ($('.all-services__tab').hasClass('active')) {
-                        $('.whatwedo__tabs').addClass('d-none');
-                    } else {
-                        $('.whatwedo__tabs').removeClass('d-none');
-                    }
-                }
-            }
-            handler();
-            $(window).on('load resize', handler);
-        }
-        tabHider();
-    }
-
 // popup show form (and AJAX)
-    if ($('.popup').length) {
+    const popup = $('.popup');
+    if (popup.length) {
         $('.outstaff__content-card').on('click', function() {
             const btn = $(this).find('.outstaff__content-card-btn');
             btn.find('span').hide();
@@ -94,7 +54,7 @@ jQuery(function ($) {
             }
             $.post(ajaxurl.url, data, function(response) {
                 $('.popup__content').html(response);
-                $('.popup').addClass('active');
+                popup.addClass('active');
                 $(body).addClass('overflow-hidden');
                 btn.find('span').show();
                 btn.find('img').hide();
@@ -107,12 +67,16 @@ jQuery(function ($) {
             }
         });
         $('.popup__close').on('click', closePopup);
-        $('.popup').on('click', closePopup).children().on('click', () => {return false;});
+        popup.on('click', (e) => {
+            if (e.target.className === 'popup active') {
+                closePopup();
+            }
+        });
         function closePopup() {
             $('.popup__btn').css('opacity', 1).show();
             $('.popup__form').removeClass('active').hide();
             $(body).removeClass('overflow-hidden');
-            $('.popup').removeClass('active');
+            popup.removeClass('active');
         }
     }
 
@@ -160,7 +124,6 @@ jQuery(function ($) {
 //About us page collaboration options
     if ($('.collab__posts').length && $(window).width() < 768) {
         $('.collab__post-header').on('click', function() {
-            $(this).parent().toggleClass('active');
             $(this).toggleClass('active').next().slideToggle(400);
         });
     }

@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="form__group">
-        <input name="form-message" id="form-message" class="contacts__form-tellus input-type-text input-text font-medium" placeholder="Tell us more about your idea">
+        <textarea name="form-message" id="form-message" class="contacts__form-tellus input-type-text input-text font-medium" placeholder="Tell us more about your idea"></textarea>
         <p class="error-message font-medium transition-default">The field is required</p>
         <input type="file" name="feedback-form-file" id="feedback-form-file" class="d-none">
         <label for="feedback-form-file" class="label-clip transition-default"><img src="<?php bloginfo("template_url"); ?>/images/clip.svg" alt="clip"></label>

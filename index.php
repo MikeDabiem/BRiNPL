@@ -18,7 +18,7 @@
                         <?php } if($heroSubtitle) { ?>
                             <p class="main-subtitle contacts-text"><?= $heroSubtitle; ?></p>
                         <?php } if(isset($heroButton["title"]) && isset($heroButton["url"])) { ?>
-                            <a href="<?= $heroButton["url"]; ?>" class="hero__btn default-btn-icon transition-default d-inline-flex">
+                            <a href="<?= $heroButton["url"]; ?>" class="hero__btn font-bold default-btn-icon transition-default d-inline-flex">
                                 <img src="<?php bloginfo("template_url"); ?>/images/Plane.svg" alt="plane">
                                 <?= $heroButton["title"]; ?>
                             </a>
@@ -33,6 +33,19 @@
             </div>
         </section>
     <?php }
+    $services = new WP_Query(["post_type" => "services", "post_per_page" => -1]);
+    if ($services->have_posts()):
+        $wwdTitle = get_field("what_we_do_title"); ?>
+        <section class="whatwedo" id="whatwedo">
+            <?php if ($wwdTitle) { ?>
+                <h3 class="section-title font-bold"><?= $wwdTitle; ?></h3>
+            <?php } ?>
+            <div class="whatwedo__content">
+                <?php require "components/all-services-slider.php"; ?>
+            </div>
+        </section>
+    <?php else:endif;
+    wp_reset_query();
     $newService = get_field("new_service");
     $outstaffTitle = get_field("outstaffing_title");
     $outstaffTextPreview = get_field("outstaffing_text_preview");
@@ -62,8 +75,8 @@
                                 <div class="outstaff__content-card img-shadow transition-default d-flex flex-column" data-index="<?= $i; ?>">
                                     <div class="outstaff__content-card-img img-wrapper position-relative"><img src="<?= $card["outstaffing_card_image"]["sizes"]["medium"] ?>" alt="<?= $card["outstaffing_card_image"]["alt"] ?>" class="absolute-cover-img"></div>
                                     <h4 class="outstaff__content-card-title"><?= $card["outstaffing_card_title"]; ?></h4>
-                                    <p class="outstaff__content-card-text input-text"><?= $card["outstaffing_card_text"]; ?></p>
-                                    <button class="outstaff__content-card-btn default-btn"><span>More</span><img src="<?php bloginfo("template_url"); ?>/images/loader.gif" alt="loader"></button>
+                                    <p class="outstaff__content-card-text font-medium"><?= $card["outstaffing_card_text"]; ?></p>
+                                    <button class="outstaff__content-card-btn default-btn"><span class="font-bold">More</span><img src="<?php bloginfo("template_url"); ?>/images/loader.gif" alt="loader"></button>
                                 </div>
                             <?php } ?>
                         </div>
@@ -72,57 +85,6 @@
             <?php } ?>
         </section>
     <?php }
-    $services = new WP_Query(["post_type" => "services", "post_per_page" => -1]);
-    if ($services->have_posts()):
-        $wwdTitle = get_field("what_we_do_title"); ?>
-        <section class="whatwedo" id="whatwedo">
-            <?php if ($wwdTitle) { ?>
-                <h3 class="section-title font-bold"><?= $wwdTitle; ?></h3>
-            <?php } ?>
-            <div class="overflow-auto">
-                <div class="whatwedo__tabs transition-default">
-                    <a href="all-services__tab" class="whatwedo__tab small-title active">All Services</a>
-                    <?php while($services->have_posts()):$services->the_post(); ?>
-                        <a href="<?php the_ID(); ?>" class="whatwedo__tab small-title"><?php the_title(); ?></a>
-                    <?php endwhile; ?>
-                </div>
-            </div>
-            <div class="whatwedo__content">
-                <div class="all-services__tab whatwedo__content-item active" id="all-services__tab">
-                    <?php while($services->have_posts()):$services->the_post();
-                    if (strtolower(pathinfo(get_the_post_thumbnail_url(get_the_ID()), PATHINFO_EXTENSION)) === "gif") {
-                        $thumb = get_the_post_thumbnail_url(get_the_ID(), "full");
-                    } else {
-                        $thumb = get_the_post_thumbnail_url(get_the_ID(), "medium_large");
-                    }
-                    $thumbID = get_post_thumbnail_id(get_the_ID());
-                    $alt = get_post_meta($thumbID, '_wp_attachment_image_alt', true); ?>
-                        <a href="<?php the_ID(); ?>" class="all-services__tab-item d-block">
-                            <?php if ($thumb) { ?>
-                                <div class="img-wrapper img-shadow overflow-hidden">
-                                    <img src="<?= $thumb; ?>" alt="<?= $alt; ?>" class="absolute-cover-img transition-default">
-                                </div>
-                            <?php } else if ($notSetImg) { ?>
-                                <div class="img-wrapper not-set-img overflow-hidden">
-                                    <img src="<?= $notSetImg["sizes"]["medium"]; ?>" alt="<?= $notSetImg["alt"]; ?>" class="absolute-cover-img">
-                                </div>
-                            <?php } else { ?>
-                                <div class="img-wrapper not-set-img overflow-hidden">
-                                    <img src="<?php bloginfo("template_url"); ?>/images/logo.svg" alt="image" class="absolute-cover-img">
-                                </div>
-                            <?php } ?>
-                            <h4 class="all-services__tab-item-title tab-title transition-default"><?php the_title(); ?></h4>
-                        </a>
-                    <?php endwhile; ?>
-                </div>
-                <?php
-                while($services->have_posts()):$services->the_post();
-                    get_template_part("components/whatwedo-tab");
-                endwhile; ?>
-            </div>
-        </section>
-    <?php else:endif;
-    wp_reset_query();
     $portfolioPosts = get_field("portfolio_elements");
     $portfolio = new WP_Query(["posts_per_page" => -1, "post__in" => $portfolioPosts]);
     if ($portfolio->have_posts()) :
@@ -158,16 +120,16 @@
                 <?php endwhile; ?>
             </div>
             <?php if (isset($link["title"]) && isset($link["url"])) { ?>
-                <a href="<?= $link["url"]; ?>" class="portfolio-home__link default-btn transition-default d-block mx-auto"><?= $link["title"]; ?></a>
+                <a href="<?= $link["url"]; ?>" class="portfolio-home__link default-btn font-bold transition-default d-block mx-auto"><?= $link["title"]; ?></a>
             <?php } ?>
         </section>
     <?php endif;
     wp_reset_query();
-    $aboutTitle = get_field("about_title");
-    $aboutText = get_field("about_text");
-    $aboutTextMore = get_field("about_text_more");
-    $aboutImage = get_field("about_image");
-    if($aboutTitle || $aboutText || $aboutImage) { ?>
+    $tiTitle = get_field("about_title");
+    $tiText = get_field("about_text");
+    $tiTextMore = get_field("about_text_more");
+    $tiImage = get_field("about_image");
+    if($tiTitle || $tiText || $tiImage) { ?>
         <section class="main-about">
             <?php require get_template_directory() . "/components/text-img.php"; ?>
         </section>
@@ -198,7 +160,9 @@
                     <p class="error-message font-medium transition-default">The field is required</p>
                 </div>
                 <input name="staffing-label" id="staffing-label" type="hidden">
-                <p class="popup__form-agree">By messaging us, you agree to our <a href="#" target="_blank">terms & conditions</a></p>
+                <?php $privPolID = get_field("privacy_policy_page", "options");
+                $privPolLink = get_permalink($privPolID); ?>
+                <p class="popup__form-agree">By messaging us, you agree to our <a href="<?= $privPolLink; ?>" target="_blank">terms & conditions</a></p>
                 <div class="position-relative">
                     <button type="submit" class="popup__form-btn default-btn font-bold">Submit</button>
                     <div class="preloader staffing-form-preloader position-absolute">

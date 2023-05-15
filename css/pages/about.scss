@@ -1,13 +1,16 @@
 .about-page {
   .about__first {
     padding-top: 120px;
-    .text-img__col1 {
-      width: fit-content;
-    }
-    .text-img__col2 {
-      width: calc(100% - 530px);
-      &-inner {
-        max-width: 100%;
+    .text-img {
+      gap: 4%;
+      &__col1 {
+        width: fit-content;
+      }
+      &__col2 {
+        width: calc(100% - 530px);
+        &-inner {
+          max-width: 100%;
+        }
       }
     }
     .section-title {
@@ -15,8 +18,14 @@
       max-width: 480px;
     }
     .img-wrapper {
-      @include image(82);
+      @include image(97);
+      & > img {
+        object-fit: contain;
+      }
     }
+  }
+  .feedback {
+    margin-top: 90px;
   }
   @import "../components/about/things.scss";
   @import "../components/about/faq.scss";
@@ -29,9 +38,6 @@
         width: 50%;
       }
     }
-    .reviews__item {
-      padding: 30px;
-    }
   }
 }
 @media screen and (max-width: 767px) {
@@ -39,7 +45,7 @@
     .about__first {
       padding-top: 90px;
       .text-img {
-        flex-direction: column-reverse;
+        flex-direction: column;
         &__col1 {
           width: 100%;
           .section-title {
@@ -49,11 +55,18 @@
         &__col2 {
           width: 100%;
           max-width: 480px;
+          margin: 24px 0 0;
         }
         &-text {
           margin-top: 20px;
         }
       }
+      .img-wrapper {
+        @include image(100);
+      }
+    }
+    .feedback {
+      margin-top: 56px;
     }
   }
 }

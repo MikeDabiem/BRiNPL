@@ -3,13 +3,14 @@
 get_header();
 ?>
 <section class="about-page filler">
-    <?php $aboutTitle = get_field("first_title");
-    $aboutText = get_field("first_text");
-    $aboutTextMore = get_field("first_text_more");
-    $aboutImage = get_field("first_image");
-    if ($aboutTitle || $aboutText || $aboutImage) { ?>
+    <?php $tiTitle = get_field("first_title");
+    $tiText = get_field("first_text");
+    $tiTextMore = get_field("first_text_more");
+    $tiImage = get_field("first_image");
+    $tiMobImage = get_field("first_mob_image");
+    if ($tiTitle || $tiText || $tiImage) { ?>
         <section class="about__first">
-            <?php if ($aboutTitle || $aboutText || $aboutImage) {
+            <?php if ($tiTitle || $tiText || $tiImage) {
                 require "components/text-img.php";
             } ?>
         </section>
@@ -162,7 +163,7 @@ get_header();
             <?php if ($faqTitle) { ?>
                 <h3 class="section-title font-bold text-center"><?= $faqTitle; ?></h3>
             <?php } if ($faqSubtitle) { ?>
-                <div class="faq__subtitle wysiwyg-styles text-center">
+                <div class="faq__subtitle wysiwyg-styles text-center small-title font-medium">
                     <?= $faqSubtitle; ?>
                 </div>
             <?php } if ($faqItem) { ?>

@@ -56,7 +56,7 @@ body {
 
 .section-title {
   font-size: 36px;
-  line-height: 54px;
+  line-height: 47px;
   text-transform: uppercase;
   margin-bottom: 0;
 }
@@ -147,20 +147,48 @@ body {
 .default-btn-icon {
   @include btn-color;
   @include btn-size;
-  padding: 16px 28px 16px 60px;
-
+  padding: 16px 28px;
+  justify-content: center;
   & > img {
-    position: absolute;
-    left: 30px;
-    top: 16px;
+    position: relative;
+    left: 0;
+    top: 0;
     width: 18px;
     height: 18px;
+    margin-right: 18px;
   }
 
   &:hover {
     & > img {
       animation: plane-btn 1s linear;
     }
+    @keyframes plane-btn {
+      0% {
+        left: 0;
+        top: 0;
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        left: 20px;
+        top: -18px;
+        opacity: 0;
+        transform: scale(.1);
+      }
+      51% {
+        left: -20px;
+        top: 20px;
+        opacity: 0;
+        transform: scale(.1);
+      }
+      100% {
+        left: 0;
+        top: 0;
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
   }
 }
 
@@ -205,7 +233,7 @@ body {
 
 .slick {
   &-list {
-    margin: -30px -20px;
+    margin: 0 -20px;
     padding: 30px 10px;
 
     &::after {
@@ -554,6 +582,7 @@ button {
       color: $red;
       pointer-events: none;
       opacity: 0;
+      margin-bottom: 0;
     }
     &~.error-message {
       opacity: 1;
@@ -621,11 +650,7 @@ button {
   }
   .section-title {
     font-size: 32px;
-    line-height: 38px;
-  }
-  .wysiwyg-styles > p {
-    font-size: 14px;
-    line-height: 22px;
+    line-height: 42px;
   }
 }
 @media screen and (max-width: 979px) {
@@ -640,8 +665,8 @@ button {
     line-height: 48px;
   }
   .section-title {
-    font-size: 26px;
-    line-height: 36px;
+    font-size: 28px;
+    line-height: 38px;
   }
   .slick-list {
     padding-top: 30px !important;
@@ -667,8 +692,7 @@ button {
   }
 }
 @media screen and (max-width: 480px) {
-  .section-title {
-    font-size: 26px;
-    line-height: 32px;
+  .default-btn-icon {
+    width: 100%;
   }
 }

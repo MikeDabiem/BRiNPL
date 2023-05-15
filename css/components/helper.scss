@@ -72,30 +72,3 @@ $foot-bg: #ECF0FF;
     padding-top: $pt + 0%;
   }
 }
-
-@keyframes plane-btn {
-  0% {
-    left: 30px;
-    top: 16px;
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    left: 50px;
-    top: 0;
-    opacity: 0;
-    transform: scale(.1);
-  }
-  51% {
-    left: 10px;
-    top: 40px;
-    opacity: 0;
-    transform: scale(.1);
-  }
-  100% {
-    left: 30px;
-    top: 16px;
-    opacity: 1;
-    transform: scale(1);
-  }
-}

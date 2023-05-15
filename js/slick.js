@@ -11,7 +11,7 @@ jQuery(function($){
         nextArrow: $('.brinpl-slider__next'),
         responsive: [
             {
-                breakpoint: 768,
+                breakpoint: 769,
                 settings: {
                     slidesToShow: 1,
                     centerMode: true,

@@ -10,7 +10,9 @@
   }
   &__item {
     border-radius: 6px;
-    margin-bottom: 20px;
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
     &-question {
       color: $black;
       text-transform: uppercase;
@@ -66,9 +68,14 @@
 }
 @media screen and (max-width: 767px) {
   .faq {
-    margin-top: 40px;
+    margin-top: 36px;
+    &__subtitle {
+      margin-top: 12px;
+    }
     &__item {
-      margin-bottom: 14px;
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
       &-question {
         &:hover {
           color: $black;
@@ -88,23 +95,31 @@
     }
   }
 }
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 480px) {
   .faq {
     &__items {
-      margin-top: 30px;
+      margin-top: 24px;
     }
     &__item {
       &-question {
         padding: 20px 60px 18px 20px;
+        font-size: 13px;
+        line-height: 18px;
         &::before {
-          right: 27px;
+          width: 10px;
+          right: 25px;
         }
         &::after {
+          width: 10px;
           right: 20px;
         }
       }
       &-answer {
         padding: 0 20px 18px;
+        & > p {
+          font-size: 13px;
+          line-height: 18px;
+        }
       }
     }
   }

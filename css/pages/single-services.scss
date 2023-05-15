@@ -1,0 +1,104 @@
+.single-service {
+  padding-top: 180px;
+  &__hero {
+    gap: 20px;
+    &-col1 {
+      .page__title {
+        padding: 0;
+      }
+      .hero__btn {
+        margin-top: 32px;
+      }
+    }
+    &-subtitle {
+      margin: 32px 0 0;
+    }
+    &-col2 {
+      width: 100%;
+      max-width: 670px;
+      .img-wrapper {
+        @include image(71);
+      }
+    }
+  }
+  &__articles {
+    margin-top: 100px;
+    .text-img {
+      padding: 0;
+      &__col1-inner {
+        max-width: 100%;
+      }
+      &:not(:first-child) {
+        margin-top: 110px;
+      }
+      &:nth-child(odd) {
+        .text-img__col1 {
+          order: 1;
+        }
+      }
+      .content-column {
+        width: 48%;
+      }
+    }
+    .img-wrapper {
+      @include image(73);
+    }
+  }
+  &__steps {
+    margin-top: 110px;
+    &-content {
+      margin-top: 60px;
+    }
+    &-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      column-gap: 20px;
+      align-items: center;
+      max-width: 760px;
+      margin-inline: auto;
+      padding: 28px 40px 28px 36px;
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+      .img-wrapper {
+        @include image(100);
+        grid-row: span 2;
+      }
+      &-title {
+        text-transform: uppercase;
+        color: $blue;
+        margin: 0;
+        align-self: end;
+      }
+      &-text {
+        margin: 12px 0 0;
+        align-self: start;
+      }
+    }
+  }
+  &__examples {
+    margin-top: 90px;
+    &-content {
+      margin-top: 60px;
+      gap: 30px 20px;
+    }
+    &-item {
+      width: calc((100% - 80px) / 5);
+      &-title {
+        text-transform: uppercase;
+        margin: 16px 0 0;
+      }
+      &-tag {
+        margin-top: 2px;
+      }
+      &-image{
+        &-wrapper {
+          @include image(78);
+        }
+      }
+    }
+  }
+  &__other {
+    margin-top: 90px;
+  }
+}

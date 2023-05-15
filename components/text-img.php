@@ -1,34 +1,22 @@
 <?php
-$wrap = null;
-if (is_page_template("index.php")) {
-    $title = $aboutTitle;
-    $text = $aboutText;
-    $textMore = $aboutTextMore;
-    $image = $aboutImage;
-    $wrap = "main-about__wrapper";
-} else if(is_page_template("about.php")) {
-    $title = $aboutTitle;
-    $text = $aboutText;
-    $textMore = $aboutTextMore;
-    $image = $aboutImage;
-} else if(is_page_template("services.php")) {
-    $title = get_the_title();
-    $text = $servicePostText;
-    $image = get_field("services_post_gif");
+if (isset($tiMobImage)) {
+    $imageClass = 'text-img__image';
+    $mobImageClass = 'text-img__image-mob';
 } else {
-    $title = get_the_title();
+    $imageClass = null;
+    $mobImageClass = null;
 }
-if ($title || $text || $image) { ?>
-    <article class="text-img wrapper d-flex justify-content-between align-items-center <?= $wrap; ?>">
-        <?php if ($title || $text) { ?>
+if (isset($tiTitle) || isset($tiText) || isset($tiImage) || isset($tiMobImage)) { ?>
+    <article class="text-img wrapper d-flex justify-content-between align-items-center">
+        <?php if (isset($tiTitle) || isset($tiText)) { ?>
             <div class="text-img__col1 content-column">
                 <div class="text-img__col1-inner">
-                    <?php if ($title) { ?>
-                        <h3 class="section-title font-bold"><?= $title; ?></h3>
-                    <?php } if ($text) { ?>
-                        <div class="text-img-text wysiwyg-styles"><?= $text; ?></div>
-                        <?php if (isset($textMore)) { ?>
-                            <div class="text-img-text wysiwyg-styles show-more-content"><?= $textMore; ?></div>
+                    <?php if (isset($tiTitle)) { ?>
+                        <h3 class="section-title font-bold"><?= $tiTitle; ?></h3>
+                    <?php } if (isset($tiText)) { ?>
+                        <div class="text-img-text wysiwyg-styles"><?= $tiText; ?></div>
+                        <?php if (isset($tiTextMore)) { ?>
+                            <div class="text-img-text wysiwyg-styles show-more-content"><?= $tiTextMore; ?></div>
                             <button type="button" class="show-more-button input-text transition-default">Show more</button>
                         <?php }
                     } if (isset($button["title"]) && isset($button["url"])) { ?>
@@ -36,14 +24,17 @@ if ($title || $text || $image) { ?>
                     <?php } ?>
                 </div>
             </div>
-        <?php } if ($image) { ?>
+        <?php } if (isset($tiImage) || isset($tiMobImage)) { ?>
             <div class="text-img__col2 content-column">
                 <div class="text-img__col2-inner">
                     <div class="img-wrapper overflow-hidden">
-                        <?php if ($image["subtype"] === "gif") { ?>
-                            <img src="<?= $image["url"]; ?>" alt="<?php $image["alt"]; ?>" class="absolute-cover-img" loading="lazy">
+                        <?php if ($tiImage["subtype"] === "gif") { ?>
+                            <img src="<?= $tiImage["url"]; ?>" alt="<?php $tiImage["alt"]; ?>" class="<?= $imageClass; ?> absolute-cover-img" loading="lazy">
                         <?php } else { ?>
-                            <img src="<?= $image["sizes"]["large"]; ?>" alt="<?php $image["alt"]; ?>" class="absolute-cover-img">
+                            <img src="<?= $tiImage["sizes"]["large"]; ?>" alt="<?php $tiImage["alt"]; ?>" class="<?= $imageClass; ?> absolute-cover-img" loading="lazy">
+                        <?php }
+                        if (isset($tiMobImage)) { ?>
+                            <img src="<?= $tiMobImage["sizes"]["large"]; ?>" alt="<?php $tiMobImage["alt"]; ?>" class="<?= $mobImageClass; ?> absolute-cover-img" loading="lazy">
                         <?php } ?>
                     </div>
                 </div>

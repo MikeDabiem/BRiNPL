@@ -21,8 +21,6 @@
           }
         }
       }
-    }
-    &__wrapper {
       @media screen and (min-width: 1024px) {
         padding: 0 65px;
       }
@@ -44,13 +42,16 @@
 @media screen and (max-width: 767px) {
   .homepage {
     .main-about {
-      margin-top: 60px;
+      margin-top: 36px;
       .text-img {
-        flex-direction: column-reverse;
+        flex-direction: column;
         &__col1 {
           width: 80%;
           &-inner {
             max-width: 100%;
+            & > .text-img-text {
+              margin-top: 20px;
+            }
           }
         }
         &__col2 {

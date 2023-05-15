@@ -3,21 +3,22 @@
   &__content {
     &-item {
       width: calc(50% - 87.5px);
-      margin-top: 60px;
+      margin-top: 80px;
       &-heading {
         gap: 16px;
         .img-wrapper {
+          flex: 0 0 auto;
           position: relative;
-          width: 64px;
-          height: 64px;
+          width: 72px;
+          height: 72px;
           img {
             object-fit: contain;
           }
         }
       }
       &-title {
-        max-width: 230px;
         margin-bottom: 0;
+        text-transform: uppercase;
       }
       &-text {
         margin: 22px 0 0;
@@ -35,31 +36,37 @@
 }
 @media screen and (max-width: 767px) {
   .things {
-    margin-top: 40px;
+    margin-top: 36px;
     &__content {
       flex-direction: column;
-      margin-top: 8px;
+      margin-top: 20px;
       &-item {
         width: 100%;
-        margin-top: 16px;
         border-radius: 4px;
         box-shadow: 2px 6px 24px 1px rgba(227, 229, 237, 0.75);
-        padding: 20px 32px;
+        padding: 16px 24px;
+        &:not(:first-child) {
+          margin-top: 12px;
+        }
+        &:first-child {
+          margin-top: 0;
+        }
         &-heading {
           .img-wrapper {
-            width: 45px;
-            height: 45px;
+            width: 56px;
+            height: 56px;
           }
         }
         &-title {
-          max-width: 100%;
           font-size: 18px;
           line-height: 23px;
         }
         &-text {
           margin-top: 10px;
-          font-size: 12px;
-          line-height: 16px;
+          & > p {
+            font-size: 14px;
+            line-height: 20px;
+          }
         }
       }
     }

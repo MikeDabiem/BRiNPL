@@ -69,7 +69,7 @@ function services_post_type()
 {
     register_post_type("services", [
         "public" => true,
-        "supports" => ["title", "thumbnail", "revisions", "editor"],
+        "supports" => ["title", "thumbnail", "revisions"],
         "labels" => [
             "name" => "Services",
             "add_new_item" => "Add"

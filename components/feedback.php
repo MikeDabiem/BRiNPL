@@ -25,7 +25,7 @@ if($feedbackImage || $feedbackTitle || $feedbackSubtitle || $feedbackButton) { ?
                 <?php } if($feedbackSubtitle) { ?>
                     <p class="feedback__subtitle contacts-text"><?= $feedbackSubtitle; ?></p>
                 <?php } if(isset($feedbackButton["title"]) && isset($feedbackButton["url"])) { ?>
-                    <a href="<?= $feedbackButton["url"]; ?>" class="feedback__btn default-btn-icon transition-default d-inline-flex">
+                    <a href="<?= $feedbackButton["url"]; ?>" class="feedback__btn default-btn-icon font-bold transition-default d-inline-flex">
                         <img src="<?php bloginfo("template_url"); ?>/images/Plane.svg" alt="plane">
                         <?= $feedbackButton["title"]; ?>
                     </a>

@@ -7,13 +7,9 @@ jQuery(function ($) {
         const emailInput = $("#staffing-email");
         const messageInput = $("#staffing-message");
         const labelInput = $("#staffing-label");
-        $('.popup__form-btn').on('click', function() {
-            contactForm.submit();
-        });
         contactForm.on("submit", function (e) {
             e.preventDefault();
             labelInput.val($(".popup__title").text());
-            console.log(labelInput.val());
             if (!nameInput.hasClass('error') && !emailInput.hasClass('error')) {
                 contactFormPreloader.addClass("preloader-visible");
             }

@@ -6,7 +6,7 @@
       &__slides {
         margin: 56px 0;
         .slick-slide {
-          margin: 0 12px;
+          margin: 0 10px;
           &>div {
             height: 100%;
           }
@@ -35,17 +35,46 @@
           object-fit: cover;
         }
       }
+      .small-title {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .about-page {
+    .reviews__item {
+      padding: 30px;
     }
   }
 }
 @media screen and (max-width: 767px) {
   .about-page {
     .reviews {
-      margin-top: 40px;
+      margin-top: 36px;
+      &__item {
+        padding: 20px 16px 30px;
+        &-status {
+          margin-bottom: 10px;
+          font-size: 13px;
+        }
+        .wysiwyg-styles {
+          & > p {
+            font-size: 13px;
+            line-height: 18px;
+          }
+        }
+      }
       .brinpl-slider {
         &__slides {
           margin: 28px 0;
+          .slick-slide {
+            margin: 0 6px;
+          }
         }
+      }
+      .reviews-slider__buttons {
+        display: none;
       }
     }
   }

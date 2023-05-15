@@ -13,6 +13,11 @@
   &-text {
     margin: 28px 0 0;
   }
+  &__image {
+    &-mob {
+      display: none;
+    }
+  }
   &__btn {
     margin-top: 40px;
   }
@@ -24,6 +29,9 @@
 @media screen and (max-width: 767px) {
   .text-img {
     flex-direction: column;
+    &-text {
+      margin-top: 20px;
+    }
     &__col2 {
       margin-bottom: 30px;
     }
@@ -32,6 +40,12 @@
       max-width: 100%;
       .img-wrapper {
         @include image(100);
+      }
+    }
+    &__image {
+      display: none;
+      &-mob {
+        display: block;
       }
     }
     .content-column {

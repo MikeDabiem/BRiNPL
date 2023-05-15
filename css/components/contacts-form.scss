@@ -2,7 +2,7 @@
   .form {
     &__sender {
       gap: 16px;
-      margin-top: 24px;
+      margin-top: 16px;
       margin-bottom: 16px;
       .form__group {
         width: calc(50% - 8px);
@@ -15,19 +15,20 @@
         right: 8px;
         width: 30px;
         height: 30px;
-        background: #E0E5F8;
-        border-radius: 2px;
         z-index: 2;
         cursor: pointer;
         text-align: center;
+        opacity: .6;
       }
     }
   }
   #form-message {
     padding-right: 43px;
+    resize: none;
+    height: 46px;
   }
   &-services {
-    margin: 40px 0 24px;
+    margin: 24px 0;
   }
   .feedback-form-filename {
     position: absolute;
@@ -58,6 +59,13 @@
     }
   }
   &-btn {
-    margin-top: 36px;
+    margin-top: 30px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .contacts__form {
+    #form-message {
+      height: 80px;
+    }
   }
 }

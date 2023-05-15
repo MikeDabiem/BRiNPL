@@ -6,7 +6,7 @@
   &::after {
     content: '';
     position: absolute;
-    bottom: 100px;
+    bottom: 70px;
     left: 0;
     right: 0;
     height: 100%;
@@ -52,13 +52,10 @@
       background: url("../../images/specular.png") 0 0/contain no-repeat;
       position: absolute;
       height: 300px;
-      width: 300px;
-      bottom: 0;
+      width: 330px;
+      bottom: -15px;
       left: -60%;
       z-index: -1;
-    }
-    .section-title {
-      margin-bottom: 40px;
     }
   }
   .steps {
@@ -89,7 +86,7 @@
         width: 44px;
         height: 44px;
         border-radius: 30px;
-        background: $bg-white;
+        background: $white;
         margin: 0 auto;
       }
       &-text {
@@ -102,9 +99,13 @@
     grid-column: span 2;
     margin-top: 210px;
     position: relative;
+    .section-title {
+      max-width: 480px;
+      margin-inline: auto;
+    }
     &__btn {
       width: fit-content;
-      margin: 60px auto 0;
+      margin: 30px auto 0;
       position: relative;
       a {
         font-size: 16px;
@@ -164,6 +165,7 @@
       }
       .contacts__form-services {
         margin-top: 0;
+        margin-bottom: 16px;
       }
     }
     .steps {
@@ -208,12 +210,11 @@
       bottom: 30px;
     }
     &__form {
-      .section-title {
-        max-width: 270px;
-      }
       .form__sender {
         flex-direction: column;
-        margin-top: 10px;
+        gap: 10px;
+        margin-top: 4px;
+        margin-bottom: 10px;
         .form__group {
           width: 100%;
         }

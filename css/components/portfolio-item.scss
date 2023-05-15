@@ -25,5 +25,9 @@
 @media screen and (max-width: 479px) {
   .portfolio-page__list-item {
     width: 100%;
+    &-title {
+      font-size: 16px;
+      margin-top: 12px;
+    }
   }
 }

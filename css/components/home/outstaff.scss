@@ -1,5 +1,5 @@
 .outstaff {
-  padding-top: 40px;
+  margin-top: 60px;
   &__new {
     color: $blue;
     text-transform: uppercase;
@@ -49,6 +49,8 @@
         margin-bottom: 4px;
       }
       &-text {
+        font-size: 14px;
+        line-height: 21px;
         margin-bottom: 24px;
       }
       &-btn {
@@ -85,7 +87,16 @@
 }
 @media screen and (max-width: 767px) {
   .outstaff {
-    padding-top: 30px;
+    margin-top: 30px;
+    &__new {
+      font-size: 12px;
+      line-height: 18px;
+      &::before {
+        width: 12px;
+        height: 12px;
+        margin-right: 8px;
+      }
+    }
   }
 }
 @media screen and (max-width: 639px) {

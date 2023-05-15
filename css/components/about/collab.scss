@@ -20,15 +20,15 @@
 @media screen and (max-width: 767px) {
   .about-page {
     .collab {
-      margin-top: 40px;
+      margin-top: 6px;
       &__posts {
-        margin-top: 30px;
+        margin-top: 20px;
         flex-direction: column;
+        gap: 12px;
       }
       &__post {
         width: 100%;
         padding: 0;
-        border: 1px solid transparent;
         &-header {
           &.active {
             .collab__post-title {
@@ -55,12 +55,9 @@
           padding: 0 16px 28px 16px;
           display: none;
           p {
-            font-size: 12px;
-            line-height: 17px;
+            font-size: 13px;
+            line-height: 18px;
           }
-        }
-        &.active {
-          border: 1px solid rgba(42, 82, 255, 0.25);
         }
       }
     }

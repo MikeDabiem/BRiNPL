@@ -38,6 +38,10 @@
           }
           &__col1 {
             order: 1;
+            .section-title,
+            .text-img-text {
+              text-align: center;
+            }
           }
         }
       }

@@ -17,6 +17,6 @@ $title = get_the_title(); ?>
         <?php } ?>
     </div>
     <?php if ($title) { ?>
-        <h3 class="portfolio-page__list-item-title transition-default text-center font-bold"><?= $title; ?></h3>
+        <h3 class="portfolio-page__list-item-title transition-default text-center"><?= $title; ?></h3>
     <?php } ?>
 </a>
