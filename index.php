@@ -89,41 +89,10 @@
     $portfolio = new WP_Query(["posts_per_page" => -1, "post__in" => $portfolioPosts]);
     if ($portfolio->have_posts()) :
         $title = get_field("portfolio_title");
-        $link = get_field("portfolio_link"); ?>
-        <section class="portfolio-home wrapper">
-            <?php if ($title || (isset($link["title"]) && isset($link["url"]))) {
-                if ($title) { ?>
-                    <h3 class="section-title font-bold"><?= $title; ?></h3>
-                <?php } ?>
-            <?php } ?>
-            <div class="portfolio-home__items d-flex">
-                <?php while($portfolio->have_posts()) : $portfolio->the_post();
-                    $id = get_the_ID();
-                    $title = get_the_title();
-                    $thumb = get_the_post_thumbnail_url($id, "medium_large");
-                    $thumbID = get_post_thumbnail_id($id);
-                    $alt = get_post_meta($thumbID, '_wp_attachment_image_alt', true); ?>
-                    <a href="<?php the_permalink(); ?>" class="portfolio-home__item scroll-image-trigger d-block">
-                        <div class="portfolio-home__item-image-wrapper scroll-image-wrapper img-shadow overflow-hidden <?php $thumb ? null : print "not-set-img"; ?>">
-                            <?php if ($thumb) { ?>
-                                <img src="<?= $thumb; ?>" alt="<?= $alt; ?>" class="portfolio-home__item-image scroll-image transition-default" loading="lazy">
-                            <?php } else if ($notSetImg) { ?>
-                                <img src="<?= $notSetImg["sizes"]["medium"]; ?>" alt="<?= $notSetImg["alt"]; ?>" class="absolute-cover-img">
-                            <?php } else { ?>
-                                <img src="<?php bloginfo("template_url"); ?>/images/logo.svg" alt="image" class="absolute-cover-img">
-                            <?php } ?>
-                        </div>
-                        <?php if ($title) { ?>
-                            <h5 class="portfolio-home__item-title transition-default contacts-text"><?= $title; ?></h5>
-                        <?php } ?>
-                    </a>
-                <?php endwhile; ?>
-            </div>
-            <?php if (isset($link["title"]) && isset($link["url"])) { ?>
-                <a href="<?= $link["url"]; ?>" class="portfolio-home__link default-btn font-bold transition-default d-block mx-auto"><?= $link["title"]; ?></a>
-            <?php } ?>
-        </section>
-    <?php endif;
+        $link = get_field("portfolio_link");
+        $wrapper = 'wrapper';
+        require "components/portfolio-slider.php";
+    endif;
     wp_reset_query();
     $tiTitle = get_field("about_title");
     $tiText = get_field("about_text");

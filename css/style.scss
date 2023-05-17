@@ -1,30 +1,32 @@
 //Fonts
-@import "components/fonts.scss";
+@import "components/fonts";
 
 //Components
-@import "components/helper.scss";
-@import "components/common.scss";
-@import "components/header.scss";
-@import "components/lets-talk.scss";
-@import "components/footer.scss";
-@import "components/page-head.scss";
-@import "components/social-links.scss";
-@import "components/text-img.scss";
-@import "components/feedback.scss";
-@import "components/feedback-form.scss";
-@import "components/social-link-img.scss";
-@import "components/contacts-form.scss";
-@import "components/modal-gallery.scss";
+@import "components/helper";
+@import "components/common";
+@import "components/header";
+@import "components/lets-talk";
+@import "components/footer";
+@import "components/page-head";
+@import "components/social-links";
+@import "components/text-img";
+@import "components/feedback";
+@import "components/feedback-form";
+@import "components/social-link-img";
+@import "components/contacts-form";
+@import "components/modal-gallery";
+@import "components/small-card";
+@import "components/faq";
 
-@import "components/about/strategy.scss";
-@import "components/about/reviews.scss";
-@import "components/about/collab.scss";
+@import "components/about/strategy";
+@import "components/about/reviews";
+@import "components/about/collab";
 
 //Pages
-@import "pages/home.scss";
-@import "pages/services.scss";
-@import "pages/single-services.scss";
-@import "pages/about.scss";
-@import "pages/portfolio.scss";
-@import "pages/single.scss";
-@import "pages/contacts.scss";
+@import "pages/home";
+@import "pages/services";
+@import "pages/single-services";
+@import "pages/about";
+@import "pages/portfolio";
+@import "pages/single";
+@import "pages/contacts";

@@ -35,8 +35,10 @@
         & > a {
           color: $black;
           position: relative;
-          &:hover {
-            color: $blue;
+          @media (hover: hover) {
+            &:hover {
+              color: $blue;
+            }
           }
         }
         &.current_page_item {

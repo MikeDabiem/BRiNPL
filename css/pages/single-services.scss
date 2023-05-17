@@ -3,6 +3,7 @@
   &__hero {
     gap: 20px;
     &-col1 {
+      max-width: 528px;
       .page__title {
         padding: 0;
       }
@@ -23,6 +24,7 @@
   }
   &__articles {
     margin-top: 100px;
+    align-items: flex-start !important;
     .text-img {
       padding: 0;
       &__col1-inner {
@@ -44,8 +46,40 @@
       @include image(73);
     }
   }
-  &__steps {
+  &__industries {
     margin-top: 110px;
+    &-cards {
+      margin-top: 30px;
+      max-width: 1035px;
+      margin-inline: auto;
+      .brinpl-small-card {
+        height: 170px;
+        margin-inline: 10px;
+        &:not(:first-child) {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  &__expertise {
+    margin-top: 60px;
+    &-slide-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px
+    }
+    &-cards {
+      margin-top: 30px;
+      .slick-track {
+        gap: 20px;
+      }
+      .brinpl-small-card {
+        height: 180px;
+      }
+    }
+  }
+  &__steps {
+    margin-top: 60px;
     &-content {
       margin-top: 60px;
     }
@@ -100,5 +134,159 @@
   }
   &__other {
     margin-top: 90px;
+    .all-services__tab {
+      margin-top: 30px;
+    }
+  }
+  @media screen and (min-width:769px) and (max-width: 1023px) {
+    &__hero {
+      &-col1 {
+        max-width: 50%;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    padding-top: 96px;
+    &__hero {
+      flex-direction: column-reverse;
+      &-col1 {
+        text-align: center;
+      }
+      &-subtitle,
+      .hero__btn {
+        margin-top: 20px;
+      }
+    }
+    &__articles {
+      margin-top: 36px;
+      .text-img {
+        &__col1 {
+          margin-top: 24px;
+          order: 1;
+        }
+        &:not(:first-child) {
+          margin-top: 40px;
+        }
+        .content-column {
+          width: 100%;
+        }
+      }
+    }
+    &__industries {
+      margin-top: 36px;
+      &-cards {
+        margin-top: 0;
+      }
+    }
+    &__expertise {
+      margin-top: 6px;
+      margin-bottom: -30px;
+      &-cards {
+        margin-top: 0;
+      }
+    }
+    &__steps {
+      margin-top: 36px;
+      &-content {
+        margin-top: 20px;
+      }
+    }
+    &__examples {
+      margin-top: 36px;
+      &-item {
+        width: calc((100% - 20px) / 2);
+      }
+    }
+    &__other {
+      margin-top: 36px;
+      margin-bottom: -30px;
+      .all-services__tab {
+        margin-top: 0;
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    &__steps {
+      &-item {
+        grid-template-columns: 56px 1fr;
+        column-gap: 12px;
+        padding: 20px 16px;
+        &:not(:first-child) {
+          margin-top: 12px;
+        }
+        .img-wrapper {
+          grid-row: 1;
+        }
+        &-title {
+          font-size: 18px;
+          line-height: 25px;
+          align-self: center;
+        }
+        &-text {
+          grid-row: 2;
+          grid-column: span 2;
+          font-size: 14px;
+          line-height: 20px;
+          padding-inline: 4px;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    &__examples {
+      &-content {
+        margin-top: 20px;
+        gap: 15px 12px;
+      }
+      &-item {
+        width: calc((100% - 12px) / 2);
+        &-title {
+          font-size: 16px;
+          line-height: 20px;
+          margin-top: 10px;
+        }
+        &-tag {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    &__industries-cards {
+      .brinpl-small-card {
+        height: 140px;
+        margin-inline: 6px;
+        &:not(:first-child) {
+          margin-top: 12px;
+        }
+        &-title {
+          margin-top: 4px;
+        }
+        .img-wrapper {
+          max-width: 64px;
+        }
+      }
+    }
+    &__expertise {
+      &-cards {
+        .slick-track {
+          gap: 12px;
+        }
+        .brinpl-small-card {
+          height: 160px;
+          &-title {
+            margin-top: 4px;
+          }
+          .img-wrapper {
+            max-width: 64px;
+          }
+        }
+      }
+      &-slide-item {
+        gap: 12px;
+      }
+    }
   }
 }

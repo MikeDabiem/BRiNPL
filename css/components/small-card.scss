@@ -1,0 +1,17 @@
+.brinpl-small-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: $white;
+  padding: 24px;
+  overflow: hidden;
+  &-title {
+    margin: 10px 0 0;
+  }
+  .img-wrapper {
+    @include image(100);
+    width: 100%;
+    max-width: 70px;
+  }
+}

@@ -33,17 +33,28 @@
                     <div class="portfolio-single__content-descr-text font-medium">
                         <?= $contentText; ?>
                     </div>
+                <?php }
+                $socialLinks = get_field("portfolio_social_links", "options");
+                $websiteLink = get_field("website_link");
+                if (!empty($socialLinks) || $websiteLink) { ?>
+                    <div class="portfolio-single__content-descr-links d-flex align-items-center">
+                        <?php if (!empty($socialLinks)) { ?>
+                            <div class="portfolio-single__socials d-flex flex-wrap">
+                                <?php foreach ($socialLinks as $link) {
+                                    if ($link["portfolio_social_link_url"] && $link["portfolio_social_link_image"]) { ?>
+                                        <a href="<?= $link["portfolio_social_link_url"] ?>" class="social-link-img" target="_blank">
+                                            <img src="<?= $link["portfolio_social_link_image"]["sizes"]["medium"]; ?>" alt="<?= $link["portfolio_social_link_image"]["alt"]; ?>" class="absolute-cover-img">
+                                        </a>
+                                    <?php }
+                                } ?>
+                            </div>
+                        <?php } if ($websiteLink) { ?>
+                            <div class="portfolio-single__website-link font-bold">
+                                <a href="<?= $websiteLink; ?>" target="_blank">Link to website</a>
+                            </div>
+                        <?php } ?>
+                    </div>
                 <?php } ?>
-                <?php $socialLinks = get_field("portfolio_social_links", "options");
-                if ($socialLinks) {
-                    foreach ($socialLinks as $link) {
-                        if ($link["portfolio_social_link_url"] && $link["portfolio_social_link_image"]) { ?>
-                            <a href="<?= $link["portfolio_social_link_url"] ?>" class="social-link-img" target="_blank">
-                                <img src="<?= $link["portfolio_social_link_image"]["sizes"]["medium"]; ?>" alt="<?= $link["portfolio_social_link_image"]["alt"]; ?>" class="absolute-cover-img">
-                            </a>
-                        <?php }
-                    }
-                } ?>
             </article>
         </div>
     </div>

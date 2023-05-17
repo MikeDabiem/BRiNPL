@@ -28,7 +28,6 @@
     margin-top: 90px;
   }
   @import "../components/about/things.scss";
-  @import "../components/about/faq.scss";
 }
 @media screen and (max-width: 1024px) {
   .about-page {
@@ -40,10 +39,13 @@
     }
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .about-page {
     .about__first {
       padding-top: 90px;
+      .section-title {
+        max-width: 100%;
+      }
       .text-img {
         flex-direction: column;
         &__col1 {

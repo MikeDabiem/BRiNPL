@@ -9,6 +9,7 @@ get_header(); ?>
                 $tiTitle = get_the_title();
                 $tiText = get_field('services_post_description');
                 $tiImage = get_field("services_post_image");
+                $tiButton = get_field("services_post_button");
                 require get_template_directory() . '/components/text-img.php';
             endwhile; ?>
         </section>

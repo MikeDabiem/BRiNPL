@@ -19,21 +19,18 @@
     }
   }
   &__btn {
-    margin-top: 40px;
+    margin-top: 32px;
   }
   .content-column {
     width: calc(50% - 12px);
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .text-img {
     flex-direction: column;
     &-text {
       margin-top: 20px;
-    }
-    &__col2 {
-      margin-bottom: 30px;
     }
     &__col1-inner,
     &__col2-inner {
@@ -48,9 +45,11 @@
         display: block;
       }
     }
+    &__btn {
+      margin-top: 20px;
+    }
     .content-column {
       width: 100%;
     }
-
   }
 }

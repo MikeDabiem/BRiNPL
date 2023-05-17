@@ -10,15 +10,14 @@
             @include image(73.5);
           }
         }
-        &:nth-child(even) {
+        &:nth-child(odd) {
           .text-img__col1 {
-            order: 2;
+            order: 1;
             &-inner {
               margin-left: auto;
             }
           }
           .text-img__col2 {
-            order: 1;
             &-inner {
               margin-left: 0;
             }
@@ -38,6 +37,7 @@
           }
           &__col1 {
             order: 1;
+            margin-top: 24px;
             .section-title,
             .text-img-text {
               text-align: center;

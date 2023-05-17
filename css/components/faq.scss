@@ -52,11 +52,13 @@
           transform: rotate(45deg);
         }
       }
-      &:hover {
-        color: $blue;
-        &::before,
-        &::after {
-          background: $blue;
+      @media (hover: hover) {
+        &:hover {
+          color: $blue;
+          &::before,
+          &::after {
+            background: $blue;
+          }
         }
       }
     }

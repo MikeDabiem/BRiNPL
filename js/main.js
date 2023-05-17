@@ -190,13 +190,18 @@ jQuery(function ($) {
 /*END OVERFLOW MODAL FIX*/
 
 // Activate Menu Portfolio link on single.php page
-    if ($('.portfolio-close').length) {
-        $('.menu-item').find(`a[href='${$('.portfolio-close').attr('href')}']`).parent().addClass('current_page_item ');
+    if ($('.portfolio-single').length) {
+        $('.menu-item').find(`a[href='${document.location.origin}/portfolio/']`).parent().addClass('current_page_item ');
     }
-// END Activate Menu Portfolio link on single.php page
+
+// Activate Menu Services link on single-services.php page
+    if ($('.single-service').length) {
+        $('.menu-item').find(`a[href='${document.location.origin}/services/']`).parent().addClass('current_page_item ');
+    }
+
 
 // Portfolio AJAX
-    if ($('.portfolio-page')) {
+    if ($('.portfolio-page').length) {
         $('.portfolio__filter-buttons').on('change', function() {
            $('.portfolio-page__list').animate({opacity: .5}, 400);
            const data = {

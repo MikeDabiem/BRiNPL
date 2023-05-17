@@ -29,7 +29,7 @@
         <p class="feedback-form-filename font-medium"></p>
     </div>
     <div class="position-relative">
-        <button type="submit" class="contacts__form-btn default-btn">Submit</button>
+        <button type="submit" class="contacts__form-btn default-btn font-bold">Submit</button>
         <div class="preloader contact-form-preloader position-absolute">
             <div></div>
             <div></div>

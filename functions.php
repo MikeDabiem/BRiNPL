@@ -239,7 +239,7 @@ function portfolio_filter() {
     $portfolio = new WP_Query($args);
     if ($portfolio->have_posts()): ?>
         <?php while ($portfolio->have_posts()) : $portfolio->the_post();
-            get_template_part('components/portfolio-item');
+            get_template_part('components/portfolio-page-item');
         endwhile; ?>
     <?php else: ?>
         <section class="no-posts w-100">

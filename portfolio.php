@@ -20,7 +20,7 @@
     <?php if ($portfolio->have_posts()): ?>
         <div class="portfolio-page__list wrapper d-flex flex-wrap">
             <?php while ($portfolio->have_posts()) : $portfolio->the_post();
-                get_template_part('components/portfolio-item');
+                get_template_part('components/portfolio-page-item');
             endwhile; ?>
         </div>
     <?php else: ?>

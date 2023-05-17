@@ -54,6 +54,11 @@ body {
   color: $black;
 }
 
+.font-40-52 {
+  font-size: 40px;
+  line-height: 52px;
+}
+
 .section-title {
   font-size: 36px;
   line-height: 47px;
@@ -147,7 +152,7 @@ body {
 .default-btn-icon {
   @include btn-color;
   @include btn-size;
-  padding: 16px 28px;
+  padding: 18px 28px;
   justify-content: center;
   & > img {
     position: relative;

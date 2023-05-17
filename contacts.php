@@ -59,7 +59,7 @@
                 <h3 class="section-title font-bold text-center"><?= $ctaTitle; ?></h3>
                 <?php if(isset($ctaButton["title"]) && isset($ctaButton["url"])) { ?>
                     <div class="call-to-action__btn text-center">
-                        <a href="<?= $ctaButton["url"]; ?>" class="default-btn d-inline-block"><?= $ctaButton["title"]; ?></a>
+                        <a href="<?= $ctaButton["url"]; ?>" class="default-btn font-bold d-inline-block"><?= $ctaButton["title"]; ?></a>
                     </div>
                 <?php } ?>
             </section>

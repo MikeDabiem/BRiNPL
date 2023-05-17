@@ -1,7 +1,5 @@
 <?php get_header();
-$notSetImg = get_field("header_logo", "options");
-$serviceExpertiseTitle = get_field("single_service_expertise_title");
-$serviceExpertise = get_field("single_service_expertise_cards"); ?>
+$notSetImg = get_field("header_logo", "options"); ?>
 <div class="single-service wrapper filler">
     <?php $heroTitle = get_the_title();
     $heroSubtitle = get_field("single_service_subtitile");
@@ -11,9 +9,9 @@ $serviceExpertise = get_field("single_service_expertise_cards"); ?>
         <section class="single-service__hero d-flex align-items-center">
             <?php if ($heroTitle) { ?>
                 <div class="single-service__hero-col1">
-                    <h2 class="page__title font-bold"><?= $heroTitle; ?></h2>
+                    <h2 class="page__title font-bold mb-0"><?= $heroTitle; ?></h2>
                     <?php if ($heroSubtitle) { ?>
-                        <p class="single-service__hero-subtitle contacts-text"><?= $heroSubtitle; ?></p>
+                        <p class="single-service__hero-subtitle contacts-text font-medium"><?= $heroSubtitle; ?></p>
                     <?php } if (isset($heroButton["title"]) && isset($heroButton["url"])) { ?>
                         <a href="<?= $heroButton["url"]; ?>" class="hero__btn font-bold default-btn-icon transition-default d-inline-flex">
                             <img src="<?php bloginfo("template_url"); ?>/images/Plane.svg" alt="plane">
@@ -36,6 +34,7 @@ $serviceExpertise = get_field("single_service_expertise_cards"); ?>
             <?php foreach ($serviceArticles as $article) {
                 $tiTitle = $article["single_service_article_title"];
                 $tiText = $article["single_service_article_text"];
+                $tiTextMore = $article["single_service_article_text_more"];
                 $tiImage = $article["single_service_article_image"];
                 require "components/text-img.php";
             } ?>
@@ -46,18 +45,40 @@ $serviceExpertise = get_field("single_service_expertise_cards"); ?>
     if (!empty($serviceIndustries)) { ?>
         <section class="single-service__industries">
             <?php if ($serviceIndustriesTitle) { ?>
-                <h3 class="section-title"><?= $serviceIndustriesTitle; ?></h3>
+                <h3 class="section-title font-bold text-center"><?= $serviceIndustriesTitle; ?></h3>
             <?php } ?>
             <div class="single-service__industries-cards">
-                <?php foreach ($serviceIndustries as $industry) { ?>
-                    <div class="single-service__industries-cards-item">
-                        <?php if ($industry["industries_card_image"]) { ?>
-                            <div class="img-wrapper">
-                                <img src="<?= $industry["industries_card_image"]["sizes"]["medium"]; ?>" alt="<?= $industry["industries_card_image"]["alt"]; ?>" class="absolute-cover-img">
-                            </div>
-                        <?php } if ($industry["industries_card_title"]) { ?>
-                            <h4 class="single-service__industries-cards-item-title"><?= $industry["industries_card_title"]; ?></h4>
-                        <?php } ?>
+                <?php $industriesSlides = array_chunk($serviceIndustries, 2);
+                foreach ($industriesSlides as $industry) { ?>
+                    <div class="single-service__industries-slide">
+                        <?php foreach ($industry as $item) {
+                            $smallCardImage = $item["industries_card_image"];
+                            $smallCardTitle = $item["industries_card_title"];
+                            require "components/small-card.php";
+                        } ?>
+                    </div>
+                <?php } ?>
+            </div>
+        </section>
+    <?php }
+    $serviceExpertiseTitle = get_field("single_service_expertise_title");
+    $serviceExpertise = get_field("single_service_expertise_cards");
+    if (!empty($serviceExpertise)) { ?>
+        <section class="single-service__expertise">
+            <?php if ($serviceExpertiseTitle) { ?>
+                <h3 class="section-title font-bold text-center"><?= $serviceExpertiseTitle; ?></h3>
+            <?php } ?>
+            <div class="single-service__expertise-cards">
+                <?php $expertiseSlides = array_chunk($serviceExpertise, 4);
+                foreach ($expertiseSlides as $expertise) { ?>
+                    <div class="single-service__expertise-slide">
+                        <div class="single-service__expertise-slide-item">
+                            <?php foreach ($expertise as $item) {
+                                $smallCardImage = $item["expertise_card_image"];
+                                $smallCardTitle = $item["expertise_card_title"];
+                                require "components/small-card.php";
+                            } ?>
+                        </div>
                     </div>
                 <?php } ?>
             </div>
@@ -72,16 +93,17 @@ $serviceExpertise = get_field("single_service_expertise_cards"); ?>
             <?php } if (!empty($serviceSteps)) { ?>
                 <div class="single-service__steps-content">
                     <?php foreach ($serviceSteps as $step) {
-                        if (isset($step["single_service_step_image"]) || isset($step["single_service_step_title"]) || isset($step["single_service_step_text"])) { ?>
+                        if ($step["single_service_step_image"] || isset($step["single_service_step_title"]) || isset($step["single_service_step_text"])) { ?>
                             <article class="single-service__steps-item img-shadow">
-                                <?php if (isset($step["single_service_step_image"])) { ?>
-                                    <div class="img-wrapper">
+                                <div class="img-wrapper">
+                                    <?php if ($step["single_service_step_image"]) { ?>
                                         <img src="<?= $step["single_service_step_image"]["sizes"]["medium"]; ?>" alt="<?= $step["single_service_step_image"]["alt"]; ?>" class="absolute-cover-img">
-                                    </div>
-                                <?php } if (isset($step["single_service_step_title"])) { ?>
+                                    <?php } ?>
+                                </div>
+                                <?php if (isset($step["single_service_step_title"])) { ?>
                                     <h4 class="single-service__steps-item-title key-title font-bold"><?= $step["single_service_step_title"]; ?></h4>
                                 <?php } if (isset($step["single_service_step_text"])) { ?>
-                                    <p class="single-service__steps-item-text font-medium"><?= $step["single_service_step_text"]; ?></p>
+                                    <p class="single-service__steps-item-text font-medium small-title"><?= $step["single_service_step_text"]; ?></p>
                                 <?php } ?>
                             </article>
                         <?php }
@@ -124,16 +146,27 @@ $serviceExpertise = get_field("single_service_expertise_cards"); ?>
             </div>
         </section>
     <?php }
-    $serviceFAQ = get_field("single_service_faq");
-    if (!empty($serviceFAQ)) { ?>
-        <section class="single-service__faq">
-
-        </section>
-    <?php }
+    $faqTitle = get_field("single_service_faq_title");
+    $faqSubtitle = get_field("single_service_faq_subtitle");
+    $faqItem = get_field("single_service_faq");
+    if (!empty($faqItem)) {
+        require "components/faq.php";
+    }
+    $portfolioItems = get_field("single_service_our_portfolio_items");
+    if (!empty($portfolioItems)) {
+        $portfolio = new WP_Query(["posts_per_page" => 3, "post__in" => $portfolioItems]);
+        if ($portfolio->have_posts()) :
+            $title = get_field("single_service_our_portfolio_title");
+            $link = get_field("single_service_our_portfolio_link");
+            require "components/portfolio-slider.php";
+        endif;
+        wp_reset_query();
+    }
     $postID = get_the_ID();
     $services = new WP_Query(["post_type" => "services", "post_per_page" => -1, "post__not_in" => [$postID]]);
     if ($services->have_posts()): ?>
         <section class="single-service__other">
+            <h3 class="section-title font-bold text-center">Other services</h3>
             <?php require "components/all-services-slider.php"; ?>
         </section>
     <?php else:endif; ?>
