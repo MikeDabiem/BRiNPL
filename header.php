@@ -19,6 +19,7 @@
 </head>
 <body>
 <?php wp_body_open();
+$notSetImg = get_field("header_logo", "options");
 $logo = get_field("header_logo", "options");
 $locations = get_nav_menu_locations();
 $headerMenu = wp_get_nav_menu_items($locations["menuHeaderMobile"]);

@@ -1311,7 +1311,7 @@ button:-ms-input-placeholder {
 .contacts__form .feedback-form-filename {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   font-size: 14px;
   line-height: 19px;
   color: #C7C8D2;

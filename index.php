@@ -1,8 +1,5 @@
 <?php /* Template Name: Home Template */
-    get_header();
-    $currentID = get_the_ID();
-    $notSetImg = get_field("header_logo", "options");
-?>
+get_header(); ?>
 <main class="homepage filler">
     <?php
     $heroTitle = get_field("hero_title");
@@ -86,7 +83,7 @@
         </section>
     <?php }
     $portfolioPosts = get_field("portfolio_elements");
-    $portfolio = new WP_Query(["posts_per_page" => -1, "post__in" => $portfolioPosts]);
+    $portfolio = new WP_Query(["posts_per_page" => 3, "post__in" => $portfolioPosts]);
     if ($portfolio->have_posts()) :
         $title = get_field("portfolio_title");
         $link = get_field("portfolio_link");
@@ -103,8 +100,7 @@
             <?php require get_template_directory() . "/components/text-img.php"; ?>
         </section>
     <?php }
-    get_template_part("components/feedback");
-    ?>
+    get_template_part("components/feedback"); ?>
 </main>
 <div class="popup">
     <button type="button" class="popup__close transition-default justify-content-center align-items-center"><img src="<?php bloginfo("template_url"); ?>/images/portf-close.svg" alt="close"></button>
@@ -112,7 +108,7 @@
         <section class="popup__body position-relative">
             <h2 class="d-none">Outstaffing</h2>
             <div class="popup__content overflow-auto"></div>
-            <button type="button" class="popup__btn default-btn font-bold">Send a message  </button>
+            <button type="button" class="popup__btn default-btn font-bold">Send a message</button>
             <form id="staffing-form" class="popup__form">
                 <div class="d-flex justify-content-between flex-wrap">
                     <div class="form__group">

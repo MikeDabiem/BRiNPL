@@ -1,8 +1,6 @@
 <?php /* Template Name: Portfolio Template */
-    get_header();
-    $portfolio = new WP_Query(["posts_per_page" => -1, 'category_name' => "uiux-design"]);
-    $notSetImg = get_field("header_logo", "options");
-?>
+get_header();
+$portfolio = new WP_Query(["posts_per_page" => -1, 'category_name' => "uiux-design"]); ?>
 <section class="portfolio-page filler">
     <?php get_template_part("components/page-head");
     $categories = get_categories();

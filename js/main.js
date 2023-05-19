@@ -44,6 +44,8 @@ jQuery(function ($) {
 // popup show form (and AJAX)
     const popup = $('.popup');
     if (popup.length) {
+        const popupBtn = $('.popup__btn');
+        const popupForm = $('.popup__form');
         $('.outstaff__content-card').on('click', function() {
             const btn = $(this).find('.outstaff__content-card-btn');
             btn.find('span').hide();
@@ -60,10 +62,10 @@ jQuery(function ($) {
                 btn.find('img').hide();
             });
         });
-        $('.popup__btn').on('click', function() {
-            if (!$('.popup__form').hasClass('active')) {
+        popupBtn.on('click', function() {
+            if (!popupForm.hasClass('active')) {
                 $(this).css('opacity', 0).slideToggle(200);
-                $('.popup__form').addClass('active').slideToggle(400);
+                popupForm.addClass('active').slideToggle(400);
             }
         });
         $('.popup__close').on('click', closePopup);
@@ -73,14 +75,14 @@ jQuery(function ($) {
             }
         });
         function closePopup() {
-            $('.popup__btn').css('opacity', 1).show();
-            $('.popup__form').removeClass('active').hide();
+            popupBtn.css('opacity', 1).show();
+            popupForm.removeClass('active').hide();
             $(body).removeClass('overflow-hidden');
             popup.removeClass('active');
         }
     }
 
-// Services labels in "Let's talk" form
+// Services labels in contact form
     $('.service__item-input').on('change', (e) => {
         $(`.service__item-label[for = ${e.target.id}]`).toggleClass('active');
     });
@@ -128,7 +130,7 @@ jQuery(function ($) {
         });
     }
 
-//About us page faq
+//FAQ Spoilers
     if ($('.faq__items').length) {
         $('.faq__item-question').on('click', function() {
             $(this).toggleClass('active').next().slideToggle(400);

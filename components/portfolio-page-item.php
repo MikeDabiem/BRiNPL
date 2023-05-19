@@ -1,5 +1,4 @@
 <?php
-$notSetImg = get_field("header_logo", "options");
 $link = get_permalink();
 $id = get_the_ID();
 $thumb = get_the_post_thumbnail_url($id, "medium_large");

@@ -1,4 +1,3 @@
-<?php $notSetImg = get_field("header_logo", "options"); ?>
 <div class="all-services__tab whatwedo__content-item active" id="all-services__tab">
     <?php while($services->have_posts()):$services->the_post();
         if (strtolower(pathinfo(get_the_post_thumbnail_url(get_the_ID()), PATHINFO_EXTENSION)) === "gif") {

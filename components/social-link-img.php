@@ -1,5 +1,4 @@
-<?php
-$socials = get_field("social_links", "options");
+<?php $socials = get_field("social_links", "options");
 if (!empty($socials)) { ?>
     <div class="socials__wrapper">
         <?php foreach ($socials as $soc) {

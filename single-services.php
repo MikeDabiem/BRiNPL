@@ -1,5 +1,4 @@
-<?php get_header();
-$notSetImg = get_field("header_logo", "options"); ?>
+<?php get_header(); ?>
 <div class="single-service wrapper filler">
     <?php $heroTitle = get_the_title();
     $heroSubtitle = get_field("single_service_subtitile");

@@ -1,5 +1,4 @@
-<?php $notSetImg = get_field("header_logo", "options");
-$wrapper = $wrapper ?? null; ?>
+<?php $wrapper = $wrapper ?? null; ?>
 <section class="portfolio-slider <?= $wrapper; ?> d-flex justify-content-between align-items-center flex-wrap">
     <?php if ($title || (isset($link["title"]) && isset($link["url"]))) {
         if ($title) { ?>

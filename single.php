@@ -1,8 +1,5 @@
-<?php
-    get_header();
-    $portfolioPageID = get_field("portfolio_page", "options");
-    $notSetImg = get_field("header_logo", "options");
-?>
+<?php get_header();
+$portfolioPageID = get_field("portfolio_page", "options"); ?>
 <section class="portfolio-single filler">
     <div class="portfolio-single__content wrapper d-flex">
         <div class="portfolio-single__content-col1">
